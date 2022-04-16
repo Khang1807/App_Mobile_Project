@@ -5,6 +5,7 @@ plugins {
 android {
     compileSdk 32
 
+
     defaultConfig {
         applicationId "mobile_project.music_app"
         minSdk 16
