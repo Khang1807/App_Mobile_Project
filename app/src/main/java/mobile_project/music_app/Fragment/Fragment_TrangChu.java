@@ -15,7 +15,7 @@ import mobile_project.music_app.R;
 public class Fragment_TrangChu extends Fragment {
     View view;
     @Nullable
-
+    //Gan view cua fragment_timkiem cho file java
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,@Nullable  Bundle savedInstanceState) {
         view= inflater.inflate(R.layout.fragment_trangchu,container,false);
         return view;

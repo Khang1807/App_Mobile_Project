@@ -36,7 +36,7 @@
                 android:layout_marginTop="10dp"
                 android:gravity="center|start|end"
                 android:text="Welcome,"
-                android:textColor="@color/white"
+                android:textColor="#87CEFA"
                 android:textSize="14sp"
                 tools:layout_editor_absoluteX="153dp"
                 tools:layout_editor_absoluteY="245dp" />
@@ -48,7 +48,7 @@
 
                 android:fontFamily="@font/gothambold"
                 android:text="User Name"
-                android:textColor="@color/white"
+                android:textColor="#87CEFA"
                 android:textSize="14sp"
                 tools:layout_editor_absoluteX="153dp"
                 tools:layout_editor_absoluteY="315dp" />

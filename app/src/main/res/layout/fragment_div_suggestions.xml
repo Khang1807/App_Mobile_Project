@@ -24,7 +24,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:padding="10dp"
-                android:text="Button" />
+                android:text="History"
+                android:textAllCaps="false"
+                android:textColor="#87CEFA"
+                app:backgroundTint="#191919"
+                app:cornerRadius="15dp" />
 
             <Button
                 android:id="@+id/button9"
@@ -32,7 +36,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
                 android:padding="10dp"
-                android:text="Button" />
+                android:text="Most Played"
+                android:textAllCaps="false"
+                android:textColor="#87CEFA"
+                app:backgroundTint="#1C1C1C"
+                app:cornerRadius="15dp" />
         </LinearLayout>
 
         <LinearLayout
@@ -49,7 +57,11 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginBottom="10dp"
                 android:padding="10dp"
-                android:text="Button" />
+                android:text="Last Added"
+                android:textAllCaps="false"
+                android:textColor="#87CEFA"
+                app:backgroundTint="#1C1C1C"
+                app:cornerRadius="15dp" />
 
             <Button
                 android:id="@+id/button7"
@@ -58,7 +70,12 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginBottom="5dp"
                 android:padding="10dp"
-                android:text="Button" />
+                android:text="Shuffle"
+                android:textAllCaps="false"
+                android:textColor="#87CEFA"
+                android:textStyle="normal"
+                app:backgroundTint="#1C1C1C"
+                app:cornerRadius="15dp" />
 
         </LinearLayout>
     </LinearLayout>

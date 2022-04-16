@@ -4,16 +4,22 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/CK_ANDROID/App_Mobile_Project/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.111" />
+        <entry key="..\:/CK_ANDROID/App_Mobile_Project/app/src/main/res/layout/activity_horizontal_rv.xml" value="0.11302083333333333" />
         <entry key="..\:/CK_ANDROID/App_Mobile_Project/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
         <entry key="..\:/CK_ANDROID/App_Mobile_Project/app/src/main/res/layout/activity_signin.xml" value="0.264" />
         <entry key="..\:/CK_ANDROID/App_Mobile_Project/app/src/main/res/layout/activity_signup.xml" value="0.176" />
         <entry key="..\:/CK_ANDROID/App_Mobile_Project/app/src/main/res/layout/activity_splash.xml" value="0.25416666666666665" />
+        <entry key="..\:/CK_ANDROID/App_Mobile_Project/app/src/main/res/layout/fragment_activity_horizontal_rv.xml" value="0.1" />
         <entry key="..\:/CK_ANDROID/App_Mobile_Project/app/src/main/res/layout/fragment_blank.xml" value="0.11302083333333333" />
+        <entry key="..\:/CK_ANDROID/App_Mobile_Project/app/src/main/res/layout/fragment_div_list_played.xml" value="0.25" />
         <entry key="..\:/CK_ANDROID/App_Mobile_Project/app/src/main/res/layout/fragment_div_suggestions.xml" value="0.4" />
         <entry key="..\:/CK_ANDROID/App_Mobile_Project/app/src/main/res/layout/fragment_div_user_welcome.xml" value="0.152" />
         <entry key="..\:/CK_ANDROID/App_Mobile_Project/app/src/main/res/layout/fragment_test.xml" value="0.23550724637681159" />
         <entry key="..\:/CK_ANDROID/App_Mobile_Project/app/src/main/res/layout/fragment_timkiem.xml" value="0.25416666666666665" />
         <entry key="..\:/CK_ANDROID/App_Mobile_Project/app/src/main/res/layout/fragment_trangchu.xml" value="0.2" />
+        <entry key="..\:/CK_ANDROID/App_Mobile_Project/app/src/main/res/layout/fragment_trendy.xml" value="0.22871376811594202" />
+        <entry key="..\:/CK_ANDROID/App_Mobile_Project/app/src/main/res/layout/layout_row_list_played.xml" value="0.264" />
+        <entry key="..\:/CK_ANDROID/App_Mobile_Project/app/src/main/res/layout/rv_item.xml" value="0.11302083333333333" />
         <entry key="..\:/Users/ADMIN/Desktop/aaa/App_Mobile_Project/app/src/main/res/drawable/et_style.xml" value="0.276" />
         <entry key="..\:/Users/ADMIN/Desktop/aaa/App_Mobile_Project/app/src/main/res/drawable/ic_launcher_background.xml" value="0.276" />
         <entry key="..\:/Users/ADMIN/Desktop/aaa/App_Mobile_Project/app/src/main/res/layout/activity_login.xml" value="0.33" />
@@ -27,6 +33,7 @@
         <entry key="..\:/Users/trong/Desktop/App_Mobile_Project/app/src/main/res/layout/activity_splash.xml" value="0.19010416666666666" />
         <entry key="..\:/Users/trong/Desktop/App_Mobile_Project/app/src/main/res/layout/fragment_timkiem.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/trong/Desktop/App_Mobile_Project/app/src/main/res/layout/fragment_trangchu.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/trong/Desktop/App_Mobile_Project/app/src/main/res/layout/fragment_trendy.xml" value="0.20416666666666666" />
       </map>
     </option>
   </component>
