@@ -17,7 +17,7 @@ public class Fragment_TrangChu extends Fragment {
     @Nullable
 
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,@Nullable  Bundle savedInstanceState) {
-        view= inflater.inflate(R.layout.fragment_timkiem,container,false);
+        view= inflater.inflate(R.layout.fragment_trangchu,container,false);
         return view;
     }
 }

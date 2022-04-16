@@ -1,67 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".Fragment.Fragment_div_suggestions"
-    android:orientation="vertical"
-    android:padding="20dp"
-    >
+    android:layout_height="70dp"
+    android:layout_marginLeft="10dp"
+    tools:context=".Fragment.fragment_div_suggestions">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="66dp"
         android:orientation="horizontal">
 
-        <LinearLayout
-            android:layout_width="179dp"
-            android:layout_height="129dp"
-            android:orientation="vertical">
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="103dp"
+            android:layout_height="46dp"
+            android:layout_marginTop="15dp"
 
-
-            <Button
-                android:id="@+id/button8"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:padding="10dp"
-                android:text="Button" />
-
-            <Button
-                android:id="@+id/button9"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:padding="10dp"
-                android:text="Button" />
-        </LinearLayout>
+            android:src="@drawable/ic_user"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="246dp" />
 
         <LinearLayout
-            android:layout_width="181dp"
-            android:layout_height="129dp"
+            android:layout_width="match_parent"
+            android:layout_height="66dp"
+            android:layout_weight="1"
             android:orientation="vertical">
 
-
-            <Button
-                android:id="@+id/button6"
-                android:layout_width="150dp"
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="135dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:layout_marginBottom="10dp"
-                android:padding="10dp"
-                android:text="Button" />
 
-            <Button
-                android:id="@+id/button7"
-                android:layout_width="150dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center|start|end"
+                android:text="Welcome,"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                tools:layout_editor_absoluteX="153dp"
+                tools:layout_editor_absoluteY="245dp" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="137dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:layout_marginBottom="5dp"
-                android:padding="10dp"
-                android:text="Button" />
+
+                android:fontFamily="@font/gothambold"
+                android:text="User Name"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                tools:layout_editor_absoluteX="153dp"
+                tools:layout_editor_absoluteY="315dp" />
 
         </LinearLayout>
+
     </LinearLayout>
 
-</LinearLayout>
+</FrameLayout>

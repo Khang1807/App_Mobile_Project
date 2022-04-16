@@ -12,12 +12,12 @@ import androidx.fragment.app.Fragment;
 
 import mobile_project.music_app.R;
 
-public class fragment_div_suggestions extends Fragment {
+public class fragment_div_user_welcome extends Fragment {
     View view;
     @Nullable
 
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,@Nullable  Bundle savedInstanceState) {
-        view= inflater.inflate(R.layout.fragment_div_suggestions,container,false);
+        view= inflater.inflate(R.layout.fragment_div_user_welcome,container,false);
         return view;
     }
 }
