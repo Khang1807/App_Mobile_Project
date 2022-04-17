@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onConfigureTab(TabLayout.Tab tab, int position) {
                 if(position==0)
-                    tab.setIcon(R.drawable.icontrangchu);
+                    tab.setIcon(R.drawable.home);
                 if(position==1)
                     tab.setIcon(R.drawable.icontimkiem);
             }

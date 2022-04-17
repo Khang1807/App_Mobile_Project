@@ -31,9 +31,14 @@
         <entry key="..\:/Users/trong/Desktop/App_Mobile_Project/app/src/main/res/layout/activity_signin.xml" value="0.19010416666666666" />
         <entry key="..\:/Users/trong/Desktop/App_Mobile_Project/app/src/main/res/layout/activity_signup.xml" value="0.19010416666666666" />
         <entry key="..\:/Users/trong/Desktop/App_Mobile_Project/app/src/main/res/layout/activity_splash.xml" value="0.19010416666666666" />
+        <entry key="..\:/Users/trong/Desktop/App_Mobile_Project/app/src/main/res/layout/fragment_activity_horizontal_rv.xml" value="0.1" />
+        <entry key="..\:/Users/trong/Desktop/App_Mobile_Project/app/src/main/res/layout/fragment_div_playlist.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/trong/Desktop/App_Mobile_Project/app/src/main/res/layout/fragment_timkiem.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/trong/Desktop/App_Mobile_Project/app/src/main/res/layout/fragment_trangchu.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/trong/Desktop/App_Mobile_Project/app/src/main/res/layout/fragment_trendy.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/trong/Desktop/App_Mobile_Project/app/src/main/res/layout/fragment_trendy.xml" value="0.1" />
+        <entry key="..\:/Users/trong/Desktop/App_Mobile_Project/app/src/main/res/layout/playlist_item.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/trong/Desktop/App_Mobile_Project/app/src/main/res/layout/rv_item.xml" value="0.18" />
+        <entry key="..\:/Users/trong/Desktop/App_Mobile_Project/app/src/main/res/layout/trendy_item.xml" value="0.16757246376811594" />
       </map>
     </option>
   </component>

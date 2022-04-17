@@ -33,13 +33,13 @@ public class fragment_ActivityHorizontalRV extends Fragment {
         rv = view.findViewById(R.id.horizontalRv);
 
         dataSource = new ArrayList<>();
-        dataSource.add("Hello");
-        dataSource.add("World");
-        dataSource.add("To");
-        dataSource.add("The");
-        dataSource.add("Code");
-        dataSource.add("City");
-        dataSource.add("******");
+        dataSource.add("Thiều Bảo Trâm");
+        dataSource.add("Sơn Tùng MTP");
+        dataSource.add("Lệ Rơi");
+        dataSource.add("Hari Won");
+        dataSource.add("Trịnh Thăng Bình");
+        dataSource.add("Jack 5tr");
+        dataSource.add("Lê Tuấn Vinh");
         linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
         myRvAdapter = new MyRvAdapter(dataSource);
         rv.setLayoutManager(linearLayoutManager);
