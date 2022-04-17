@@ -11,8 +11,10 @@ import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
 import mobile_project.music_app.Adapter.MainViewPagerAdapter;
+import mobile_project.music_app.Fragment.Fragment_Playlist;
 import mobile_project.music_app.Fragment.Fragment_TimKiem;
 import mobile_project.music_app.Fragment.Fragment_TrangChu;
+import mobile_project.music_app.Fragment.Fragment_UserPlayer;
 import mobile_project.music_app.R;
 
 public class MainActivity extends AppCompatActivity {
@@ -34,6 +36,8 @@ public class MainActivity extends AppCompatActivity {
         MainViewPagerAdapter mainViewPagerAdapter = new MainViewPagerAdapter(fm,getLifecycle());
         mainViewPagerAdapter.addFragment(new Fragment_TrangChu(),"Trang chu");
         mainViewPagerAdapter.addFragment(new Fragment_TimKiem(),"Tim kiem");
+        mainViewPagerAdapter.addFragment(new Fragment_Playlist(),"Playlist");
+        mainViewPagerAdapter.addFragment(new Fragment_UserPlayer(),"Playlist");
         viewPager.setAdapter(mainViewPagerAdapter);
         viewPager.setUserInputEnabled(false);
 //        viewPager. setRotationY(180);
@@ -44,6 +48,10 @@ public class MainActivity extends AppCompatActivity {
                     tab.setIcon(R.drawable.home);
                 if(position==1)
                     tab.setIcon(R.drawable.icontimkiem);
+                if(position==2)
+                    tab.setIcon(R.drawable.playlist);
+                if(position==3)
+                    tab.setIcon(R.drawable.music_headphones);
             }
         });
         tabLayoutMediator.attach();
