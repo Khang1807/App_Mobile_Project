@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Music_App">
         <activity
+            android:name=".Fragment.Fragment_Lib_NgheSi"
+            android:exported="false" />
+        <activity
             android:name=".Activity.SignUp"
             android:exported="false" />
         <activity
@@ -27,11 +30,13 @@
         <activity
             android:name=".Activity.Splash"
             android:exported="false">
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
 
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
 
         <meta-data
