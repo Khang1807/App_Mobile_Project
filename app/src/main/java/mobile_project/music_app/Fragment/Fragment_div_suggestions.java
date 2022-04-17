@@ -12,7 +12,7 @@ import androidx.fragment.app.Fragment;
 
 import mobile_project.music_app.R;
 
-public class fragment_div_suggestions extends Fragment {
+public class Fragment_div_suggestions extends Fragment {
     View view;
     @Nullable
 
