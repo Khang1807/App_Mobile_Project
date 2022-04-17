@@ -1,31 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="70dp"
-    android:layout_marginLeft="10dp"
-    tools:context=".Fragment.fragment_div_suggestions">
+    tools:context=".Fragment.fragment_div_suggestions"
+    android:padding="10dp">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="66dp"
+        android:layout_height="match_parent"
         android:orientation="horizontal">
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="103dp"
-            android:layout_height="46dp"
-            android:layout_marginTop="15dp"
-
-            android:src="@drawable/ic_user"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/user_3"
             tools:layout_editor_absoluteX="16dp"
             tools:layout_editor_absoluteY="246dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="66dp"
-            android:layout_weight="1"
+            android:layout_height="match_parent"
             android:orientation="vertical">
 
             <TextView
@@ -45,7 +44,6 @@
                 android:id="@+id/textView4"
                 android:layout_width="137dp"
                 android:layout_height="wrap_content"
-
                 android:fontFamily="@font/gothambold"
                 android:text="User Name"
                 android:textColor="#87CEFA"
@@ -57,4 +55,4 @@
 
     </LinearLayout>
 
-</FrameLayout>
+</LinearLayout>

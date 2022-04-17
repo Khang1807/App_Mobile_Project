@@ -83,7 +83,7 @@ public class fragment_ActivityHorizontalRV extends Fragment {
         @Override
         public void onBindViewHolder(@NonNull MyHolder holder, int position) {
             holder.tvTitle.setText(data.get(position));
-            holder.imgView.setImageDrawable(getResources().getDrawable(R.drawable.karik));
+            holder.imgView.setImageDrawable(getResources().getDrawable(R.drawable.sol7));
 
 //            Picasso.with(getContext()).load(data.get(position)).into(holder.imgView);
 

@@ -1,6 +1,8 @@
 package mobile_project.music_app.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.app.ActivityOptions;
 import android.content.Intent;
@@ -14,6 +16,7 @@ import android.widget.TextView;
 
 import com.google.android.material.textfield.TextInputLayout;
 
+import mobile_project.music_app.Fragment.Fragment_TrangChu;
 import mobile_project.music_app.R;
 
 public class SignIn extends AppCompatActivity {
@@ -28,6 +31,14 @@ public class SignIn extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_signin);
 
+        Button btn_1 = (Button) findViewById(R.id.btn_login);
+        btn_1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.home_frg, new Fragment()).commit();
+            }
+        });
         click_signup = findViewById(R.id.txt_signup);
         image = findViewById(R.id.img_logo_only_login);
         logoText = findViewById(R.id.txt_welcom_login);
