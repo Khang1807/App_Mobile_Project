@@ -1,7 +1,6 @@
 package mobile_project.music_app.Activity;
 
 import android.os.Bundle;
-import android.view.WindowManager;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
@@ -11,7 +10,7 @@ import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
 import mobile_project.music_app.Adapter.MainViewPagerAdapter;
-import mobile_project.music_app.Fragment.Fragment_Playlist;
+import mobile_project.music_app.Fragment.Fragment_Libraries;
 import mobile_project.music_app.Fragment.Fragment_TimKiem;
 import mobile_project.music_app.Fragment.Fragment_TrangChu;
 import mobile_project.music_app.Fragment.Fragment_UserPlayer;
@@ -36,8 +35,8 @@ public class MainActivity extends AppCompatActivity {
         MainViewPagerAdapter mainViewPagerAdapter = new MainViewPagerAdapter(fm,getLifecycle());
         mainViewPagerAdapter.addFragment(new Fragment_TrangChu(),"Trang chu");
         mainViewPagerAdapter.addFragment(new Fragment_TimKiem(),"Tim kiem");
-        mainViewPagerAdapter.addFragment(new Fragment_Playlist(),"Playlist");
-        mainViewPagerAdapter.addFragment(new Fragment_UserPlayer(),"Playlist");
+        mainViewPagerAdapter.addFragment(new Fragment_Libraries(),"Thu vien");
+        mainViewPagerAdapter.addFragment(new Fragment_UserPlayer(),"Ca nhan");
         viewPager.setAdapter(mainViewPagerAdapter);
         viewPager.setUserInputEnabled(false);
 //        viewPager. setRotationY(180);
