@@ -22,7 +22,7 @@
             android:layout_height="?attr/actionBarSize"
             android:gravity="center_horizontal"
             app:titleTextColor="#FFF"
-            app:title="Nghệ sĩ, bài hát hoặc Podcasts"
+            app:title="Nghệ sĩ, bài hát, hoặc Podcast"
             android:minHeight="?attr/actionBarSize"
             android:theme="?attr/actionBarTheme"
             app:collapseIcon="?attr/actionModeCloseDrawable" />
@@ -30,11 +30,11 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerviewtimkiem"
+        android:background="@drawable/bgrtimkiem"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/appbarlayouttimkiem"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/bgrtimkiem" />
+        android:layout_marginTop="20dp" />
 
     <TextView
         android:visibility="gone"
