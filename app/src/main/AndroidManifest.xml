@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Music_App">
         <activity
+            android:name=".Fragment.Fragment_Lib_YeuThich"
+            android:exported="false" />
+        <activity
+            android:name=".Fragment.Fragment_Lib_Playlist"
+            android:exported="false" />
+        <activity
             android:name=".Fragment.Fragment_Lib_NgheSi"
             android:exported="false" />
         <activity
