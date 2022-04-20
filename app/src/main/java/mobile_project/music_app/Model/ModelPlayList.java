@@ -10,12 +10,15 @@ public class ModelPlayList implements Serializable {
     @SerializedName("IdPlaylist")
     @Expose
     private String idPlaylist;
-    @SerializedName("Ten")
+    @SerializedName("TenPlayList")
     @Expose
-    private String ten;
-    @SerializedName("HinhPlaylist")
+    private String tenPlayList;
+    @SerializedName("HinhNen")
     @Expose
-    private String hinhPlaylist;
+    private String hinhNen;
+    @SerializedName("HinhIcon")
+    @Expose
+    private String hinhIcon;
 
 
 
@@ -27,20 +30,28 @@ public class ModelPlayList implements Serializable {
         this.idPlaylist = idPlaylist;
     }
 
-    public String getTen() {
-        return ten;
+    public String getTenPlayList() {
+        return tenPlayList;
     }
 
-    public void setTen(String ten) {
-        this.ten = ten;
+    public void setTenPlayList(String tenPlayList) {
+        this.tenPlayList = tenPlayList;
     }
 
-    public String getHinhPlaylist() {
-        return hinhPlaylist;
+    public String getHinhNen() {
+        return hinhNen;
     }
 
-    public void setHinhPlaylist(String hinhPlaylist) {
-        this.hinhPlaylist = hinhPlaylist;
+    public void setHinhNen(String hinhNen) {
+        this.hinhNen = hinhNen;
+    }
+
+    public String getHinhIcon() {
+        return hinhIcon;
+    }
+
+    public void setHinhIcon(String hinhIcon) {
+        this.hinhIcon = hinhIcon;
     }
 
 }

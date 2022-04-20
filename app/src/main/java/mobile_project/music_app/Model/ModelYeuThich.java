@@ -28,18 +28,18 @@ public class ModelYeuThich implements Parcelable {
     @Expose
     private String hinhBaiHat;
 
-    @SerializedName("TenCaSi")
+    @SerializedName("TenNgheSi")
     @Expose
-    private String tenCaSi;
+    private String tenNgheSi;
 
 
-    public ModelYeuThich(int idYeuThich, String username, int idBaiHat, String tenBaiHat, String hinhBaiHat, String tenCaSi) {
+    public ModelYeuThich(int idYeuThich, String username, int idBaiHat, String tenBaiHat, String hinhBaiHat, String tenNgheSi) {
         this.idYeuThich = idYeuThich;
         this.username = username;
         this.idBaiHat = idBaiHat;
         this.tenBaiHat = tenBaiHat;
         this.hinhBaiHat = hinhBaiHat;
-        this.tenCaSi = tenCaSi;
+        this.tenNgheSi = tenNgheSi;
     }
 
     public int getIdYeuThich() {
@@ -82,12 +82,12 @@ public class ModelYeuThich implements Parcelable {
         this.hinhBaiHat = hinhBaiHat;
     }
 
-    public String getTenCaSi() {
-        return tenCaSi;
+    public String getTenNgheSi() {
+        return tenNgheSi;
     }
 
-    public void setTenCaSi(String tenCaSi) {
-        this.tenCaSi = tenCaSi;
+    public void setTenNgheSi(String tenCaSi) {
+        this.tenNgheSi = tenNgheSi;
     }
 
 
@@ -97,7 +97,7 @@ public class ModelYeuThich implements Parcelable {
         idBaiHat = in.readInt();
         tenBaiHat = in.readString();
         hinhBaiHat = in.readString();
-        tenCaSi = in.readString();
+        tenNgheSi = in.readString();
     }
 
     public static final Creator<ModelYeuThich> CREATOR = new Creator<ModelYeuThich>() {
@@ -124,6 +124,6 @@ public class ModelYeuThich implements Parcelable {
         dest.writeInt(idBaiHat);
         dest.writeString(tenBaiHat);
         dest.writeString(hinhBaiHat);
-        dest.writeString(tenCaSi);
+        dest.writeString(tenNgheSi);
     }
 }

@@ -11,30 +11,68 @@ import java.io.Serializable;
 public class ModelBaiHat implements Parcelable {
     @SerializedName("IdBaiHat")
     @Expose
-    private int idBaiHat;
+    private String idBaiHat;
     @SerializedName("TenBaiHat")
     @Expose
     private String tenBaiHat;
     @SerializedName("HinhBaiHat")
     @Expose
     private String hinhBaiHat;
-    @SerializedName("TenCaSi")
+    @SerializedName("LinkBaiHat")
     @Expose
-    private String tenCaSi;
+    private String linkBaiHat;
+    @SerializedName("Rating")
+    @Expose
+    private String rating;
+    @SerializedName("NoiDung")
+    @Expose
+    private String noiDung;
+    @SerializedName("NgayPhatHanh")
+    @Expose
+    private String ngayPhatHanh;
+    @SerializedName("IdPlaylist")
+    @Expose
+    private String idPlaylist;
+    @SerializedName("IdAlbum")
+    @Expose
+    private String idAlbum;
 
-    public ModelBaiHat (int idBaiHat, String tenBaiHat, String hinhBaiHat, String tenCaSi) {
+    @SerializedName("IdTheLoai")
+    @Expose
+    private String idTheloai;
+
+    @SerializedName("IdNgheSi")
+    @Expose
+    private String idNgheSi;
+
+    public ModelBaiHat(String idBaiHat, String tenBaiHat, String hinhBaiHat, String linkBaiHat, String rating, String noidung, String ngayPhatHanh, String idPlaylist, String idAlbum, String idTheloai, String idNgheSi) {
         this.idBaiHat = idBaiHat;
         this.tenBaiHat = tenBaiHat;
         this.hinhBaiHat = hinhBaiHat;
-        this.tenCaSi = tenCaSi;
+        this.linkBaiHat = linkBaiHat;
+        this.rating = rating;
+        this.ngayPhatHanh= ngayPhatHanh;
+        this.noiDung =noidung;
+        this.idPlaylist =idPlaylist;
+        this.idAlbum = idAlbum;
+        this.idTheloai =idTheloai;
+        this.idNgheSi = idNgheSi;
     }
 
 
     protected ModelBaiHat(Parcel in) {
-        idBaiHat = in.readInt();
+        idBaiHat = in.readString();
         tenBaiHat = in.readString();
         hinhBaiHat = in.readString();
-        tenCaSi = in.readString();
+        linkBaiHat = in.readString();
+        rating = in.readString();
+        noiDung = in.readString();
+        ngayPhatHanh =in.readString();
+        idPlaylist =in.readString();
+        idAlbum = in.readString();
+        idTheloai = in.readString();
+        idNgheSi = in.readString();
+
     }
 
     public static final Creator<ModelBaiHat> CREATOR = new Creator<ModelBaiHat>() {
@@ -49,11 +87,11 @@ public class ModelBaiHat implements Parcelable {
         }
     };
 
-    public int getIdBaiHat() {
+    public String getIdBaiHat() {
         return idBaiHat;
     }
 
-    public void setIdBaiHat(int idBaiHat) {
+    public void setIdBaiHat(String idBaiHat) {
         this.idBaiHat = idBaiHat;
     }
 
@@ -73,16 +111,65 @@ public class ModelBaiHat implements Parcelable {
         this.hinhBaiHat = hinhBaiHat;
     }
 
-    public String getTenCaSi() {
-        return tenCaSi;
+    public String getLinkBaiHat() {
+        return linkBaiHat;
     }
 
-    public void setTenCaSi(String tenCaSi) {
-        this.tenCaSi = tenCaSi;
+    public void setLinkBaiHat(String linkBaiHat) {
+        this.linkBaiHat = linkBaiHat;
+    }
+    public String getRating() {
+        return rating;
+    }
+    public void setRating(String rating) {
+        this.rating = rating;
+    }
+    public String getNoiDung() {
+        return noiDung;
     }
 
+    public void setNoiDung(String noiDung) {
+        this.noiDung = noiDung;
+    }
 
+    public String getNgayPhatHanh() {
+        return ngayPhatHanh;
+    }
 
+    public void setNgayPhatHanh(String ngayPhatHanh) {
+        this.ngayPhatHanh = ngayPhatHanh;
+    }
+    public String getIdPlaylist() {
+        return idPlaylist;
+    }
+
+    public void setIdPlaylist(String idPlaylist) {
+        this.idPlaylist = idPlaylist;
+    }
+
+    public String getIdAlbum() {
+        return idAlbum;
+    }
+
+    public void setIdAlbum(String idAlbum) {
+        this.idAlbum = idAlbum;
+    }
+
+    public String getIdTheloai() {
+        return idTheloai;
+    }
+
+    public void setIdTheloai(String idTheloai) {
+        this.idTheloai = idTheloai;
+    }
+
+    public String getIdNgheSi() {
+        return idNgheSi;
+    }
+
+    public void setIdNgheSi(String idNgheSi) {
+        this.idNgheSi = idNgheSi;
+    }
 
     @Override
     public int describeContents() {
@@ -91,10 +178,18 @@ public class ModelBaiHat implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(idBaiHat);
+        parcel.writeString(idBaiHat);
         parcel.writeString(tenBaiHat);
         parcel.writeString(hinhBaiHat);
-        parcel.writeString(tenCaSi);
+        parcel.writeString(linkBaiHat);
+        parcel.writeString(rating);
+        parcel.writeString(noiDung);
+        parcel.writeString(ngayPhatHanh);
+        parcel.writeString(idPlaylist);
+        parcel.writeString(idAlbum);
+        parcel.writeString(idTheloai);
+        parcel.writeString(idNgheSi);
     }
 
 }
+
