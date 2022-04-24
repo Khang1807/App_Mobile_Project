@@ -12,12 +12,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import mobile_project.music_app.Activity.Liked_Song_Activity;
 import mobile_project.music_app.Activity.Suggest_Hist_Activity;
 import mobile_project.music_app.R;
 
 public class Fragment_div_suggestions extends Fragment {
     View view;
-    Intent intent;
+    Intent intent,intent2;
     @Nullable
 
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,@Nullable  Bundle savedInstanceState) {
@@ -29,6 +30,14 @@ public class Fragment_div_suggestions extends Fragment {
             public void onClick(View view) {
                 intent=new Intent(getActivity(), Suggest_Hist_Activity.class);
                 startActivity(intent);
+            }
+        });
+        final Button button2 = (Button) view.findViewById(R.id.button6);
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                intent2=new Intent(getActivity(), Liked_Song_Activity.class);
+                startActivity(intent2);
             }
         });
         return view;
