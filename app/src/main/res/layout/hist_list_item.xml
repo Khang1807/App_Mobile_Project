@@ -27,20 +27,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Tên bài hát"
             android:id="@+id/hist_song"
-            android:textSize="20dp"
-            android:textColor="@color/white"
-            android:layout_marginTop="5dp"/>
-        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/hist_artist"
             android:layout_marginTop="5dp"
+            android:fontFamily="@font/gothammedium1"
+            android:text="Tên bài hát"
             android:textColor="@color/white"
-            android:text="Tên nghệ sĩ"/>
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/hist_artist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/gothammedium1"
+            android:text="Tên nghệ sĩ"
+            android:textColor="@color/white" />
     </LinearLayout>
 </LinearLayout>

@@ -6,16 +6,18 @@
     android:background="@color/black"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
+
         <TextView
+            android:id="@+id/hist_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/hist_title"
-            android:text="Mới phát gần đây"
-            android:textSize="25dp"
-            android:textColor="@color/white"
-            android:layout_marginTop="7dp"
+            android:layout_marginTop="10dp"
             android:layout_marginBottom="30dp"
-            android:gravity="center"/>
+            android:fontFamily="@font/gothammedium500"
+            android:gravity="center_horizontal"
+            android:text="Mới phát gần đây"
+            android:textColor="@color/white"
+            android:textSize="25dp" />
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/hist_list"
             android:layout_width="wrap_content"
