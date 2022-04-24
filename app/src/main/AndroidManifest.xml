@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="mobile_project.music_app">
 
     <application
@@ -12,6 +13,10 @@
         <activity
             android:name=".Fragment.Fragment_Lib_YeuThich"
             android:exported="false" />
+        <activity
+            android:name=".Activity.Suggest_Hist_Activity"
+            android:exported="false"
+            />
         <activity
             android:name=".Fragment.Fragment_Lib_Playlist"
             android:exported="false" />
