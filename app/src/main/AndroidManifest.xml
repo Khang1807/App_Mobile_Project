@@ -21,12 +21,12 @@
             android:name=".Activity.Liked_Song_Activity"
             android:exported="false"
             />
-        <activity
-            android:name=".Fragment.Fragment_Lib_Playlist"
-            android:exported="false" />
-        <activity
-            android:name=".Fragment.Fragment_Lib_NgheSi"
-            android:exported="false" />
+<!--        <activity-->
+<!--            android:name=".Fragment.Fragment_Lib_Playlist"-->
+<!--            android:exported="false" />-->
+<!--        <activity-->
+<!--            android:name=".Fragment.Fragment_Lib_NgheSi"-->
+<!--            android:exported="false" />-->
         <activity
             android:name=".Activity.SignUp"
             android:exported="false" />
