@@ -13,13 +13,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="47dp"
+        android:fontFamily="@font/gothammedium500"
         android:text="Thư Viện"
         android:textColor="#FFFEFE"
         android:textSize="36sp"
         app:layout_constraintStart_toEndOf="@+id/imageviewuserthuvien"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginLeft="16dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/idaddthuvien"
@@ -56,10 +56,11 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView"
             app:tabIndicatorGravity="stretch"
-            app:tabIndicatorColor="#B5B4B4"
+            app:tabIndicatorColor="@color/green_hex"
             app:tabSelectedTextColor="#FFFFFF"
-            app:tabTextColor="#ACACAC">
-
+            app:tabTextColor="#ACACAC"
+            android:backgroundTint="@color/near_black"
+            app:tabTextAppearance="@style/tab_text">
         </com.google.android.material.tabs.TabLayout>
 
         <androidx.viewpager.widget.ViewPager
@@ -95,12 +96,11 @@
         android:layout_height="58dp"
         android:layout_centerInParent="true"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="40dp"
         android:src="@drawable/logo_only_2"
         app:civ_border_color="#FFFFFF"
         app:civ_border_width="2dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginLeft="16dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
