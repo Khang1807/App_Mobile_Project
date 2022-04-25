@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="40dp"
-        android:text="Thư viện"
+        android:text="Thư Viện"
         android:textColor="#FFFEFE"
         android:textSize="36sp"
         app:layout_constraintStart_toEndOf="@+id/imageviewuserthuvien"
@@ -51,10 +51,11 @@
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabLayouttv"
             android:layout_width="match_parent"
-            android:layout_height="55dp"
+            android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView"
+            app:tabIndicatorGravity="stretch"
             app:tabIndicatorColor="#B5B4B4"
             app:tabSelectedTextColor="#FFFFFF"
             app:tabTextColor="#ACACAC">
@@ -72,6 +73,17 @@
             app:layout_constraintTop_toBottomOf="@+id/tabLayouttv">
 
 
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/fragment_lib_playlist"
+                android:name="mobile_project.music_app.Fragment.Fragment_Lib_Playlist"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/fragment_lib_nghesi"
+                android:name="mobile_project.music_app.Fragment.Fragment_Lib_NgheSi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
         </androidx.viewpager.widget.ViewPager>
 
 
@@ -84,7 +96,7 @@
         android:layout_centerInParent="true"
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
-        android:src="@drawable/icon_nhac"
+        android:src="@drawable/logo_only_2"
         app:civ_border_color="#FFFFFF"
         app:civ_border_width="2dp"
         app:layout_constraintStart_toStartOf="parent"
