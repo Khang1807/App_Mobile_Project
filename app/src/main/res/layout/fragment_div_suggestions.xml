@@ -59,15 +59,16 @@
                 android:id="@+id/button6"
                 android:layout_width="140dp"
                 android:layout_height="wrap_content"
-                android:text="Thêm cuối"
+                android:text="Yêu thích"
                 android:textAllCaps="false"
                 android:textColor="#87CEFA"
                 app:backgroundTint="#1C1C1C"
                 app:cornerRadius="15dp"
                 app:strokeColor="@color/white"
                 app:strokeWidth="2dp"
-                app:icon="@drawable/add"
-                app:iconSize="15dp"/>
+                app:icon="@drawable/ic_love_2"
+                app:iconSize="15dp"
+                android:paddingRight="20dp"/>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button7"

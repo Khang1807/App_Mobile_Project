@@ -6,8 +6,6 @@ import android.os.Parcelable;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import java.io.Serializable;
-
 public class ModelBaiHat implements Parcelable {
     @SerializedName("IdBaiHat")
     @Expose
@@ -75,17 +73,21 @@ public class ModelBaiHat implements Parcelable {
 
     }
 
-    public static final Creator<ModelBaiHat> CREATOR = new Creator<ModelBaiHat>() {
-        @Override
-        public ModelBaiHat createFromParcel(Parcel in) {
-            return new ModelBaiHat(in);
-        }
+    public static final Creator<ModelBaiHat> CREATOR;
 
-        @Override
-        public ModelBaiHat[] newArray(int size) {
-            return new ModelBaiHat[size];
-        }
-    };
+    static {
+        CREATOR = new Creator<ModelBaiHat>() {
+            @Override
+            public ModelBaiHat createFromParcel(Parcel in) {
+                return new ModelBaiHat(in);
+            }
+
+            @Override
+            public ModelBaiHat[] newArray(int size) {
+                return new ModelBaiHat[size];
+            }
+        };
+    }
 
     public String getIdBaiHat() {
         return idBaiHat;

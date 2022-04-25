@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_gravity="center"
+    android:layout_marginLeft="16dp"
+    android:layout_marginBottom="25dp">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:id="@+id/linearcarviewthuviennghesi"
+        android:background="#000"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            app:civ_border_color="#FFFFFF"
+            app:civ_border_width="2dp"
+            android:id="@+id/imageviewthuviennghesi"
+            android:src="@drawable/icon_nhac"
+            android:layout_centerInParent="true"
+            android:layout_width="115dp"
+            android:layout_height="115dp"/>
+
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/textviewthuviennghesi"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="20dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/gothammedium1"
+            android:maxWidth="125dp"
+            android:maxLines="2"
+            android:text="textview"
+            android:textColor="#B6B6B6"
+            android:textSize="18sp"/>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
