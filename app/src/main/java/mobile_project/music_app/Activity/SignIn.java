@@ -1,5 +1,6 @@
 package mobile_project.music_app.Activity;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
@@ -7,6 +8,7 @@ import androidx.fragment.app.FragmentTransaction;
 import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Pair;
 import android.view.View;
 import android.view.WindowManager;
@@ -17,14 +19,20 @@ import android.widget.TextView;
 import com.google.android.material.textfield.TextInputLayout;
 
 import mobile_project.music_app.Fragment.Fragment_TrangChu;
+import mobile_project.music_app.Model.ResponseModel;
 import mobile_project.music_app.R;
+import mobile_project.music_app.Service_API.APIService;
+import mobile_project.music_app.Service_API.DataService;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class SignIn extends AppCompatActivity {
     Button signin_button;
     ImageView image;
     TextView logoText, logoText2,click_signup;
     TextInputLayout email, password;
-
+    private boolean loginStatus=false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,6 +75,52 @@ public class SignIn extends AppCompatActivity {
                 }
             }
         });
+        signin_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                login();
+                if(loginStatus){
+                    Intent intent_signin = new Intent(SignIn.this, MainActivity.class);
+                    startActivity(intent_signin );
+                }
+
+
+            }
+        });
     }
+
+//
+
+
+
+
+    private void login() {
+        email = findViewById(R.id.txt_email_signin);
+        password = findViewById(R.id.txt_password_signin);
+
+        DataService networkService = APIService.getService();
+        Call<ResponseModel> login = networkService.login(email.getEditText().getText().toString(), password.getEditText().getText().toString());
+        login.enqueue(new Callback<ResponseModel>() {
+            @Override
+            public void onResponse(@NonNull Call<ResponseModel> call, @NonNull Response<ResponseModel> response) {
+                ResponseModel responseBody = response.body();
+                if (responseBody != null) {
+                    if (responseBody.getSuccess().equals("1")) {
+                        loginStatus = true;
+                    } else {
+//                        Toast.makeText(DangNhapActivity.this, "Tài khoản hoặc mật khẩu sai !", Toast.LENGTH_LONG).show();
+//                        progressDialog.dismiss();
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<ResponseModel> call, @NonNull Throwable t) {
+                Log.i(t.getMessage(),"error server");
+            }
+        });
+    }
+
+
 }
 

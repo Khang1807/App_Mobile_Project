@@ -21,26 +21,32 @@
             android:name=".Activity.Liked_Song_Activity"
             android:exported="false"
             />
-        <activity
-            android:name=".Fragment.Fragment_Lib_Playlist"
-            android:exported="false" />
-        <activity
-            android:name=".Fragment.Fragment_Lib_NgheSi"
-            android:exported="false" />
+<!--        <activity-->
+<!--            android:name=".Fragment.Fragment_Lib_Playlist"-->
+<!--            android:exported="false" />-->
+<!--        <activity-->
+<!--            android:name=".Fragment.Fragment_Lib_NgheSi"-->
+<!--            android:exported="false" />-->
         <activity
             android:name=".Activity.SignUp"
             android:exported="false" />
         <activity
             android:name=".Activity.SignIn"
-            android:exported="false" />
-        <activity
-            android:name=".Activity.MainActivity"
-            android:exported="true">
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".Activity.MainActivity"
+            android:exported="true">
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
         </activity>
         <activity
             android:name=".Activity.Splash"
