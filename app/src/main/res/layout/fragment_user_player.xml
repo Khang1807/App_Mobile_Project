@@ -1,80 +1,222 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/near_black">
+    android:background="@color/black"
+    android:orientation="vertical"
+    android:id="@+id/frag_user">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
-    <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imageviewuserprofile"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/logo_only_2"
+            app:civ_border_color="@color/white"
+            app:civ_border_width="1dp"
+             />
+
+        <TextView
+            android:id="@+id/tennguoidung"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="25dp"
+            android:fontFamily="@font/gothammedium1"
+            android:text="Tên người dùng"
+            android:textColor="#ffffff"
+            android:textSize="24sp"
+            app:layout_constraintStart_toEndOf="@+id/imageviewuserprofile"
+            app:layout_constraintTop_toTopOf="parent" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="30dp">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:backgroundTint="@color/black"
+            android:src="@drawable/settings"
+            android:layout_marginTop="7dp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_setting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_dangxuat"
+            android:fontFamily="@font/gothammedium1"
+            android:text="Cài đặt"
+            android:textAllCaps="false"
+            android:textColor="#ffffff"
+            android:textSize="18dp"
+            app:backgroundTint="@color/black"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="1dp"
+            tools:layout_editor_absoluteY="314dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/next_setting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:icon="@drawable/next"
+            app:iconSize="25dp"
+            app:iconGravity="end"
+            app:backgroundTint="@color/black"></com.google.android.material.button.MaterialButton>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="10dp">
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:backgroundTint="@color/black"
+            android:src="@drawable/accept"
+            android:layout_marginTop="7dp"/>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_term"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_dangxuat"
+            android:fontFamily="@font/gothammedium1"
+            android:text="Điều khoản"
+            android:textAllCaps="false"
+            android:textColor="#ffffff"
+            android:textSize="18dp"
+            app:backgroundTint="@color/black"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="1dp"
+            tools:layout_editor_absoluteY="314dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/next_term"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:icon="@drawable/next"
+            app:iconSize="25dp"
+            app:iconGravity="end"
+            app:backgroundTint="@color/black"></com.google.android.material.button.MaterialButton>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:backgroundTint="@color/black"
+            android:src="@drawable/policy"
+            android:layout_marginTop="7dp"/>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_policy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_dangxuat"
+            android:fontFamily="@font/gothammedium1"
+            android:text="Chính sách"
+            android:textAllCaps="false"
+            android:textColor="#ffffff"
+            android:textSize="18dp"
+            app:backgroundTint="@color/black"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="1dp"
+            tools:layout_editor_absoluteY="314dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/next_policy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:icon="@drawable/next"
+            app:iconSize="25dp"
+            app:iconGravity="end"
+            app:backgroundTint="@color/black"></com.google.android.material.button.MaterialButton>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="30dp">
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:backgroundTint="@color/black"
+            android:src="@drawable/logout"
+            android:layout_marginTop="7dp"/>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_dangxuat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_dangxuat"
+            android:fontFamily="@font/gothammedium1"
+            android:text="Đăng xuất"
+            android:textAllCaps="false"
+            android:textColor="#ffffff"
+            android:textSize="18dp"
+            app:backgroundTint="@color/black"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="1dp"
+            tools:layout_editor_absoluteY="314dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/next_signout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:icon="@drawable/next"
+            app:iconSize="25dp"
+            app:iconGravity="end"
+            app:backgroundTint="@color/black"></com.google.android.material.button.MaterialButton>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="15dp">
+        <ImageView
         android:id="@+id/imageProfile"
-        android:layout_width="200dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="80dp"
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center"
         android:background="@drawable/logo_only_2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        />
 
-    <TextView
+        <TextView
         android:id="@+id/textView5"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="EKIV MUSIC"
-        android:textColor="#3DE5FF"
+        android:textColor="#ffff"
+        android:gravity="center"
+            android:textStyle="italic|bold"
+
         android:textSize="36sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageProfile" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Release: 20/4/2022"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:textSize="18dp"
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btndangxuat"
-        android:layout_width="173dp"
-        android:layout_height="61dp"
-        android:background="@drawable/btn_dangxuat"
-        android:fontFamily="@font/gothammedium1"
-        android:text="Đăng xuất"
-        android:textColor="#ffffff"
-        android:textEditNoPasteWindowLayout="@color/black"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5"
-        app:layout_constraintVertical_bias="0.213"
-        app:cornerRadius="25dp"
-        android:backgroundTint="@color/teal_700"
-        app:strokeColor="@color/white"
-        app:strokeWidth="2dp"
-        android:layout_marginBottom="100dp"/>
+            android:textStyle="italic"></TextView>
+    </LinearLayout>
 
-    <TextView
-        android:id="@+id/tennguoidung"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
-        android:text="Tên người dùng"
-        android:textSize="24sp"
-        android:maxLines="2"
-        android:fontFamily="@font/gothammedium1"
-        android:textColor="#ffffff"
-        app:layout_constraintStart_toEndOf="@+id/imageviewuserprofile"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/imageviewuserprofile"
-        android:layout_width="58dp"
-        android:layout_height="58dp"
-        android:layout_centerInParent="true"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:src="@drawable/logo_only_2"
-        app:civ_border_color="#FFFFFF"
-        app:civ_border_width="2dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

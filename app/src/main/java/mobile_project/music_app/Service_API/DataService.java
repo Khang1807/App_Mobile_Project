@@ -17,5 +17,4 @@ public interface DataService {
     @FormUrlEncoded
     @POST("login")
     Call<ResponseModel> login(@Field("email") String email, @Field("password") String password);
-
 }

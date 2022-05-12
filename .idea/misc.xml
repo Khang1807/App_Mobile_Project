@@ -50,12 +50,15 @@
         <entry key="..\:/Users/ADMIN/Desktop/ccc/App_Mobile_Project/app/src/main/res/layout/fragment_trangchu.xml" value="0.3463541666666667" />
         <entry key="..\:/Users/ADMIN/Desktop/ccc/App_Mobile_Project/app/src/main/res/layout/fragment_user_player.xml" value="0.35052083333333334" />
         <entry key="..\:/Users/ADMIN/Desktop/ccc/App_Mobile_Project/app/src/main/res/layout/rv_item.xml" value="0.35052083333333334" />
+        <entry key="..\:/Users/trong/Desktop/App_Mobile_Project/app/src/main/res/drawable/back_round_button.xml" value="0.1" />
+        <entry key="..\:/Users/trong/Desktop/App_Mobile_Project/app/src/main/res/drawable/btn_dangxuat.xml" value="0.1075" />
         <entry key="..\:/Users/trong/Desktop/App_Mobile_Project/app/src/main/res/layout/activity_liked_song.xml" value="0.1" />
         <entry key="..\:/Users/trong/Desktop/App_Mobile_Project/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/trong/Desktop/App_Mobile_Project/app/src/main/res/layout/activity_signin.xml" value="0.19010416666666666" />
         <entry key="..\:/Users/trong/Desktop/App_Mobile_Project/app/src/main/res/layout/activity_signup.xml" value="0.19010416666666666" />
         <entry key="..\:/Users/trong/Desktop/App_Mobile_Project/app/src/main/res/layout/activity_splash.xml" value="0.19010416666666666" />
         <entry key="..\:/Users/trong/Desktop/App_Mobile_Project/app/src/main/res/layout/activity_suggest_hist.xml" value="0.10208333333333333" />
+        <entry key="..\:/Users/trong/Desktop/App_Mobile_Project/app/src/main/res/layout/back_round_button.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/trong/Desktop/App_Mobile_Project/app/src/main/res/layout/fragment_activity_horizontal_rv.xml" value="0.1" />
         <entry key="..\:/Users/trong/Desktop/App_Mobile_Project/app/src/main/res/layout/fragment_div_likedsong.xml" value="0.1431159420289855" />
         <entry key="..\:/Users/trong/Desktop/App_Mobile_Project/app/src/main/res/layout/fragment_div_playlist.xml" value="0.20416666666666666" />
@@ -72,13 +75,14 @@
         <entry key="..\:/Users/trong/Desktop/App_Mobile_Project/app/src/main/res/layout/fragment_timkiem.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/trong/Desktop/App_Mobile_Project/app/src/main/res/layout/fragment_trangchu.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/trong/Desktop/App_Mobile_Project/app/src/main/res/layout/fragment_trendy.xml" value="0.1" />
-        <entry key="..\:/Users/trong/Desktop/App_Mobile_Project/app/src/main/res/layout/fragment_user_player.xml" value="0.16757246376811594" />
+        <entry key="..\:/Users/trong/Desktop/App_Mobile_Project/app/src/main/res/layout/fragment_user_player.xml" value="0.22" />
         <entry key="..\:/Users/trong/Desktop/App_Mobile_Project/app/src/main/res/layout/hist_list_item.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/trong/Desktop/App_Mobile_Project/app/src/main/res/layout/liked_list_item.xml" value="0.18" />
         <entry key="..\:/Users/trong/Desktop/App_Mobile_Project/app/src/main/res/layout/playlist_item.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/trong/Desktop/App_Mobile_Project/app/src/main/res/layout/rating_item.xml" value="0.16757246376811594" />
         <entry key="..\:/Users/trong/Desktop/App_Mobile_Project/app/src/main/res/layout/rv_item.xml" value="0.18" />
         <entry key="..\:/Users/trong/Desktop/App_Mobile_Project/app/src/main/res/layout/trendy_item.xml" value="0.16757246376811594" />
+        <entry key="..\:/Users/trong/Desktop/App_Mobile_Project/app/src/main/res/layout/user_setting_activity.xml" value="0.20416666666666666" />
         <entry key="..\:/mobile/App_Mobile_Project/app/src/main/res/drawable/bgrappbar.xml" value="0.1" />
         <entry key="..\:/mobile/App_Mobile_Project/app/src/main/res/drawable/btn_dangxuat.xml" value="0.2075" />
         <entry key="..\:/mobile/App_Mobile_Project/app/src/main/res/layout/activity_main.xml" value="0.12360688956433637" />
