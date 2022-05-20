@@ -29,3 +29,30 @@ Route::group([
     // Route::post('reset-password',[App\Http\Controllers\Account\AccountAuthenticationController::class, 'doResetPassword']);
        
 });
+Route::group([
+	'middleware' => []
+], function () {
+	Route::get('music/get-music', [App\Http\Controllers\Music\MusicController::class, 'getMusicList']);
+    Route::get('playlist/get-playlist', [App\Http\Controllers\Playlist\PlaylistController::class, 'getPlaylist']);
+    Route::get('playlist/get-playlist-of-user', [App\Http\Controllers\PlaylistOfUser\PlaylistUserController::class, 'getPlaylistOfUser']);
+    Route::get('category/get-category', [App\Http\Controllers\Category\CategoryController::class, 'getCategoryList']);
+    Route::get('history/get-history-of-user', [App\Http\Controllers\HistoryOfUser\HistoryUserController::class, 'getHistoryUserList']);
+
+    Route::post('music/add-music', [App\Http\Controllers\Music\MusicController::class, 'doAddMusic']);
+    Route::post('playlist/add-playlist', [App\Http\Controllers\Playlist\PlaylistController::class, 'doAddPlaylist']);
+    Route::post('playlist/add-playlist-of-user', [App\Http\Controllers\PlaylistOfUser\PlaylistUserController::class, 'doAddPlaylistUser']);
+    Route::post('category/add-category', [App\Http\Controllers\Category\CategoryController::class, 'doAddCategory']);
+    Route::post('history/add-history-of-user', [App\Http\Controllers\HistoryOfUser\HistoryUserController::class, 'doAddHistory']);
+    
+    Route::post('category/update-category', [App\Http\Controllers\Category\CategoryController::class, 'doUpdateCategory']);
+    Route::post('playlist/update-playlist', [App\Http\Controllers\Playlist\PlaylistController::class, 'doUpdatePlaylist']);
+    Route::post('music/update-music', [App\Http\Controllers\Music\MusicController::class, 'doUpdateMusic']);
+
+
+    Route::delete('category/delete-category', [App\Http\Controllers\Category\CategoryController::class, 'doDeleteCategory']);
+    Route::delete('playlist/delete-playlist', [App\Http\Controllers\Playlist\PlaylistController::class, 'doDeletePlaylist']);
+    Route::delete('music/delete-music', [App\Http\Controllers\Music\MusicController::class, 'doDeleteMusic']);
+    Route::delete('playlist/delete-playlist-of-user', [App\Http\Controllers\PlaylistOfUser\PlaylistUserController::class, 'doDeletePlaylistUser']);
+    Route::delete('history/delete-history-user', [App\Http\Controllers\HistoryOfUser\HistoryUserController::class, 'doDeleteHistoryUser']);
+    
+});
