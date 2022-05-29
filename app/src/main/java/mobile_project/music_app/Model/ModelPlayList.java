@@ -7,51 +7,51 @@ import java.io.Serializable;
 
 
 public class ModelPlayList implements Serializable {
-    @SerializedName("IdPlaylist")
-    @Expose
-    private String idPlaylist;
-    @SerializedName("TenPlayList")
-    @Expose
-    private String tenPlayList;
-    @SerializedName("HinhNen")
-    @Expose
-    private String hinhNen;
-    @SerializedName("HinhIcon")
-    @Expose
-    private String hinhIcon;
 
+    @SerializedName("playlistId")
+    @Expose
+    private String playlistId;
+    @SerializedName("nameOfPlaylist")
+    @Expose
+    private String nameOfPlaylist;
+    @SerializedName("imgUrl")
+    @Expose
+    private String imgUrl;
+    @SerializedName("score")
+    @Expose
+    private String score;
 
-
-    public String getIdPlaylist() {
-        return idPlaylist;
+    public ModelPlayList(){}
+    public ModelPlayList(String playlistId, String nameOfPlaylist, String urlImg, String score) {
+        this.playlistId = playlistId;
+        this.nameOfPlaylist = nameOfPlaylist;
+        this.imgUrl = urlImg;
+        this.score = score;
     }
 
-    public void setIdPlaylist(String idPlaylist) {
-        this.idPlaylist = idPlaylist;
+    public String getIdPlaylist() {
+        return playlistId;
+    }
+
+    public void setIdPlaylist(String playlistId) {
+        this.playlistId = playlistId;
     }
 
     public String getTenPlayList() {
-        return tenPlayList;
+        return nameOfPlaylist;
     }
 
     public void setTenPlayList(String tenPlayList) {
-        this.tenPlayList = tenPlayList;
+        this.nameOfPlaylist = tenPlayList;
     }
 
-    public String getHinhNen() {
-        return hinhNen;
+    public String getImgUrl() {
+        return imgUrl;
     }
 
-    public void setHinhNen(String hinhNen) {
-        this.hinhNen = hinhNen;
+    public void setImgUrl(String hinhNen) {
+        this.imgUrl = hinhNen;
     }
 
-    public String getHinhIcon() {
-        return hinhIcon;
-    }
-
-    public void setHinhIcon(String hinhIcon) {
-        this.hinhIcon = hinhIcon;
-    }
 
 }

@@ -1,21 +1,41 @@
 package mobile_project.music_app.Model;
 import com.google.gson.annotations.SerializedName;
 
+import org.json.JSONObject;
+
 public class ResponseModel {
 
-    @SerializedName("success")
-    private String success;
+    @SerializedName("responseStatus")
+    private String responseStatus;
 
-    @SerializedName("message")
-    private String message;
+    @SerializedName("statusText")
+    private String statusText;
+
+    @SerializedName("timestamp")
+    private String timestamp;
+
+    @SerializedName("content")
+    private Object content;
+
+//    @SerializedName("statusText")
+//    private String message;
 
 
-    public String getSuccess() {
-        return success;
+    public String getStatusText() {
+        return statusText;
     }
 
-    public String getMessage() {
-        return message;
+    public String getResponseStatus() {
+        return responseStatus;
+    }
+
+    public String getTimestamp() {
+        return timestamp;
+    }
+
+
+    public Object getContent() {
+        return content;
     }
 
 }

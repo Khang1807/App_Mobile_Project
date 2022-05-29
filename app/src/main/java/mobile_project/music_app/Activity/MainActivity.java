@@ -18,7 +18,7 @@ import mobile_project.music_app.R;
 
 public class MainActivity extends AppCompatActivity {
     TabLayout tabLayout;
-    ViewPager2 viewPager;
+    public static ViewPager2 viewPager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 //        super.onCreate(savedInstanceState);
@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
         mainViewPagerAdapter.addFragment(new Fragment_UserPlayer(),"Ca nhan");
         viewPager.setAdapter(mainViewPagerAdapter);
         viewPager.setUserInputEnabled(false);
+
 //        viewPager. setRotationY(180);
         TabLayoutMediator tabLayoutMediator = new TabLayoutMediator(tabLayout, viewPager, true, new TabLayoutMediator.OnConfigureTabCallback() {
             @Override

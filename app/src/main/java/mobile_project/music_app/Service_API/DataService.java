@@ -15,6 +15,9 @@ import retrofit2.http.POST;
 
 public interface DataService {
     @FormUrlEncoded
-    @POST("login")
+    @POST("auth/login")
     Call<ResponseModel> login(@Field("email") String email, @Field("password") String password);
+
+    @GET("playlist/get-playlist")
+    Call<ResponseModel> getPlaylist();
 }

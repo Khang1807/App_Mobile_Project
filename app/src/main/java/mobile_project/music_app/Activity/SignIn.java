@@ -4,7 +4,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
-
 import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,6 +16,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.material.textfield.TextInputLayout;
+
+import com.google.gson.*;
+//import org.json.JSONObject;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import mobile_project.music_app.Fragment.Fragment_TrangChu;
 import mobile_project.music_app.Model.ResponseModel;
@@ -104,10 +109,26 @@ public class SignIn extends AppCompatActivity {
             @Override
             public void onResponse(@NonNull Call<ResponseModel> call, @NonNull Response<ResponseModel> response) {
                 ResponseModel responseBody = response.body();
+
                 if (responseBody != null) {
-                    if (responseBody.getSuccess().equals("1")) {
+
+                    // ko xoa doan nay, code get data
+//                    Gson gson = new Gson();
+//                    String json = gson.toJson(response.body().getContent());
+//
+//                    JSONObject result = null;
+//                    try {
+//                        result = new JSONObject(json);
+//                        Log.w(result.getString("message"),"data");
+//                    } catch (JSONException e) {
+//                        e.printStackTrace();
+//                    }
+
+
+                    if (responseBody.getStatusText().equals("OK")) {
                         loginStatus = true;
                     } else {
+                        Log.i("error","erorr");
 //                        Toast.makeText(DangNhapActivity.this, "Tài khoản hoặc mật khẩu sai !", Toast.LENGTH_LONG).show();
 //                        progressDialog.dismiss();
                     }
