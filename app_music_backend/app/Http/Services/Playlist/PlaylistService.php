@@ -112,7 +112,7 @@ class PlaylistService
 		}
 	}
 
-	public function getPlaylist(Request $request){
+	public function getPlaylist(){
         $playlist = DB::table('playlist')->get();
         $respondedResult = [
 			"playlist" => $playlist
