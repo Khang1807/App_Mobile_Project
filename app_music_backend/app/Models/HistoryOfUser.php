@@ -15,7 +15,7 @@ class HistoryOfUser extends Model
     protected $table = 'history_of_user';
 
 	protected $fillable = [
-		'userId',
+		'accountId',
 		'musicId',
 	];
 

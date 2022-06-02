@@ -31,7 +31,7 @@ class PlaylistOfUser extends Model
 	// ];
 
 	protected $fillable = [
-		'userId',
+		'accountId',
 		'musicId',
 	];
 

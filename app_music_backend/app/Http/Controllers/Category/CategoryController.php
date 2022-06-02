@@ -37,4 +37,7 @@ class CategoryController extends BaseController
     protected function getCategoryList(){
         return $this->categoryService->getCategoryList();
 	}
+	protected function getCategoryInfo(Request $request){
+        return $this->categoryService->getCategoryInfo($request);
+	}
 }

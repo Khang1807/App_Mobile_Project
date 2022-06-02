@@ -21,7 +21,7 @@ Route::group([
 ], function ($router) {
     
     Route::post('/login', [App\Http\Controllers\User\UserController::class, 'doLogin']);
-    Route::post('/register', [App\Http\Controllers\User\UserController::class, 'doRegister']);
+    Route::post('/register', [App\Http\Controllers\User\x::class, 'doRegister']);
 
     // Route::post('/register/candidate', [App\Http\Controllers\Account\AccountAuthenticationController::class, 'doRegisterCandidate']);
     // Route::post('/register/company', [App\Http\Controllers\Account\AccountAuthenticationController::class, 'doRegisterCompany']);
@@ -36,7 +36,9 @@ Route::group([
     Route::get('playlist/get-playlist', [App\Http\Controllers\Playlist\PlaylistController::class, 'getPlaylist']);
     Route::get('playlist/get-playlist-of-user', [App\Http\Controllers\PlaylistOfUser\PlaylistUserController::class, 'getPlaylistOfUser']);
     Route::get('category/get-category', [App\Http\Controllers\Category\CategoryController::class, 'getCategoryList']);
+    Route::get('category/get-category-info', [App\Http\Controllers\Category\CategoryController::class, 'getCategoryInfo']);
     Route::get('history/get-history-of-user', [App\Http\Controllers\HistoryOfUser\HistoryUserController::class, 'getHistoryUserList']);
+    Route::get('artist/get-artist', [App\Http\Controllers\Artist\ArtistController::class, 'getArtistList']);
 
     Route::post('music/add-music', [App\Http\Controllers\Music\MusicController::class, 'doAddMusic']);
     Route::post('playlist/add-playlist', [App\Http\Controllers\Playlist\PlaylistController::class, 'doAddPlaylist']);

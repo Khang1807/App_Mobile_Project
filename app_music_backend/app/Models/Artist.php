@@ -8,12 +8,12 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Model;
-class Music extends Model
+class Category extends Model
 {
     
 
-    protected $table = 'music';
-	protected $primaryKey = 'musicId';
+    protected $table = 'artist';
+	protected $primaryKey = 'artistId';
 	// public $timestamps = false;
 
 	// protected $casts = [
@@ -32,13 +32,8 @@ class Music extends Model
 	// ];
 
 	protected $fillable = [
-		'musicId',
-		'musicName',
-		'rating',
-        'playlistId',
-        'categoryId',
+		'artistName',
 		'imgUrl',
-        'linkUrl'
 	];
 
 	

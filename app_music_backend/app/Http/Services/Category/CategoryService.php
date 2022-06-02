@@ -16,6 +16,7 @@ use Illuminate\Support\Str;
 use App\Http\Utilities\ResponseUtil as responseUtil;
 
 use App\Models\Category;
+use App\Models\Music;
 
 
 
@@ -110,15 +111,25 @@ class CategoryService
 		}
 	}
 
-	public function getCategoryList(Request $request){
+	public function getCategoryList(){
         $categoryList = DB::table('category')->get();
         $respondedResult = [
 			"categoryList" => $categoryList
 		];
-        return responseUtil::respondedSuccess("common.success-message.get-data-success");
+        return responseUtil::respondedSuccess("common.success-message.get-data-success",$respondedResult);
 
     }
-
+	public function getCategoryInfo(Request $request){
+		$categoryId = $request->input('categoryId');		
+        $categoryInfo = DB::table('music')
+						->select('music.*')
+						->where('music.categoryId','=',$categoryId)						
+						->get();
+        $respondedResult = [
+			"categoryInfo" => $categoryInfo
+		];
+        return responseUtil::respondedSuccess("common.success-message.get-data-success", $respondedResult);
+    }
 
 
 }
