@@ -8,7 +8,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView8"
-        android:name="mobile_project.music_app.Fragment.Fragment_div_likedsong"
+        android:name="mobile_project.music_app_project.Fragment.Fragment_div_likedsong"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1" />

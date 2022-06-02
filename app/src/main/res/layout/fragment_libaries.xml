@@ -76,12 +76,12 @@
 
             <androidx.fragment.app.FragmentContainerView
                 android:id="@+id/fragment_lib_playlist"
-                android:name="mobile_project.music_app.Fragment.Fragment_Lib_Playlist"
+                android:name="mobile_project.music_app_project.Fragment.Fragment_Lib_Playlist"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
             <androidx.fragment.app.FragmentContainerView
                 android:id="@+id/fragment_lib_nghesi"
-                android:name="mobile_project.music_app.Fragment.Fragment_Lib_NgheSi"
+                android:name="mobile_project.music_app_project.Fragment.Fragment_Lib_NgheSi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 

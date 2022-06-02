@@ -7,7 +7,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView7"
-        android:name="mobile_project.music_app.Fragment.Fragment_Suggestions_Hist"
+        android:name="mobile_project.music_app_project.Fragment.Fragment_Suggestions_Hist"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1" />

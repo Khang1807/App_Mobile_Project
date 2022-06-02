@@ -16,37 +16,37 @@
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/fragmentContainerView"
-            android:name="mobile_project.music_app.Fragment.fragment_div_user_welcome"
+            android:name="mobile_project.music_app_project.Fragment.fragment_div_user_welcome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/fragmentContainerView2"
-            android:name="mobile_project.music_app.Fragment.Fragment_div_suggestions"
+            android:name="mobile_project.music_app_project.Fragment.Fragment_div_suggestions"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/fragmentContainerView3"
-            android:name="mobile_project.music_app.Fragment.Fragment_trendy"
+            android:name="mobile_project.music_app_project.Fragment.Fragment_div_category"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/fragmentContainerView4"
-            android:name="mobile_project.music_app.Fragment.fragment_ActivityHorizontalRV"
+            android:name="mobile_project.music_app_project.Fragment.Fragment_div_artist"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/fragmentContainerView5"
-            android:name="mobile_project.music_app.Fragment.Fragment_div_playlist"
+            android:name="mobile_project.music_app_project.Fragment.Fragment_div_playlist"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/fragmentContainerView6"
-            android:name="mobile_project.music_app.Fragment.Fragment_div_rating"
+            android:name="mobile_project.music_app_project.Fragment.Fragment_div_rating"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
