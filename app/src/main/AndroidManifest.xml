@@ -69,6 +69,15 @@
 <!--            </intent-filter>-->
         </activity>
         <activity
+            android:name="mobile_project.music_app_project.Activity.Category_Info_Activity"
+            android:exported="false">
+            <!--            <intent-filter>-->
+            <!--                <action android:name="android.intent.action.MAIN" />-->
+
+            <!--                <category android:name="android.intent.category.LAUNCHER" />-->
+            <!--            </intent-filter>-->
+        </activity>
+        <activity
             android:name="mobile_project.music_app_project.Activity.Splash"
             android:exported="false">
 

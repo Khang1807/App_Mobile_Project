@@ -6,7 +6,8 @@
     android:fitsSystemWindows="true"
     app:layout_collapseMode="pin"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    >
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipethuvien"

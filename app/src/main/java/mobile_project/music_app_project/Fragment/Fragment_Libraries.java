@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -17,6 +18,7 @@ import com.google.android.material.tabs.TabLayout;
 import de.hdodenhof.circleimageview.CircleImageView;
 import mobile_project.music_app_project.Activity.MainActivity;
 import mobile_project.music_app_project.Adapter.ViewPagerThuVien;
+import mobile_project.music_app_project.Model.ModelTheLoai;
 import mobile_project.music_app_project.R;
 
 
@@ -25,6 +27,7 @@ public class Fragment_Libraries extends Fragment {
     ViewPager viewPager;
     ImageView imgAddThuVien;
     CircleImageView imguser;
+    ModelTheLoai category;
     ProgressDialog progressDialog;
     private String tenThuVien;
     private MainActivity hm;
@@ -33,16 +36,17 @@ public class Fragment_Libraries extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_libaries, container, false);
+
         AnhXa();
         init();
+
 //        imgAddThuVien.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
 //                openDialog();
 //            }
 //        });
-        return  view;
+        return inflater.inflate(R.layout.fragment_libaries, container, false);
     }
 
     private void init() {
@@ -53,6 +57,10 @@ public class Fragment_Libraries extends Fragment {
         tabLayout.setupWithViewPager(viewPager);
 //        Picasso.get().load(hm.getUrl()).into(imguser);
     }
+
+
+
+
     private void AnhXa() {
         hm = (MainActivity) getActivity();
         tabLayout = view.findViewById(R.id.tabLayouttv);
