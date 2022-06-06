@@ -37,5 +37,8 @@ class MusicController extends BaseController
     protected function getMusicList(){
         return $this->musicService->getMusicList();
 	}
+	protected function getTop10Music(){
+        return $this->musicService->getTop10Music();
+	}
 	
 }

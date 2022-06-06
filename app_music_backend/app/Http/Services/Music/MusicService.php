@@ -56,6 +56,15 @@ class MusicService
 
     }
 
+	public function getTop10Music(){
+        $musicTop10List = DB::table('music')->where('rating','>','90')->take(5)->get();
+        $respondedResult = [
+			"musicTop10List" => $musicTop10List
+		];
+        return responseUtil::respondedSuccess("common.success-message.get-data-success", $respondedResult);
+
+    }
+
 	
 
 	public function doUpdateMusic(Request $request)
