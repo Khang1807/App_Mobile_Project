@@ -31,4 +31,10 @@ public interface DataService {
 
     @GET("category/get-category")
     Call<ResponseModel> getCategoryList();
+    @GET("music/get-music-top10")
+    Call<ResponseModel> getTop10Music();
+
+    @FormUrlEncoded
+    @POST("category/get-category-info")
+    Call<ResponseModel> getCategoryInfo(@Field("categoryId")String id);
 }

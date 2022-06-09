@@ -1,5 +1,7 @@
 package mobile_project.music_app_project.Fragment;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -12,6 +14,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -23,8 +26,8 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-import mobile_project.music_app_project.Activity.MainActivity;
-import mobile_project.music_app_project.Model.ModelNgheSi;
+import mobile_project.music_app_project.Activity.Category_Info_Activity;
+import mobile_project.music_app_project.Model.ModelBaiHat;
 import mobile_project.music_app_project.Model.ModelTheLoai;
 import mobile_project.music_app_project.Model.ResponseModel;
 import mobile_project.music_app_project.R;
@@ -117,31 +120,11 @@ public class Fragment_div_category extends Fragment {
     }
 
 
-    private void getInfoArtist(String id){
-        DataService networkService = APIService.getService();
-        Call<ResponseModel> getCategoryList = networkService.getCategoryList();
-
-        getCategoryList.enqueue(new Callback<ResponseModel>() {
-            @Override
-            public void onResponse(@NonNull Call<ResponseModel> call, @NonNull Response<ResponseModel> response) {
-
-//                Intent intent_signin =new Intent(getActivity(), Fragment_UserPlayer.class);
-//                startActivity(intent_signin );
-                MainActivity.viewPager.setCurrentItem(3);
-
-            }
-
-            @Override
-            public void onFailure(@NonNull Call<ResponseModel> call, @NonNull Throwable t) {
-                Log.i(t.getMessage(),"error server");
-            }
-        });
-
-    }
 
 
 
-    class MyRvAdapter extends RecyclerView.Adapter<Fragment_div_category.MyRvAdapter.MyHolder> {
+
+    public class MyRvAdapter extends RecyclerView.Adapter<Fragment_div_category.MyRvAdapter.MyHolder> {
         ArrayList<ModelTheLoai> data;
 
         public MyRvAdapter(ArrayList<ModelTheLoai> data) {
@@ -158,7 +141,7 @@ public class Fragment_div_category extends Fragment {
 
 
         @Override
-        public void onBindViewHolder(@NonNull Fragment_div_category.MyRvAdapter.MyHolder holder, int position) {
+        public void onBindViewHolder(@NonNull Fragment_div_category.MyRvAdapter.MyHolder holder, @SuppressLint("RecyclerView") int position) {
 
             int positionOfData=position;
             holder.categoryTitle.setText(data.get(positionOfData).getCategoryName());
@@ -171,8 +154,9 @@ public class Fragment_div_category extends Fragment {
             holder.divCategory.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Log.i(data.get(positionOfData).getCategoryId(),"abc");
-                    getInfoArtist(data.get(positionOfData).getCategoryId());
+                    Intent i = new Intent(getContext(),Category_Info_Activity.class);
+                    i.putExtra("Category",data.get(position));
+                    getContext().startActivity(i);
                 }
             });
 
@@ -183,7 +167,7 @@ public class Fragment_div_category extends Fragment {
             return data.size();
         }
 
-        class MyHolder extends RecyclerView.ViewHolder {
+        public class MyHolder extends RecyclerView.ViewHolder {
             TextView categoryTitle;
             ImageView imgCategory;
             LinearLayout divCategory;

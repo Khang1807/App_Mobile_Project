@@ -11,16 +11,16 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:background="@color/near_black"
-       >
+        android:id="@+id/divCategory_Music">
         <ImageView
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:scaleType="centerCrop"
-            android:id="@+id/imgRating"
+            android:id="@+id/imgMusic_Category"
             />
 
         <TextView
-            android:id="@+id/ratingTitle"
+            android:id="@+id/category_song_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ellipsize="end"

@@ -6,7 +6,9 @@
     android:layout_height="match_parent"
     android:background="#000000"
     android:fitsSystemWindows="true"
-    app:layout_collapseMode="pin">
+    app:layout_collapseMode="pin"
+    android:id="@+id/fragment_libraries"
+    >
 
     <TextView
         android:id="@+id/textView"
