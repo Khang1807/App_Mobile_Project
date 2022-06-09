@@ -6,8 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/near_black"
-    android:padding="20dp"
-    tools:context=".Activity.SignUp">
+    android:padding="20dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -16,7 +15,7 @@
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/fragmentContainerView"
-            android:name="mobile_project.music_app_project.Fragment.fragment_div_user_welcome"
+            android:name="mobile_project.music_app_project.Fragment.Fragment_div_user_welcome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 

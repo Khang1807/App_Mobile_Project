@@ -30,8 +30,6 @@ public class ModelUser implements Serializable {
     @Expose
     private String idBaiHat;
 
-
-
     public String getUserName() {
         return userName;
     }
