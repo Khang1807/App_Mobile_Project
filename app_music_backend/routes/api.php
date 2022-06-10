@@ -21,7 +21,7 @@ Route::group([
 ], function ($router) {
     
     Route::post('/login', [App\Http\Controllers\User\UserController::class, 'doLogin']);
-    Route::post('/register', [App\Http\Controllers\User\x::class, 'doRegister']);
+    Route::post('/register', [App\Http\Controllers\User\UserController::class, 'doRegister']);
 
     // Route::post('/register/candidate', [App\Http\Controllers\Account\AccountAuthenticationController::class, 'doRegisterCandidate']);
     // Route::post('/register/company', [App\Http\Controllers\Account\AccountAuthenticationController::class, 'doRegisterCompany']);
@@ -42,6 +42,7 @@ Route::group([
     Route::get('artist/get-artist', [App\Http\Controllers\Artist\ArtistController::class, 'getArtistList']);
 
     Route::post('user/get-user', [App\Http\Controllers\User\UserController::class, 'getUserInfo']);
+    Route::post('user/add-avatar', [App\Http\Controllers\User\UserController::class, 'doAddAvatar']);
     Route::post('music/add-music', [App\Http\Controllers\Music\MusicController::class, 'doAddMusic']);
     Route::post('playlist/add-playlist', [App\Http\Controllers\Playlist\PlaylistController::class, 'doAddPlaylist']);
     Route::post('playlist/add-playlist-of-user', [App\Http\Controllers\PlaylistOfUser\PlaylistUserController::class, 'doAddPlaylistUser']);
