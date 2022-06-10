@@ -13,10 +13,11 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
-
+import android.database.sqlite.SQLiteDatabase;
 import mobile_project.music_app_project.R;
 
 public class Splash extends AppCompatActivity {
+    private SQLiteDatabase db;
     private static int SPLASH_SCREEN = 5000;
     Animation top_anim,bottom_anim;
     ImageView logo;
@@ -57,5 +58,4 @@ public class Splash extends AppCompatActivity {
                 }
             }
         },SPLASH_SCREEN);
-    }
-}
+}}

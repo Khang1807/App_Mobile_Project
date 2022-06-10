@@ -1,7 +1,9 @@
 package mobile_project.music_app_project.Service_API;
 
 
+import java.util.List;
 
+import mobile_project.music_app_project.Model.ModelUser;
 import mobile_project.music_app_project.Model.ResponseModel;
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -13,6 +15,10 @@ public interface DataService {
     @FormUrlEncoded
     @POST("auth/login")
     Call<ResponseModel> login(@Field("email") String email, @Field("password") String password);
+
+    @FormUrlEncoded
+    @POST("user/get-user")
+    Call<ResponseModel> getUserInfo(@Field("email") String email);
 
     @GET("playlist/get-playlist")
     Call<ResponseModel> getPlaylist();

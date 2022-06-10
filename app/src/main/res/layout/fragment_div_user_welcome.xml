@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="70dp"
-    tools:context=".Fragment.fragment_div_suggestions"
+    tools:context=".Fragment.Fragment_div_suggestions"
     android:padding="10dp">
 
     <LinearLayout
@@ -41,7 +41,7 @@
                 tools:layout_editor_absoluteY="245dp" />
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/user_name_welcom"
                 android:layout_width="137dp"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/gothambold"

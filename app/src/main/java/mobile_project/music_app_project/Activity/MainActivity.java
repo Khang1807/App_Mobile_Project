@@ -1,6 +1,8 @@
 package mobile_project.music_app_project.Activity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
@@ -14,10 +16,11 @@ import mobile_project.music_app_project.Fragment.Fragment_Libraries;
 import mobile_project.music_app_project.Fragment.Fragment_TimKiem;
 import mobile_project.music_app_project.Fragment.Fragment_TrangChu;
 import mobile_project.music_app_project.Fragment.Fragment_UserPlayer;
+import mobile_project.music_app_project.Model.ModelUser;
 import mobile_project.music_app_project.R;
-
 public class MainActivity extends AppCompatActivity {
     TabLayout tabLayout;
+    ModelUser user;
     public static ViewPager2 viewPager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
