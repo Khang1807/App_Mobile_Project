@@ -65,6 +65,17 @@ class MusicService
 
     }
 
+	public function findMusic(Request $request){
+		// $request->input($name);
+		$result = DB::table('music')->where('musicName','LIKE','%'.$request->input('keyword').'%')->get();
+        if(count($result)){
+         return responseUtil::respondedSuccess("pages.get.getAllAccount-success", $result);
+        }
+        else
+        {
+        return response()->json(['Result' => 'No Data not found'], 404);
+      }
+    }	
 	
 
 	public function doUpdateMusic(Request $request)

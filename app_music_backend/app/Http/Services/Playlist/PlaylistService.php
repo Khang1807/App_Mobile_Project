@@ -119,7 +119,19 @@ class PlaylistService
 		];
         return responseUtil::respondedSuccess("common.success-message.get-data-success", $respondedResult);
     }
+	
+	public function getPlaylistInfo(Request $request){
+		$playlistId = $request->input('playlistId');		
+        $playlistInfo = DB::table('music')
+						->select('music.*')
+						->where('music.playlistId','=',$playlistId)						
+						->get();
+        $respondedResult = [
+			"playlistInfo" => $playlistInfo
+		];
+        return responseUtil::respondedSuccess("common.success-message.get-data-success", $respondedResult);
+    }
 
-
-
+	
+	
 }

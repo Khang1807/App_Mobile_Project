@@ -37,4 +37,7 @@ class ArtistController extends BaseController
     protected function getArtistList(){
         return $this->artistService->getArtistList();
 	}
+	protected function getArtistInfo(Request $request){
+        return $this->artistService->getArtistInfo($request);
+	}
 }

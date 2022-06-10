@@ -21,7 +21,7 @@ Route::group([
 ], function ($router) {
     
     Route::post('/login', [App\Http\Controllers\User\UserController::class, 'doLogin']);
-    Route::post('/register', [App\Http\Controllers\User\x::class, 'doRegister']);
+    Route::post('/register', [App\Http\Controllers\User\UserController::class, 'doRegister']);
 
     // Route::post('/register/candidate', [App\Http\Controllers\Account\AccountAuthenticationController::class, 'doRegisterCandidate']);
     // Route::post('/register/company', [App\Http\Controllers\Account\AccountAuthenticationController::class, 'doRegisterCompany']);
@@ -33,6 +33,7 @@ Route::group([
 	'middleware' => []
 ], function () {
 	Route::get('music/get-music', [App\Http\Controllers\Music\MusicController::class, 'getMusicList']);
+    Route::get('music/find-music', [App\Http\Controllers\Music\MusicController::class, 'findMusic']);
     Route::get('music/get-music-top10', [App\Http\Controllers\Music\MusicController::class, 'getTop10Music']);
     Route::get('playlist/get-playlist', [App\Http\Controllers\Playlist\PlaylistController::class, 'getPlaylist']);
     Route::get('playlist/get-playlist-of-user', [App\Http\Controllers\PlaylistOfUser\PlaylistUserController::class, 'getPlaylistOfUser']);
@@ -46,6 +47,8 @@ Route::group([
     Route::post('playlist/add-playlist-of-user', [App\Http\Controllers\PlaylistOfUser\PlaylistUserController::class, 'doAddPlaylistUser']);
     Route::post('category/add-category', [App\Http\Controllers\Category\CategoryController::class, 'doAddCategory']);
     Route::post('category/get-category-info', [App\Http\Controllers\Category\CategoryController::class, 'getCategoryInfo']);
+    Route::post('artist/get-artist-info', [App\Http\Controllers\Artist\ArtistController::class, 'getArtistInfo']);
+    Route::post('playlist/get-playlist-info', [App\Http\Controllers\Playlist\PlaylistController::class, 'getPlaylistInfo']);
     Route::post('history/add-history-of-user', [App\Http\Controllers\HistoryOfUser\HistoryUserController::class, 'doAddHistory']);
     
     Route::post('category/update-category', [App\Http\Controllers\Category\CategoryController::class, 'doUpdateCategory']);
