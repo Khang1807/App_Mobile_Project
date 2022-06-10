@@ -33,10 +33,11 @@ Route::group([
 	'middleware' => []
 ], function () {
 	Route::get('music/get-music', [App\Http\Controllers\Music\MusicController::class, 'getMusicList']);
+    Route::get('music/get-music-top10', [App\Http\Controllers\Music\MusicController::class, 'getTop10Music']);
     Route::get('playlist/get-playlist', [App\Http\Controllers\Playlist\PlaylistController::class, 'getPlaylist']);
     Route::get('playlist/get-playlist-of-user', [App\Http\Controllers\PlaylistOfUser\PlaylistUserController::class, 'getPlaylistOfUser']);
     Route::get('category/get-category', [App\Http\Controllers\Category\CategoryController::class, 'getCategoryList']);
-    Route::get('category/get-category-info', [App\Http\Controllers\Category\CategoryController::class, 'getCategoryInfo']);
+    
     Route::get('history/get-history-of-user', [App\Http\Controllers\HistoryOfUser\HistoryUserController::class, 'getHistoryUserList']);
     Route::get('artist/get-artist', [App\Http\Controllers\Artist\ArtistController::class, 'getArtistList']);
 
@@ -45,6 +46,7 @@ Route::group([
     Route::post('playlist/add-playlist', [App\Http\Controllers\Playlist\PlaylistController::class, 'doAddPlaylist']);
     Route::post('playlist/add-playlist-of-user', [App\Http\Controllers\PlaylistOfUser\PlaylistUserController::class, 'doAddPlaylistUser']);
     Route::post('category/add-category', [App\Http\Controllers\Category\CategoryController::class, 'doAddCategory']);
+    Route::post('category/get-category-info', [App\Http\Controllers\Category\CategoryController::class, 'getCategoryInfo']);
     Route::post('history/add-history-of-user', [App\Http\Controllers\HistoryOfUser\HistoryUserController::class, 'doAddHistory']);
     
     Route::post('category/update-category', [App\Http\Controllers\Category\CategoryController::class, 'doUpdateCategory']);
