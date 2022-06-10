@@ -62,13 +62,13 @@ class UserService
 	}
 	//login User
 	public function doLogin(Request $request){
-
+ 
 		$array = ['email'=>$request->input('email'),
 					'password'=>$request->input('password')];
 					error_log($request->input('email'));
         if (auth()->attempt($array)) {
             $User=auth()->user();
-
+			
 			$respondedResult = [
 				"User" => $User,
 			];
@@ -80,10 +80,18 @@ class UserService
     }
 
 	// get infor User
-	// public function getInfor(){
-	// 	 $User = auth()->user();
-	// 	 return responseUtil::respondedSuccess("pages.login.login-success", $User);
-	// }
+	public function getUserInfo(Request $request){
+		$email = $request->input('email');		
+        $userInfo = DB::table('users')
+						->select('users.*')
+						->where('users.email','=',$email) 						
+						->get();
+        $respondedResult = [
+			"userInfo" => $userInfo
+		];
+     
+		return responseUtil::respondedSuccess("common.success-message.get-data-success", $respondedResult);
+	}
 	
 	// //click forgot password and will send mail with token to reset password
 	// public function doForgotPassword(Request $request)

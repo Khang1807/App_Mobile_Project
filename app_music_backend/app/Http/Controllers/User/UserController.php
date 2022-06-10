@@ -41,15 +41,15 @@ class UserController extends BaseController
 	}
 
 	protected function doRegister(Request $request){
-		// console.log("abcs");
-		// $rules = [
-		// 	'email' => 'required|email|between:3,150',
-		// 	'password' => 'required|between:3,100'
-		// ];
-		// $inValidRequestData = validationUtil::checkValidRequest($request, $rules, $this->rulesMess);
-		// if ($inValidRequestData->fails()) {
-		// 	return responseUtil::respondedBadRequest($inValidRequestData->errors()->first(), $inValidRequestData->errors());
-		// }
+		console.log("abcs");
+		$rules = [
+			'email' => 'required|email|between:3,150',
+			'password' => 'required|between:3,100'
+		];
+		$inValidRequestData = validationUtil::checkValidRequest($request, $rules, $this->rulesMess);
+		if ($inValidRequestData->fails()) {
+			return responseUtil::respondedBadRequest($inValidRequestData->errors()->first(), $inValidRequestData->errors());
+		}
 
 		return $this->userService->doRegister($request);
 	}
@@ -67,15 +67,8 @@ class UserController extends BaseController
 		return $this->userService->doLogin($request);
 	}
 	
-	protected function getInfor(){
-
-		if (auth()->check()){
-			return $this->userService->getInfor();
-		}else{
-			return responseUtil::respondedBadRequest("error");
-		}
-		
-		
+	protected function getUserInfo(Request $request){
+			return $this->userService->getUserInfo($request);
 	}
 	// protected function doForgotPassword(Request $request){
 	// 	$rules = [
