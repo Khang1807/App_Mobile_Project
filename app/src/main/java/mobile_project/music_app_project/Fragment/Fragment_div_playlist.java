@@ -1,5 +1,7 @@
 package mobile_project.music_app_project.Fragment;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -7,7 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
+
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -24,7 +26,8 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-import mobile_project.music_app_project.Activity.MainActivity;
+
+import mobile_project.music_app_project.Activity.Playlist_Info_Activity;
 import mobile_project.music_app_project.Model.ModelPlayList;
 import mobile_project.music_app_project.Model.ResponseModel;
 import mobile_project.music_app_project.R;
@@ -47,9 +50,6 @@ public class Fragment_div_playlist extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_div_playlist, container, false);
         rv = view.findViewById(R.id.playlist);
-
-
-
         getPlaylist();
 
         return view;
@@ -104,70 +104,9 @@ public class Fragment_div_playlist extends Fragment {
                         myRvAdapter = new MyRvAdapter(dataSource);
                         rv.setLayoutManager(linearLayoutManager);
                         rv.setAdapter(myRvAdapter);
-
-//
-//                        json=gson.toJson(result.get("datas"));
-//
-//                        Object datas= result.get("datas");
-//
-//                        JSONObject playlist = new JSONObject(datas.toString());
-//
-//                        JSONArray arrJsonPlaylist=new JSONArray(playlist.get("playlist").toString());
-//
-//
-//
-//                        if (arrJsonPlaylist != null) {
-//                            for (int i=0;i<arrJsonPlaylist.length();i++){
-//                                Log.i(arrJsonPlaylist.getJSONObject(i).toString(),"obj string");
-//                                Log.i(arrJsonPlaylist.getJSONObject(i).optString("nameOfPlaylist"),"obj name play list");
-//                            }
-//                        }
-
-
-//                        Type playlistListType = new TypeToken<ArrayList<ModelPlayList>>(){}.getType();
-//                        ArrayList<ModelPlayList> datas = gson.fromJson(json,playlistListType);
-
-//                        for (int i=0; i <1;i++){
-//                            Log.i(datas.get(i).getTenPlayList(),"name of playlist");
-//                        }
-
-//                        if (datas.has("playlist")){
-//                            Log.i("has playlist","print");
-//
-//                        }else{
-//                            Log.i("don't have playlist","print");
-//                        }
-//
-//                        json=gson.toJson(datas.get("playlist"));
-//
-//                        JSONObject playlist = new JSONObject(json);
-//                        if (playlist.has("nameOfPlaylist")){
-//                            Log.i(playlist.getString("nameOfPlaylist"),"nameOfPlaylist");
-//                        }else{
-//                            Log.i("dont have name","name of playlist");
-//                        }
-
-//                        JSONArray playlist=datas.getJSONArray("playlist");
-//                        for (int i=0; i < 2; i++){
-//                            playlist.getJSONObject(i).getString("nameOfPlaylist");
-//                        }
-
-//                        Log.i(result.getJSONObject("datas").toString(),"datas ne");
-//                        json = gson.toJson(result.getJSONObject("datas"));
-//                        Log.w(json,"result data");
-//                        JsonArray listPlaylist=result.getJSONArray("");
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
-
-
-//                    if (responseBody.getStatusText().equals("OK")) {
-//                        loginStatus = true;
-//                    } else {
-//                        Log.i("error","erorr");
-////                        Toast.makeText(DangNhapActivity.this, "Tài khoản hoặc mật khẩu sai !", Toast.LENGTH_LONG).show();
-////                        progressDialog.dismiss();
-//                    }
                 }
             }
 
@@ -177,30 +116,6 @@ public class Fragment_div_playlist extends Fragment {
             }
         });
     }
-
-
-    private void getInfoPlaylist(String id){
-        DataService networkService = APIService.getService();
-        Call<ResponseModel> getPlaylist = networkService.getPlaylist();
-
-        getPlaylist.enqueue(new Callback<ResponseModel>() {
-            @Override
-            public void onResponse(@NonNull Call<ResponseModel> call, @NonNull Response<ResponseModel> response) {
-
-//                Intent intent_signin =new Intent(getActivity(), Fragment_UserPlayer.class);
-//                startActivity(intent_signin );
-                MainActivity.viewPager.setCurrentItem(3);
-
-            }
-
-            @Override
-            public void onFailure(@NonNull Call<ResponseModel> call, @NonNull Throwable t) {
-                Log.i(t.getMessage(),"error server");
-            }
-        });
-
-    }
-
 
 
     class MyRvAdapter extends RecyclerView.Adapter<Fragment_div_playlist.MyRvAdapter.MyHolder> {
@@ -220,7 +135,7 @@ public class Fragment_div_playlist extends Fragment {
 
 
         @Override
-        public void onBindViewHolder(@NonNull Fragment_div_playlist.MyRvAdapter.MyHolder holder, int position) {
+        public void onBindViewHolder(@NonNull Fragment_div_playlist.MyRvAdapter.MyHolder holder, @SuppressLint("RecyclerView") int position) {
 
             int positionOfData=position;
             holder.plTitle.setText(data.get(positionOfData).getTenPlayList());
@@ -229,14 +144,15 @@ public class Fragment_div_playlist extends Fragment {
             int resID  = getResources().getIdentifier(name, "drawable", getContext().getPackageName());
             holder.imgPlaylist.setImageResource(resID);
 
-            Log.i(data.get(positionOfData).getIdPlaylist(),"abcde");
+
 
 
             holder.divPlaylist.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Log.i(data.get(positionOfData).getIdPlaylist(),"abc");
-                    getInfoPlaylist(data.get(positionOfData).getIdPlaylist());
+                    Intent i = new Intent(getContext(), Playlist_Info_Activity.class);
+                    i.putExtra("Playlist",data.get(position));
+                    getContext().startActivity(i);
                 }
             });
 //            holder.imgPlaylist.setImageDrawable(getResources().getDrawable(R.drawable.album7));

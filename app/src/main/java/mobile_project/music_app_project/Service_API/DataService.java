@@ -31,4 +31,12 @@ public interface DataService {
     @FormUrlEncoded
     @POST("category/get-category-info")
     Call<ResponseModel> getCategoryInfo(@Field("categoryId")String id);
+
+    @FormUrlEncoded
+    @POST("playlist/get-playlist-info")
+    Call<ResponseModel> getPlaylistInfo(@Field("playlistId")String id);
+
+    @FormUrlEncoded
+    @POST("artist/get-artist-info")
+    Call<ResponseModel> getArtistInfo(@Field("artistId")String id);
 }

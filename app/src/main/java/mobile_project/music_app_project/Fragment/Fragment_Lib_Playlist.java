@@ -31,7 +31,7 @@ public class Fragment_Lib_Playlist extends Fragment{
         view = inflater.inflate(R.layout.fragment_lib_playlist, container, false);
         recyclerViewThuVienPlayList = view.findViewById(R.id.recyclerviewthuvienplaylist);
         tenThuVienPlayList = view.findViewById(R.id.textView);
-        hm = (MainActivity) getActivity();
+//        hm = (MainActivity) getActivity();
         swipeRefreshLayout = view.findViewById(R.id.swipethuvien);
         return view;
     }

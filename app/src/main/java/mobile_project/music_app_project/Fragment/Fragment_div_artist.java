@@ -1,5 +1,7 @@
 package mobile_project.music_app_project.Fragment;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -24,6 +26,8 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+import mobile_project.music_app_project.Activity.Artist_Info_Activity;
+import mobile_project.music_app_project.Activity.Category_Info_Activity;
 import mobile_project.music_app_project.Activity.MainActivity;
 import mobile_project.music_app_project.Model.ModelNgheSi;
 import mobile_project.music_app_project.Model.ResponseModel;
@@ -156,7 +160,7 @@ public class Fragment_div_artist extends Fragment {
 
 
         @Override
-        public void onBindViewHolder(@NonNull Fragment_div_artist.MyRvAdapter.MyHolder holder, int position) {
+        public void onBindViewHolder(@NonNull Fragment_div_artist.MyRvAdapter.MyHolder holder, @SuppressLint("RecyclerView") int position) {
 
             int positionOfData=position;
             holder.tvTitle.setText(data.get(positionOfData).getArtistName());
@@ -169,8 +173,9 @@ public class Fragment_div_artist extends Fragment {
             holder.divArtist.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Log.i(data.get(positionOfData).getArtistId(),"abc");
-                    getInfoArtist(data.get(positionOfData).getArtistId());
+                    Intent i = new Intent(getContext(), Artist_Info_Activity.class);
+                    i.putExtra("Artist",data.get(position));
+                    getContext().startActivity(i);
                 }
             });
 

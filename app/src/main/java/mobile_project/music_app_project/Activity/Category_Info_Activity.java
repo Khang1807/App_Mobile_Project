@@ -60,10 +60,12 @@ public class Category_Info_Activity extends AppCompatActivity {
 
 
     private void DataIntent() {
+        TextView category_name = findViewById(R.id.category_name);
         Intent i = getIntent();
         if(i!=null){
             if(i.hasExtra("Category")){
                 category = (ModelTheLoai) i.getSerializableExtra("Category");
+                category_name.setText(category.getCategoryName());
                 Toast.makeText(this,category.getCategoryId(),Toast.LENGTH_SHORT).show();
             }
         }

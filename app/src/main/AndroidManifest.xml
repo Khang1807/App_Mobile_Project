@@ -88,6 +88,8 @@
             <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
             <!-- </intent-filter> -->
         </activity>
+        <activity android:name=".Activity.Artist_Info_Activity" />
+        <activity android:name=".Activity.Playlist_Info_Activity" />
 
         <meta-data
             android:name="preloaded_fonts"
