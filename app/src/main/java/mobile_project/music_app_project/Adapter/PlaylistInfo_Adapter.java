@@ -30,7 +30,7 @@ public class PlaylistInfo_Adapter extends RecyclerView.Adapter<PlaylistInfo_Adap
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View view = LayoutInflater.from(context).inflate(R.layout.playlist_music_item, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.music_list_item, parent, false);
         return new ViewHolder(view);
     }
 
@@ -71,9 +71,9 @@ public class PlaylistInfo_Adapter extends RecyclerView.Adapter<PlaylistInfo_Adap
         LinearLayout divPlaylist_Music;
         public ViewHolder(@NonNull View view) {
             super(view);
-            playlist_song = view.findViewById(R.id.playlist_song_name);
-            song_img = view.findViewById(R.id.imgMusic_Playlist);
-            divPlaylist_Music = view.findViewById(R.id.divPlaylist_Music);
+            playlist_song = view.findViewById(R.id.musicTitle);
+            song_img = view.findViewById(R.id.imgMusicList);
+            divPlaylist_Music = view.findViewById(R.id.divMusicList);
         }
     }
 }

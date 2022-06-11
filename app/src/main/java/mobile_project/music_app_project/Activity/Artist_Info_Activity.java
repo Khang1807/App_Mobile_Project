@@ -21,11 +21,8 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 import mobile_project.music_app_project.Adapter.ArtistInfo_Adapter;
-import mobile_project.music_app_project.Adapter.CategoryInfo_Adapter;
 import mobile_project.music_app_project.Model.ModelBaiHat;
 import mobile_project.music_app_project.Model.ModelNgheSi;
-import mobile_project.music_app_project.Model.ModelPlayList;
-import mobile_project.music_app_project.Model.ModelTheLoai;
 import mobile_project.music_app_project.Model.ResponseModel;
 import mobile_project.music_app_project.R;
 import mobile_project.music_app_project.Service_API.APIService;
@@ -43,8 +40,8 @@ public class Artist_Info_Activity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_artist_info);
-        rv = (RecyclerView) findViewById(R.id.artist_music_list);
+        setContentView(R.layout.activity_music_info);
+        rv = (RecyclerView) findViewById(R.id.music_list);
         DataIntent();
         if(artist!=null && !artist.getArtistId().equals("")){
             GetDataArtist(artist.getArtistId());}
@@ -53,7 +50,7 @@ public class Artist_Info_Activity extends AppCompatActivity {
 
 
     private void DataIntent() {
-        TextView artist_name = findViewById(R.id.artist_name);
+        TextView artist_name = findViewById(R.id.name_music_list);
         Intent i = getIntent();
         if(i!=null){
             if(i.hasExtra("Artist")){

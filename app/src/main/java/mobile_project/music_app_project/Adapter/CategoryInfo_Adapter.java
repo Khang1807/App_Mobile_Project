@@ -31,7 +31,7 @@ public class CategoryInfo_Adapter extends RecyclerView.Adapter<CategoryInfo_Adap
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View view = LayoutInflater.from(context).inflate(R.layout.category_music_item, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.music_list_item, parent, false);
         return new ViewHolder(view);
     }
 
@@ -72,9 +72,9 @@ public class CategoryInfo_Adapter extends RecyclerView.Adapter<CategoryInfo_Adap
         LinearLayout divCategory_Music;
         public ViewHolder(@NonNull View view) {
             super(view);
-            category_song = view.findViewById(R.id.category_song_name);
-            song_img = view.findViewById(R.id.imgMusic_Category);
-            divCategory_Music = view.findViewById(R.id.divCategory_Music);
+            category_song = view.findViewById(R.id.musicTitle);
+            song_img = view.findViewById(R.id.imgMusicList);
+            divCategory_Music = view.findViewById(R.id.divMusicList);
         }
     }
 

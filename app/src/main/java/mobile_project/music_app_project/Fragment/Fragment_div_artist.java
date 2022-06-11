@@ -27,7 +27,6 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 import mobile_project.music_app_project.Activity.Artist_Info_Activity;
-import mobile_project.music_app_project.Activity.Category_Info_Activity;
 import mobile_project.music_app_project.Activity.MainActivity;
 import mobile_project.music_app_project.Model.ModelNgheSi;
 import mobile_project.music_app_project.Model.ResponseModel;
@@ -119,27 +118,27 @@ public class Fragment_div_artist extends Fragment {
     }
 
 
-    private void getInfoArtist(String id){
-        DataService networkService = APIService.getService();
-        Call<ResponseModel> getArtistList = networkService.getArtistList();
-
-        getArtistList.enqueue(new Callback<ResponseModel>() {
-            @Override
-            public void onResponse(@NonNull Call<ResponseModel> call, @NonNull Response<ResponseModel> response) {
-
-//                Intent intent_signin =new Intent(getActivity(), Fragment_UserPlayer.class);
-//                startActivity(intent_signin );
-                MainActivity.viewPager.setCurrentItem(3);
-
-            }
-
-            @Override
-            public void onFailure(@NonNull Call<ResponseModel> call, @NonNull Throwable t) {
-                Log.i(t.getMessage(),"error server");
-            }
-        });
-
-    }
+//    private void getInfoArtist(String id){
+//        DataService networkService = APIService.getService();
+//        Call<ResponseModel> getArtistList = networkService.getArtistList();
+//
+//        getArtistList.enqueue(new Callback<ResponseModel>() {
+//            @Override
+//            public void onResponse(@NonNull Call<ResponseModel> call, @NonNull Response<ResponseModel> response) {
+//
+////                Intent intent_signin =new Intent(getActivity(), Fragment_UserPlayer.class);
+////                startActivity(intent_signin );
+//                MainActivity.viewPager.setCurrentItem(3);
+//
+//            }
+//
+//            @Override
+//            public void onFailure(@NonNull Call<ResponseModel> call, @NonNull Throwable t) {
+//                Log.i(t.getMessage(),"error server");
+//            }
+//        });
+//
+//    }
 
 
 
@@ -153,7 +152,7 @@ public class Fragment_div_artist extends Fragment {
         @NonNull
         @Override
         public Fragment_div_artist.MyRvAdapter.MyHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            View view = LayoutInflater.from(getContext()).inflate(R.layout.artist_item, parent, false);
+            View view = LayoutInflater.from(getContext()).inflate(R.layout.artist_music_item, parent, false);
             return new Fragment_div_artist.MyRvAdapter.MyHolder(view);
         }
 
@@ -192,9 +191,9 @@ public class Fragment_div_artist extends Fragment {
             LinearLayout divArtist;
             public MyHolder(@NonNull View itemView) {
                 super(itemView);
-                tvTitle = itemView.findViewById(R.id.tvTitle);
-                imgView = itemView.findViewById(R.id.imgView);
-                divArtist = itemView.findViewById(R.id.divArtist);
+                tvTitle = itemView.findViewById(R.id.artist_song_name);
+                imgView = itemView.findViewById(R.id.imgMusic_Artist);
+                divArtist = itemView.findViewById(R.id.divArtist_Music);
             }
         }
 

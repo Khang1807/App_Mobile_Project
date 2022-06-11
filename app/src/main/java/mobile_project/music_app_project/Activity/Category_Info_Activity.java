@@ -1,16 +1,9 @@
 package mobile_project.music_app_project.Activity;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.AttributeSet;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,7 +20,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import mobile_project.music_app_project.Adapter.CategoryInfo_Adapter;
 import mobile_project.music_app_project.Model.ModelBaiHat;
@@ -50,8 +42,8 @@ public class Category_Info_Activity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_category_info);
-        rv = (RecyclerView) findViewById(R.id.category_music_list);
+        setContentView(R.layout.activity_music_info);
+        rv = (RecyclerView) findViewById(R.id.music_list);
         DataIntent();
         if(category!=null && !category.getCategoryName().equals("")){
         GetDataCategory(category.getCategoryId());}
@@ -60,7 +52,7 @@ public class Category_Info_Activity extends AppCompatActivity {
 
 
     private void DataIntent() {
-        TextView category_name = findViewById(R.id.category_name);
+        TextView category_name = findViewById(R.id.name_music_list);
         Intent i = getIntent();
         if(i!=null){
             if(i.hasExtra("Category")){
