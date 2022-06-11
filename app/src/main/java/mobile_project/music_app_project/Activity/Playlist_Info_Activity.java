@@ -22,7 +22,6 @@ import java.util.ArrayList;
 
 import mobile_project.music_app_project.Adapter.ArtistInfo_Adapter;
 import mobile_project.music_app_project.Model.ModelBaiHat;
-import mobile_project.music_app_project.Model.ModelNgheSi;
 import mobile_project.music_app_project.Model.ModelPlayList;
 import mobile_project.music_app_project.Model.ResponseModel;
 import mobile_project.music_app_project.R;
@@ -41,8 +40,8 @@ public class Playlist_Info_Activity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_playlist_info);
-        rv = (RecyclerView) findViewById(R.id.playlist_music_list);
+        setContentView(R.layout.activity_music_info);
+        rv = (RecyclerView) findViewById(R.id.music_list);
         DataIntent();
         if(playlist!=null && !playlist.getIdPlaylist().equals("")){
             GetDataPlaylist(playlist.getIdPlaylist());}
@@ -51,7 +50,7 @@ public class Playlist_Info_Activity extends AppCompatActivity {
 
 
     private void DataIntent() {
-        TextView playlist_name = findViewById(R.id.playlist_name);
+        TextView playlist_name = findViewById(R.id.name_music_list);
         Intent i = getIntent();
         if(i!=null){
             if(i.hasExtra("Playlist")){
