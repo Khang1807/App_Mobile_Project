@@ -132,6 +132,14 @@ class PlaylistService
         return responseUtil::respondedSuccess("common.success-message.get-data-success", $respondedResult);
     }
 
+	public function getTop10Playlist(){
+        $musicTop10List = DB::table('playlist')->where('score','>','90')->take(10)->get();
+        $respondedResult = [
+			"playlistTop10List" => $musicTop10List
+		];
+        return responseUtil::respondedSuccess("common.success-message.get-data-success", $respondedResult);
+
+    }
 	
 	
 }

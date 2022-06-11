@@ -40,4 +40,7 @@ class PlaylistController extends BaseController
 	protected function getPlaylistInfo(Request $request){
         return $this->playlistService->getPlaylistInfo($request);
 	}
+	protected function getTop10Playlist(){
+        return $this->playlistService->getTop10Playlist();
+	}
 }

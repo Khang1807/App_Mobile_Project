@@ -33,8 +33,9 @@ Route::group([
 	'middleware' => []
 ], function () {
 	Route::get('music/get-music', [App\Http\Controllers\Music\MusicController::class, 'getMusicList']);
-    Route::get('music/find-music', [App\Http\Controllers\Music\MusicController::class, 'findMusic']);
+    
     Route::get('music/get-music-top10', [App\Http\Controllers\Music\MusicController::class, 'getTop10Music']);
+    Route::get('playlist/get-top10-playlist', [App\Http\Controllers\Playlist\PlaylistController::class, 'getTop10Playlist']);
     Route::get('playlist/get-playlist', [App\Http\Controllers\Playlist\PlaylistController::class, 'getPlaylist']);
     Route::get('playlist/get-playlist-of-user', [App\Http\Controllers\PlaylistOfUser\PlaylistUserController::class, 'getPlaylistOfUser']);
     Route::get('category/get-category', [App\Http\Controllers\Category\CategoryController::class, 'getCategoryList']);
@@ -42,6 +43,8 @@ Route::group([
     Route::get('history/get-history-of-user', [App\Http\Controllers\HistoryOfUser\HistoryUserController::class, 'getHistoryUserList']);
     Route::get('artist/get-artist', [App\Http\Controllers\Artist\ArtistController::class, 'getArtistList']);
 
+
+    Route::post('music/find-music', [App\Http\Controllers\Music\MusicController::class, 'findMusic']);
     Route::post('user/get-user', [App\Http\Controllers\User\UserController::class, 'getUserInfo']);
     Route::post('user/add-avatar', [App\Http\Controllers\User\UserController::class, 'doAddAvatar']);
     Route::post('music/add-music', [App\Http\Controllers\Music\MusicController::class, 'doAddMusic']);
