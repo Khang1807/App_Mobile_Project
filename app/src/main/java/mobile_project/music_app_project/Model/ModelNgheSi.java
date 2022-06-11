@@ -29,6 +29,10 @@ public class ModelNgheSi implements Serializable {
         this.imgUrl = imgUrl;
     }
 
+    public ModelNgheSi() {
+
+    }
+
     public String getImgUrl() {
         return imgUrl;
     }
