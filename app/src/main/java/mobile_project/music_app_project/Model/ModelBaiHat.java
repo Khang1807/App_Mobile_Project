@@ -60,6 +60,10 @@ public class ModelBaiHat implements Serializable {
         this.imgUrl = imgUrl;
 
     }
+    public String getNghesi(){
+        ModelNgheSi ngheSi = new ModelNgheSi();
+        return ngheSi.getArtistName();
+    }
 
 
     public String getMusicId() {

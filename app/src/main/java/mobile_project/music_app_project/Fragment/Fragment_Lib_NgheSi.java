@@ -15,7 +15,6 @@ import mobile_project.music_app_project.R;
 public class Fragment_Lib_NgheSi  extends Fragment {
 
     View view;
-    //    ThuVienNgheSiAdapter thuVienNgheSiAdapter;
     RecyclerView recyclerViewNgheSi;
 
     @Nullable
@@ -23,7 +22,6 @@ public class Fragment_Lib_NgheSi  extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_lib_nghesi, container, false);
         recyclerViewNgheSi = view.findViewById(R.id.recyclerviewnthuvienghesi);
-//        GetData();
         return view;
     }
 }

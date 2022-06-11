@@ -13,7 +13,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.ColorSpace;
 import android.os.Bundle;
-import android.util.JsonReader;
+
 import android.util.Log;
 import android.util.Pair;
 import android.view.View;
@@ -22,24 +22,22 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.database.sqlite.SQLiteDatabase;
+
 
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.gson.Gson;
 
-//import org.json.JSONObject;
+
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.List;
 
-import mobile_project.music_app_project.Fragment.Fragment_div_category;
-import mobile_project.music_app_project.Fragment.Fragment_div_user_welcome;
-import mobile_project.music_app_project.Model.ModelTheLoai;
+import java.util.ArrayList;
+
+
+
 import mobile_project.music_app_project.Model.ModelUser;
 import mobile_project.music_app_project.Model.ResponseModel;
 import mobile_project.music_app_project.R;
@@ -50,7 +48,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class SignIn extends AppCompatActivity {
-    private SQLiteDatabase db;
+
     Button signin_button;
     ImageView image;
     TextView logoText, logoText2,click_signup;

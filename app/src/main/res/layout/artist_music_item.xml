@@ -4,24 +4,23 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     app:cardCornerRadius="12dp"
-    app:cardUseCompatPadding="true"
-    android:background="@color/black">
+    app:cardUseCompatPadding="true">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:background="@color/near_black"
-       >
+        android:id="@+id/divArtist_Music">
         <ImageView
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:scaleType="centerCrop"
-            android:id="@+id/imgRating"
+            android:id="@+id/imgMusic_Artist"
             />
 
         <TextView
-            android:id="@+id/ratingTitle"
+            android:id="@+id/artist_song_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ellipsize="end"

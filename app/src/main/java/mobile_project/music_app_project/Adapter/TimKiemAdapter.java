@@ -39,20 +39,23 @@ public abstract class TimKiemAdapter extends RecyclerView.Adapter<TimKiemAdapter
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         ModelBaiHat baiHat = mangbaihat.get(position);
         holder.txttentimkiem.setText(baiHat.getMusicName());
-        holder.txtcasitimkiem.setText(baiHat.getArtistId());
-        Picasso.get().load(baiHat.getImgUrl()).into(holder.imganhtimkiem);
+        holder.txtcasitimkiem.setText(baiHat.getNghesi());
+        String name = baiHat.getImgUrl();
+        int resID  =context.getResources().getIdentifier(name, "drawable", context.getPackageName());
+        holder.imganhtimkiem.setImageResource(resID);
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView txttentimkiem, txtcasitimkiem;
-        ImageView imganhtimkiem;
+        ImageView imganhtimkiem, iconlove;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             txttentimkiem = itemView.findViewById(R.id.txttennhac);
             txtcasitimkiem = itemView.findViewById(R.id.txtcasinhac);
             imganhtimkiem = itemView.findViewById(R.id.imgnhac);
+            iconlove = itemView.findViewById(R.id.icon_love);
 
 //            itemView.setOnClickListener(new View.OnClickListener() {
 //                @Override

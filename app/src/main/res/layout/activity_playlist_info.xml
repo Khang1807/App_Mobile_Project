@@ -8,15 +8,15 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/category_name"
-        android:text="Category Name"
+        android:id="@+id/playlist_name"
+        android:text="Playlist Name"
         android:textSize="30dp"
         android:fontFamily="@font/gothammedium1"
         android:textColor="@color/white"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"/>
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/category_music_list"
+        android:id="@+id/playlist_music_list"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:scrollbars="vertical"
