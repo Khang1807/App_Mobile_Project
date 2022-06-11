@@ -34,7 +34,6 @@ class UserService
 
 	public function doRegister(Request $request)
 	{
-
 		$conditions = array(
 			['email', '=', $request->input('email')]
 		);
