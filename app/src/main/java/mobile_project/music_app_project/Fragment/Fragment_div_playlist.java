@@ -27,7 +27,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 
-import mobile_project.music_app_project.Activity.Playlist_Info_Activity;
+import mobile_project.music_app_project.Activity.MusicList_Info_Activity;
 import mobile_project.music_app_project.Model.ModelPlayList;
 import mobile_project.music_app_project.Model.ResponseModel;
 import mobile_project.music_app_project.R;
@@ -150,7 +150,7 @@ public class Fragment_div_playlist extends Fragment {
             holder.divPlaylist.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent i = new Intent(getContext(), Playlist_Info_Activity.class);
+                    Intent i = new Intent(getContext(), MusicList_Info_Activity.class);
                     i.putExtra("Playlist",data.get(position));
                     getContext().startActivity(i);
                 }

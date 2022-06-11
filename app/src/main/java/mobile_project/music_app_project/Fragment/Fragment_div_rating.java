@@ -1,6 +1,5 @@
 package mobile_project.music_app_project.Fragment;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -23,9 +22,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-import mobile_project.music_app_project.Activity.Category_Info_Activity;
 import mobile_project.music_app_project.Model.ModelBaiHat;
-import mobile_project.music_app_project.Model.ModelTheLoai;
 import mobile_project.music_app_project.Model.ResponseModel;
 import mobile_project.music_app_project.R;
 import mobile_project.music_app_project.Service_API.APIService;

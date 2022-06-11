@@ -17,11 +17,11 @@ import java.util.ArrayList;
 import mobile_project.music_app_project.Model.ModelBaiHat;
 import mobile_project.music_app_project.R;
 
-public class ArtistInfo_Adapter extends RecyclerView.Adapter<ArtistInfo_Adapter.ViewHolder>{
+public class MusicInfo_Adapter extends RecyclerView.Adapter<MusicInfo_Adapter.ViewHolder>{
     Context context;
     ArrayList<ModelBaiHat> data;
 
-    public ArtistInfo_Adapter(Context context, ArrayList<ModelBaiHat> data) {
+    public MusicInfo_Adapter(Context context, ArrayList<ModelBaiHat> data) {
         this.context = context;
         this.data = data;
     }
