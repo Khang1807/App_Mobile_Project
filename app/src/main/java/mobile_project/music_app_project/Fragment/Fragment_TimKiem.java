@@ -7,6 +7,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -14,10 +15,29 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import com.google.gson.Gson;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+
+import mobile_project.music_app_project.Activity.MusicList_Info_Activity;
+import mobile_project.music_app_project.Adapter.MusicInfo_Adapter;
+import mobile_project.music_app_project.Adapter.TimKiemAdapter;
+import mobile_project.music_app_project.Model.ModelBaiHat;
+import mobile_project.music_app_project.Model.ResponseModel;
 import mobile_project.music_app_project.R;
+import mobile_project.music_app_project.Service_API.APIService;
+import mobile_project.music_app_project.Service_API.DataService;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class Fragment_TimKiem extends Fragment {
 
@@ -25,6 +45,9 @@ public class Fragment_TimKiem extends Fragment {
     androidx.appcompat.widget.Toolbar toolbar;
     RecyclerView recyclerViewtim;
     TextView textViewnull;
+    ArrayList<ModelBaiHat> dataSource;
+    LinearLayoutManager linearLayoutManager;
+    TimKiemAdapter myrv;
 //
 
     @Nullable
@@ -48,7 +71,7 @@ public class Fragment_TimKiem extends Fragment {
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-                Log.d("BBB",query);
+                SearchMusic(query);
                 return true;
             }
 
@@ -58,5 +81,68 @@ public class Fragment_TimKiem extends Fragment {
             }
         });
         super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    public void SearchMusic(String query){
+        DataService dataService = APIService.getService();
+        Call<ResponseModel> callback = dataService.findMusic(query);
+        callback.enqueue(new Callback<ResponseModel>() {
+            @Override
+            public void onResponse(Call<ResponseModel> call, Response<ResponseModel> response) {
+                ResponseModel responseBody = response.body();
+
+                if (responseBody != null) {
+                    Log.i("has result", "has result");
+                    // ko xoa doan nay, code get data
+                    Gson gson = new Gson();
+
+                    assert response.body() != null;
+                    String jsonResult = gson.toJson(response.body().getContent());
+
+                    dataSource = new ArrayList<ModelBaiHat>();
+
+                    JSONArray resultFind;
+
+                    JSONObject resultGetData = null;
+
+                    try {
+                        resultGetData = new JSONObject(jsonResult);
+
+                        JSONObject datas = resultGetData.getJSONObject("datas");
+
+                        resultFind = datas.getJSONArray("resultFind");
+
+                        for (int i=0;i<resultFind.length();i++){
+
+                            String musicId = resultFind.getJSONObject(i).optString("musicId");
+                            String musicName = resultFind.getJSONObject(i).optString("musicName");
+                            String urlImg = resultFind.getJSONObject(i).optString("imgUrl");
+                            ModelBaiHat music = new ModelBaiHat(musicId,musicName,urlImg);
+                            dataSource.add(music);
+                        }
+
+                        for(int i = 0; i<dataSource.size();i++){
+                            Log.i(dataSource.get(i).getImgUrl(),"songname");
+                        }
+                        linearLayoutManager = new LinearLayoutManager(getContext());
+                        myrv = new TimKiemAdapter(getContext(), dataSource);
+                        if(getContext()==null){
+                            Log.i("yes","NULL");
+                        }
+                        else{
+                            recyclerViewtim.setLayoutManager(linearLayoutManager);
+                            recyclerViewtim.setAdapter(myrv);}
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseModel> call, Throwable t) {
+
+            }
+        });
     }
 }
