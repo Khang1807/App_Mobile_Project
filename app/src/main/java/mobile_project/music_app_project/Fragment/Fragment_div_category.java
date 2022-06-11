@@ -14,7 +14,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -26,8 +25,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-import mobile_project.music_app_project.Activity.Category_Info_Activity;
-import mobile_project.music_app_project.Model.ModelBaiHat;
+import mobile_project.music_app_project.Activity.MusicList_Info_Activity;
 import mobile_project.music_app_project.Model.ModelTheLoai;
 import mobile_project.music_app_project.Model.ResponseModel;
 import mobile_project.music_app_project.R;
@@ -154,7 +152,7 @@ public class Fragment_div_category extends Fragment {
             holder.divCategory.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent i = new Intent(getContext(),Category_Info_Activity.class);
+                    Intent i = new Intent(getContext(), MusicList_Info_Activity.class);
                     i.putExtra("Category",data.get(position));
                     getContext().startActivity(i);
                 }
