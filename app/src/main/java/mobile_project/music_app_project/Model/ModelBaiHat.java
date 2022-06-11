@@ -54,6 +54,12 @@ public class ModelBaiHat implements Serializable {
         this.artistId = artistId;
         this.duration=duration;
     }
+    public ModelBaiHat(String musicId, String musicName, String imgUrl) {
+        this.musicId = musicId;
+        this.musicName = musicName;
+        this.imgUrl = imgUrl;
+
+    }
 
 
     public String getMusicId() {

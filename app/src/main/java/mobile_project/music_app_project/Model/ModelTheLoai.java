@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 
-public class ModelTheLoai implements Serializable {
+public class ModelTheLoai implements Serializable{
     @SerializedName("IdTheLoai")
     @Expose
     private String categoryId;
@@ -21,6 +21,9 @@ public class ModelTheLoai implements Serializable {
         this.categoryName = categoryName;
         this.imgUrl = imgUrl;
     }
+
+
+
 
     public String getCategoryId() {
         return categoryId;
