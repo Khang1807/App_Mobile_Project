@@ -118,7 +118,17 @@ class ArtistService
         return responseUtil::respondedSuccess("common.success-message.get-data-success",$respondedResult);
 
     }
-
+	public function getArtistInfo(Request $request){
+		$artistId = $request->input('artistId');		
+        $artistInfo = DB::table('music')
+						->select('music.*')
+						->where('music.artistId','=',$artistId)						
+						->get();
+        $respondedResult = [
+			"artistInfo" => $artistInfo
+		];
+        return responseUtil::respondedSuccess("common.success-message.get-data-success", $respondedResult);
+    }
 
 
 }
