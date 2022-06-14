@@ -23,6 +23,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 import mobile_project.music_app_project.Model.ModelBaiHat;
+import mobile_project.music_app_project.Model.ModelPlayList;
 import mobile_project.music_app_project.Model.ResponseModel;
 import mobile_project.music_app_project.R;
 import mobile_project.music_app_project.Service_API.APIService;
@@ -33,7 +34,7 @@ import retrofit2.Response;
 
 public class Fragment_div_rating extends Fragment {
     RecyclerView rv;
-    ArrayList<ModelBaiHat> dataSource;
+    ArrayList<ModelPlayList> dataSource;
 
 
     LinearLayoutManager linearLayoutManager;
@@ -53,46 +54,49 @@ public class Fragment_div_rating extends Fragment {
 
 
         DataService networkService = APIService.getService();
-        Call<ResponseModel> getTop10Music = networkService.getTop10Music();
+        Call<ResponseModel> getTop10Playlist = networkService.getTop10Playlist();
 
-        getTop10Music.enqueue(new Callback<ResponseModel>() {
+        getTop10Playlist.enqueue(new Callback<ResponseModel>() {
             @Override
             public void onResponse(@NonNull Call<ResponseModel> call, @NonNull Response<ResponseModel> response) {
                 ResponseModel responseBody = response.body();
 
                 if (responseBody != null) {
-                    Log.i("has result", "has result");
+                    Log.i("Top10Pl", "has result");
                     // ko xoa doan nay, code get data
                     Gson gson = new Gson();
 
                     String jsonResult = gson.toJson(response.body().getContent());
 
-                    dataSource = new ArrayList<ModelBaiHat>();
+                    dataSource = new ArrayList<ModelPlayList>();
 
-                    JSONArray listMusicTop;
+                    JSONArray listPlaylistTop;
 
                     JSONObject resultGetData = null;
 
                     try {
-                        Log.i(getResources().getDrawable(R.drawable.album7).toString(),"url img");
+//                        Log.i(getResources().getDrawable(R.drawable.album7).toString(),"url img");
                         resultGetData = new JSONObject(jsonResult);
 
                         JSONObject datas = resultGetData.getJSONObject("datas");
 
-                        listMusicTop = datas.getJSONArray("musicTop10List");
+                        listPlaylistTop = datas.getJSONArray("playlistTop10List");
 
-                        for (int i=0;i<listMusicTop.length();i++){
+                        for (int i=0;i<listPlaylistTop.length();i++){
 
-                            String musicId = listMusicTop.getJSONObject(i).optString("musicId");
-                            String musicName = listMusicTop.getJSONObject(i).optString("musicName");
-                            String urlImg = listMusicTop.getJSONObject(i).optString("imgUrl");
+                            String playlistId = listPlaylistTop.getJSONObject(i).optString("playlistId");
+                            String playlistName = listPlaylistTop.getJSONObject(i).optString("playlistName");
+                            String urlImg = listPlaylistTop.getJSONObject(i).optString("imgUrl");
+                            String score = listPlaylistTop.getJSONObject(i).optString("score");
 
 
-                            ModelBaiHat music = new ModelBaiHat(musicId,musicName,urlImg);
-                            dataSource.add(music);
+                            ModelPlayList playlist = new ModelPlayList(playlistId,playlistName,urlImg,score);
+                            dataSource.add(playlist);
 
                         }
-
+                        for(int i = 0; i<dataSource.size();i++){
+                            Log.i(dataSource.get(i).getTenPlayList(),"playlist");
+                        }
                         linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
                         myRvAdapter = new Fragment_div_rating.MyRvAdapter(dataSource);
                         rv.setLayoutManager(linearLayoutManager);
@@ -114,9 +118,9 @@ public class Fragment_div_rating extends Fragment {
 
 
     class MyRvAdapter extends RecyclerView.Adapter<Fragment_div_rating.MyRvAdapter.MyHolder> {
-        ArrayList<ModelBaiHat> data;
+        ArrayList<ModelPlayList> data;
 
-        public MyRvAdapter(ArrayList<ModelBaiHat> data) {
+        public MyRvAdapter(ArrayList<ModelPlayList> data) {
             this.data = data;
         }
 
@@ -130,13 +134,13 @@ public class Fragment_div_rating extends Fragment {
         @Override
         public void onBindViewHolder(@NonNull Fragment_div_rating.MyRvAdapter.MyHolder holder, int position) {
             int positionOfData=position;
-            holder.ratingTitle.setText(data.get(positionOfData).getMusicName());
+            holder.ratingTitle.setText(data.get(positionOfData).getTenPlayList());
 
             String name = data.get(positionOfData).getImgUrl();
             int resID  = getResources().getIdentifier(name, "drawable", getContext().getPackageName());
             holder.imgRating.setImageResource(resID);
 
-            Log.i(data.get(positionOfData).getCategoryId(),"abcde");
+            Log.i(data.get(positionOfData).getIdPlaylist(),"abcde");
 //            holder.divCategory.setOnClickListener(new View.OnClickListener() {
 //                @Override
 //                public void onClick(View view) {

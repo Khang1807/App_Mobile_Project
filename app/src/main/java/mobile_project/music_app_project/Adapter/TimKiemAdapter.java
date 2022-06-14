@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import mobile_project.music_app_project.Model.ModelBaiHat;
 import mobile_project.music_app_project.R;
 
-public abstract class TimKiemAdapter extends RecyclerView.Adapter<TimKiemAdapter.ViewHolder> {
+public class TimKiemAdapter extends RecyclerView.Adapter<TimKiemAdapter.ViewHolder> {
 
     Context context;
     ArrayList<ModelBaiHat> mangbaihat;
@@ -39,10 +39,15 @@ public abstract class TimKiemAdapter extends RecyclerView.Adapter<TimKiemAdapter
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         ModelBaiHat baiHat = mangbaihat.get(position);
         holder.txttentimkiem.setText(baiHat.getMusicName());
-        holder.txtcasitimkiem.setText(baiHat.getNghesi());
+//        holder.txtcasitimkiem.setText(baiHat.getNghesi());
         String name = baiHat.getImgUrl();
         int resID  =context.getResources().getIdentifier(name, "drawable", context.getPackageName());
         holder.imganhtimkiem.setImageResource(resID);
+    }
+
+    @Override
+    public int getItemCount() {
+        return mangbaihat.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -53,18 +58,9 @@ public abstract class TimKiemAdapter extends RecyclerView.Adapter<TimKiemAdapter
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             txttentimkiem = itemView.findViewById(R.id.txttennhac);
-            txtcasitimkiem = itemView.findViewById(R.id.txtcasinhac);
+//            txtcasitimkiem = itemView.findViewById(R.id.txtcasinhac);
             imganhtimkiem = itemView.findViewById(R.id.imgnhac);
             iconlove = itemView.findViewById(R.id.icon_love);
-
-//            itemView.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View view) {
-//                    Intent intent = new Intent(context, PlayNhacActivity.class);
-//                    intent.putExtra("cakhuc", mangbaihat.get(getPosition()));
-//                    context.startActivity(intent);
-//                }
-//            });
 
         }
     }

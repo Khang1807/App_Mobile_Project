@@ -29,6 +29,8 @@ public class ModelPlayList implements Serializable {
         this.score = score;
     }
 
+
+
     public String getIdPlaylist() {
         return playlistId;
     }

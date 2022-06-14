@@ -33,6 +33,8 @@ public interface DataService {
     Call<ResponseModel> getCategoryList();
     @GET("music/get-music-top10")
     Call<ResponseModel> getTop10Music();
+    @GET("playlist/get-top10-playlist")
+    Call<ResponseModel> getTop10Playlist();
 
     @FormUrlEncoded
     @POST("category/get-category-info")
@@ -45,4 +47,8 @@ public interface DataService {
     @FormUrlEncoded
     @POST("artist/get-artist-info")
     Call<ResponseModel> getArtistInfo(@Field("artistId")String id);
+
+    @FormUrlEncoded
+    @POST("music/find-music")
+    Call<ResponseModel> findMusic(@Field("keyword") String keyword);
 }
