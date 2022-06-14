@@ -49,7 +49,8 @@ Route::group([
     Route::post('user/add-avatar', [App\Http\Controllers\User\UserController::class, 'doAddAvatar']);
     Route::post('music/add-music', [App\Http\Controllers\Music\MusicController::class, 'doAddMusic']);
     Route::post('playlist/add-playlist', [App\Http\Controllers\Playlist\PlaylistController::class, 'doAddPlaylist']);
-    Route::post('playlist/add-playlist-of-user', [App\Http\Controllers\PlaylistOfUser\PlaylistUserController::class, 'doAddPlaylistUser']);
+    Route::post('playlistofuser/get-playlist-user', [App\Http\Controllers\PlaylistOfUser\PlaylistUserController::class, 'getPlaylistUser']);
+    Route::post('playlistofuser/add-playlist-of-user', [App\Http\Controllers\PlaylistOfUser\PlaylistUserController::class, 'doAddPlaylistUser']);
     Route::post('category/add-category', [App\Http\Controllers\Category\CategoryController::class, 'doAddCategory']);
     Route::post('category/get-category-info', [App\Http\Controllers\Category\CategoryController::class, 'getCategoryInfo']);
     Route::post('artist/get-artist-info', [App\Http\Controllers\Artist\ArtistController::class, 'getArtistInfo']);
