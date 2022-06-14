@@ -53,7 +53,7 @@ public class SignIn extends AppCompatActivity {
     ImageView image;
     TextView logoText, logoText2,click_signup;
     TextInputLayout email, password;
-    private String name_user,password_user,email_user,imgurl;
+    private String name_user,password_user,email_user,imgurl,id_user;
     ArrayList<ModelUser> dataSource;
     SharedPreferences sharedPreferences;
     @Override
@@ -150,10 +150,12 @@ public class SignIn extends AppCompatActivity {
                                 JSONObject info = info_user.getJSONObject(i);
 
                                 name_user = info.getString("userName");
+                                id_user = info.getString("userId");
                             }
                             SharedPreferences cached_login = getSharedPreferences("dangnhap",Context.MODE_PRIVATE);
                             SharedPreferences.Editor editor = cached_login.edit();
                             editor.putString("name_user",name_user);
+                            editor.putString("id_user",id_user);
                             editor.commit();
                         } catch (JSONException e) {
                             e.printStackTrace();
