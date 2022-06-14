@@ -1,6 +1,8 @@
 package mobile_project.music_app_project.Adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +16,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
+import mobile_project.music_app_project.Activity.MusicList_Info_Activity;
+import mobile_project.music_app_project.Activity.PlayMusic;
 import mobile_project.music_app_project.Model.ModelBaiHat;
 import mobile_project.music_app_project.R;
 
@@ -35,21 +39,25 @@ public class MusicInfo_Adapter extends RecyclerView.Adapter<MusicInfo_Adapter.Vi
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         ModelBaiHat baihat = data.get(position);
-        holder.artist_song.setText(baihat.getMusicName());
+        holder.nameSong.setText(baihat.getMusicName());
         String name = baihat.getImgUrl();
         int resID  =context.getResources().getIdentifier(name, "drawable", context.getPackageName());
         holder.song_img.setImageResource(resID);
 
-        Log.i(data.get(position).getCategoryId(),"MA");
-//            holder.divCategory_Music.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View view) {
-//                    Log.i(data.get(positionOfData).getMusicId(),"abc");
-//                    GetDataCategory(data.get(positionOfData).getMusicId());
-//                }
-//            });
+//        Log.i(data.get(position).getCategoryId(),"MA");
+            holder.divMusicList.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent i = new Intent(getContext(), PlayMusic.class);
+//                    Log.i(data.get(position).get)
+                    ArrayList<ModelBaiHat> songList = new ArrayList<ModelBaiHat>();
+                    songList.add(data.get(position));
+                    i.putExtra("musicListPlay",songList);
+                    getContext().startActivity(i);
+                }
+            });
     }
 
     @Override
@@ -66,14 +74,14 @@ public class MusicInfo_Adapter extends RecyclerView.Adapter<MusicInfo_Adapter.Vi
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView artist_song;
+        TextView nameSong;
         ImageView song_img;
-        LinearLayout divArtist_Music;
+        LinearLayout divMusicList;
         public ViewHolder(@NonNull View view) {
             super(view);
-            artist_song = view.findViewById(R.id.musicTitle);
+            nameSong = view.findViewById(R.id.musicTitle);
             song_img = view.findViewById(R.id.imgMusicList);
-            divArtist_Music = view.findViewById(R.id.divMusicList);
+            divMusicList = view.findViewById(R.id.divMusicList);
         }
     }
 }

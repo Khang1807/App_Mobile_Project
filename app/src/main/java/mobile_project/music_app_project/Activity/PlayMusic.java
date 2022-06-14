@@ -4,21 +4,27 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
 import mobile_project.music_app_project.Model.ModelBaiHat;
+import mobile_project.music_app_project.Model.ModelNgheSi;
+import mobile_project.music_app_project.Model.ModelPlayList;
+import mobile_project.music_app_project.Model.ModelTheLoai;
 import mobile_project.music_app_project.Model.MyMediaPlayer;
 import mobile_project.music_app_project.R;
 
@@ -71,6 +77,7 @@ public class PlayMusic extends AppCompatActivity {
     SeekBar seekBar;
     ImageView pausePlay,nextBtn,previousBtn,musicIcon;
     ArrayList<ModelBaiHat> songsList;
+
     ModelBaiHat currentSong;
     MediaPlayer mediaPlayer = MyMediaPlayer.getInstance();
 //    MediaPlayer mediaPlayer;
@@ -92,13 +99,18 @@ public class PlayMusic extends AppCompatActivity {
 
         titleTv.setSelected(true);
 
-        songsList = (ArrayList<ModelBaiHat>) getIntent().getSerializableExtra("LIST");
-
+        getMusicFromServer();
         setResourcesWithMusic();
 
         PlayMusic.this.runOnUiThread(new Runnable() {
             @Override
             public void run() {
+                mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                    public void onCompletion(MediaPlayer mp) {
+                        Log.i("complete song","compelte Song");
+                        playNextSong();
+                    }
+                });
                 if(mediaPlayer!=null){
                     seekBar.setProgress(mediaPlayer.getCurrentPosition());
                     currentTimeTv.setText(convertToMMSS(mediaPlayer.getCurrentPosition()+""));
@@ -137,24 +149,38 @@ public class PlayMusic extends AppCompatActivity {
 
 
     }
+    void getMusicFromServer(){
+//        Intent intent = getIntent();
+        songsList = (ArrayList<ModelBaiHat>) getIntent().getSerializableExtra("musicListPlay");
+        for ( int i = 0; i < songsList.size(); i++){
+            Log.i(songsList.get(i).getMusicName(),"songname123");
+        }
+
+
+    }
+
+
+
 
     void setResourcesWithMusic(){
-//        currentSong = songsList.get(MyMediaPlayer.currentIndex);
-//
-//        titleTv.setText(currentSong.getMusicName());
-//
-//        totalTimeTv.setText(convertToMMSS(currentSong.getDuration()));
-//
-//        pausePlay.setOnClickListener(v-> pausePlay());
-//        nextBtn.setOnClickListener(v-> playNextSong());
-//        previousBtn.setOnClickListener(v-> playPreviousSong());
+        currentSong = songsList.get(MyMediaPlayer.currentIndex);
+        Log.i(currentSong.getLinkUrl(),"currentSongName");
+        Log.i(currentSong.getImgUrl(),"currentSongName123");
+        titleTv.setText(currentSong.getMusicName());
 
-
-        titleTv.setText("Tung Thuong");
-
-        totalTimeTv.setText(convertToMMSS(String.valueOf("0410")));
+        totalTimeTv.setText(currentSong.getDuration());
+//        totalTimeTv.setText(convertToMMSS(String.valueOf("0410")));
 
         pausePlay.setOnClickListener(v-> pausePlay());
+        nextBtn.setOnClickListener(v-> playNextSong());
+        previousBtn.setOnClickListener(v-> playPreviousSong());
+
+//
+//        titleTv.setText("Tung Thuong");
+//
+//        totalTimeTv.setText(convertToMMSS(String.valueOf("0410")));
+//
+//        pausePlay.setOnClickListener(v-> pausePlay());
 
 
         playMusic();
@@ -165,43 +191,54 @@ public class PlayMusic extends AppCompatActivity {
 
     private void playMusic(){
 
+//        mediaPlayer.reset();
+//        mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.tungthuong);
+//        mediaPlayer.start();
+//        seekBar.setProgress(0);
+//        seekBar.setMax(mediaPlayer.getDuration());
         mediaPlayer.reset();
-        mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.tungthuong);
+        String name = currentSong.getLinkUrl();
+        int resID  = getResources().getIdentifier(name, "raw", getApplicationContext().getPackageName());
+        Log.i(String.valueOf(resID),"resId");
+        mediaPlayer = MediaPlayer.create(getApplicationContext(), resID);
         mediaPlayer.start();
         seekBar.setProgress(0);
         seekBar.setMax(mediaPlayer.getDuration());
 //        try {
-////            mediaPlayer.setDataSource(currentSong.getImgUrl());
-////            mediaPlayer.setDataSource(R.raw.tungthuong);
-////            mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.tungthuong);
+//            String name = currentSong.getLinkUrl();
+//            int resID  = getResources().getIdentifier(name, "raw", getApplicationContext().getPackageName());
+//            Log.i(String.valueOf(resID),"resId");
+//            mediaPlayer = MediaPlayer.create(getApplicationContext(), resID);
+////            holder.imgPlaylist.setImageResource(resID);
+////            mediaPlayer.setDataSource(currentSong.getPath());
 ////            mediaPlayer.prepare();
-////            mediaPlayer.start();
-////            seekBar.setProgress(0);
-////            seekBar.setMax(mediaPlayer.getDuration());
+//            mediaPlayer.start();
+//            seekBar.setProgress(0);
+//            seekBar.setMax(mediaPlayer.getDuration());
 //        } catch (IOException e) {
 //            e.printStackTrace();
 //        }
 
 
     }
-//
-//    private void playNextSong(){
-//
-//        if(MyMediaPlayer.currentIndex== songsList.size()-1)
-//            return;
-//        MyMediaPlayer.currentIndex +=1;
-//        mediaPlayer.reset();
-//        setResourcesWithMusic();
-//
-//    }
-//
-//    private void playPreviousSong(){
-//        if(MyMediaPlayer.currentIndex== 0)
-//            return;
-//        MyMediaPlayer.currentIndex -=1;
-//        mediaPlayer.reset();
-//        setResourcesWithMusic();
-//    }
+
+    private void playNextSong(){
+        Log.i("next song button","click on");
+        if(MyMediaPlayer.currentIndex== songsList.size()-1)
+            return;
+        MyMediaPlayer.currentIndex +=1;
+        mediaPlayer.reset();
+        setResourcesWithMusic();
+
+    }
+
+    private void playPreviousSong(){
+        if(MyMediaPlayer.currentIndex== 0)
+            return;
+        MyMediaPlayer.currentIndex -=1;
+        mediaPlayer.reset();
+        setResourcesWithMusic();
+    }
 
     private void pausePlay(){
         if(mediaPlayer.isPlaying())

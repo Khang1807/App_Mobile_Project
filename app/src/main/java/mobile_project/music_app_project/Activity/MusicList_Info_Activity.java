@@ -3,6 +3,8 @@ package mobile_project.music_app_project.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -41,11 +43,25 @@ public class MusicList_Info_Activity extends AppCompatActivity {
     LinearLayoutManager linearLayoutManager;
     RecyclerView rv ;
     MusicInfo_Adapter myrv;
+    ImageView playAllMusic;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_music_info);
         rv = (RecyclerView) findViewById(R.id.music_list);
+        playAllMusic=findViewById(R.id.playAllMusic);
+        playAllMusic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(MusicList_Info_Activity.this, PlayMusic.class);
+//                    Log.i(data.get(position).get)
+                i.putExtra("musicListPlay",dataSource);
+                startActivity(i);
+            }
+        });
+
+
+
         DataIntent();
         if(artist!=null && !artist.getArtistId().equals("")){
             GetData(artist.getArtistId());}
@@ -65,17 +81,17 @@ public class MusicList_Info_Activity extends AppCompatActivity {
             if(i.hasExtra("Artist")){
                 artist = (ModelNgheSi) i.getSerializableExtra("Artist");
                 artist_name.setText(artist.getArtistName());
-                Toast.makeText(this,artist.getArtistName(),Toast.LENGTH_SHORT).show();
+//                Toast.makeText(this,artist.getArtistName(),Toast.LENGTH_SHORT).show();
             }
             else if(i.hasExtra("Category")){
                 category = (ModelTheLoai) i.getSerializableExtra("Category");
                 artist_name.setText(category.getCategoryName());
-                Toast.makeText(this,category.getCategoryName(),Toast.LENGTH_SHORT).show();
+//                Toast.makeText(this,category.getCategoryName(),Toast.LENGTH_SHORT).show();
             }
             else{
                 playList = (ModelPlayList) i.getSerializableExtra("Playlist");
                 artist_name.setText(playList.getTenPlayList());
-                Toast.makeText(this,playList.getTenPlayList(),Toast.LENGTH_SHORT).show();
+//                Toast.makeText(this,playList.getTenPlayList(),Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -116,7 +132,13 @@ public class MusicList_Info_Activity extends AppCompatActivity {
                                 String musicId = artistInfo.getJSONObject(i).optString("musicId");
                                 String musicName = artistInfo.getJSONObject(i).optString("musicName");
                                 String urlImg = artistInfo.getJSONObject(i).optString("imgUrl");
-                                ModelBaiHat music = new ModelBaiHat(musicId,musicName,urlImg);
+                                String linkUrl = artistInfo.getJSONObject(i).optString("linkUrl");
+                                String playlistId = artistInfo.getJSONObject(i).optString("playlistId");
+                                String categoryId = artistInfo.getJSONObject(i).optString("categoryId");
+                                String artistId = artistInfo.getJSONObject(i).optString("artistId");
+                                String duration = artistInfo.getJSONObject(i).optString("duration");
+
+                                ModelBaiHat music = new ModelBaiHat(musicId,musicName,urlImg,linkUrl,playlistId,categoryId,artistId,duration);
                                 dataSource.add(music);
                             }
 
@@ -174,11 +196,16 @@ public class MusicList_Info_Activity extends AppCompatActivity {
                             artistInfo = datas.getJSONArray("categoryInfo");
 
                             for (int i=0;i<artistInfo.length();i++){
-
                                 String musicId = artistInfo.getJSONObject(i).optString("musicId");
                                 String musicName = artistInfo.getJSONObject(i).optString("musicName");
                                 String urlImg = artistInfo.getJSONObject(i).optString("imgUrl");
-                                ModelBaiHat music = new ModelBaiHat(musicId,musicName,urlImg);
+                                String linkUrl = artistInfo.getJSONObject(i).optString("imgUrl");
+                                String playlistId = artistInfo.getJSONObject(i).optString("imgUrl");
+                                String categoryId = artistInfo.getJSONObject(i).optString("imgUrl");
+                                String artistId = artistInfo.getJSONObject(i).optString("imgUrl");
+                                String duration = artistInfo.getJSONObject(i).optString("imgUrl");
+
+                                ModelBaiHat music = new ModelBaiHat(musicId,musicName,urlImg,linkUrl,playlistId,categoryId,artistId,duration);
                                 dataSource.add(music);
                             }
 
@@ -240,7 +267,13 @@ public class MusicList_Info_Activity extends AppCompatActivity {
                                 String musicId = artistInfo.getJSONObject(i).optString("musicId");
                                 String musicName = artistInfo.getJSONObject(i).optString("musicName");
                                 String urlImg = artistInfo.getJSONObject(i).optString("imgUrl");
-                                ModelBaiHat music = new ModelBaiHat(musicId,musicName,urlImg);
+                                String linkUrl = artistInfo.getJSONObject(i).optString("imgUrl");
+                                String playlistId = artistInfo.getJSONObject(i).optString("imgUrl");
+                                String categoryId = artistInfo.getJSONObject(i).optString("imgUrl");
+                                String artistId = artistInfo.getJSONObject(i).optString("imgUrl");
+                                String duration = artistInfo.getJSONObject(i).optString("imgUrl");
+
+                                ModelBaiHat music = new ModelBaiHat(musicId,musicName,urlImg,linkUrl,playlistId,categoryId,artistId,duration);
                                 dataSource.add(music);
                             }
 

@@ -15,6 +15,7 @@ public class ModelBaiHat implements Serializable {
     @SerializedName("imgUrl")
     @Expose
     private String imgUrl;
+
     @SerializedName("linkUrl")
     @Expose
     private String linkUrl;
@@ -52,7 +53,7 @@ public class ModelBaiHat implements Serializable {
         this.playlistId = playlistId;
         this.categoryId = categoryId;
         this.artistId = artistId;
-        this.duration=duration;
+        this.duration = duration;
     }
     public ModelBaiHat(String musicId, String musicName, String imgUrl) {
         this.musicId = musicId;
