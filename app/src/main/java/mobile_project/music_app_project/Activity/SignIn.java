@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.viewpager2.widget.ViewPager2;
 
 import android.app.ActivityOptions;
 import android.app.Dialog;
@@ -48,7 +49,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class SignIn extends AppCompatActivity {
-
+    public static String id_user;
     Button signin_button;
     ImageView image;
     TextView logoText, logoText2,click_signup;
@@ -150,10 +151,12 @@ public class SignIn extends AppCompatActivity {
                                 JSONObject info = info_user.getJSONObject(i);
 
                                 name_user = info.getString("userName");
+                                id_user = info.getString("userId");
                             }
                             SharedPreferences cached_login = getSharedPreferences("dangnhap",Context.MODE_PRIVATE);
                             SharedPreferences.Editor editor = cached_login.edit();
                             editor.putString("name_user",name_user);
+                            editor.putString("id_user",id_user);
                             editor.commit();
                         } catch (JSONException e) {
                             e.printStackTrace();

@@ -57,5 +57,14 @@
         android:backgroundTint="@color/black"
         app:icon="@drawable/ic_loved"
         app:iconSize="30dp" />
-
+    <ImageView
+        android:id="@+id/ic_love"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_weight="1"
+        android:scaleType="fitEnd"
+        android:layout_marginTop="2dp"
+        android:src="@drawable/ic_love"
+        android:backgroundTint="@color/white"
+        android:clickable="true" />
 </LinearLayout>

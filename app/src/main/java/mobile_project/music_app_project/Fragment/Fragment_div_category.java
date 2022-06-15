@@ -70,6 +70,7 @@ public class Fragment_div_category extends Fragment {
                     // ko xoa doan nay, code get data
                     Gson gson = new Gson();
 
+                    assert response.body() != null;
                     String jsonResult = gson.toJson(response.body().getContent());
 
                     dataSource = new ArrayList<ModelTheLoai>();

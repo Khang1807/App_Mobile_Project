@@ -1,10 +1,14 @@
 package mobile_project.music_app_project.Fragment;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -13,14 +17,30 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.gson.Gson;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 
+import mobile_project.music_app_project.Activity.PlayMusic;
+import mobile_project.music_app_project.Activity.SignIn;
+import mobile_project.music_app_project.Model.ModelBaiHat;
+import mobile_project.music_app_project.Model.ModelNgheSi;
+import mobile_project.music_app_project.Model.ResponseModel;
 import mobile_project.music_app_project.R;
+import mobile_project.music_app_project.Service_API.APIService;
+import mobile_project.music_app_project.Service_API.DataService;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class Fragment_div_likedsong extends Fragment {
 
     RecyclerView rv;
-    ArrayList<String> dataSource;
+    ArrayList<ModelBaiHat> dataSource;
 
     LinearLayoutManager linearLayoutManager;
     MyRvAdapter myRvAdapter;
@@ -28,48 +48,113 @@ public class Fragment_div_likedsong extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_div_likedsong, container, false);
-        rv = view.findViewById(R.id.liked_list);
-
-        dataSource = new ArrayList<>();
-        dataSource.add("The Weeknd");
-        dataSource.add("Justin Bieber");
-        dataSource.add("Snoop Dog");
-        dataSource.add("Maroon 5 ");
-        dataSource.add("Obito ");
-        dataSource.add("BigBang ");
-        dataSource.add("BTS ");
-
-
-        linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
-        myRvAdapter = new MyRvAdapter(dataSource) ;
-        rv.setLayoutManager(linearLayoutManager);
-        rv.setAdapter(myRvAdapter);
+        view = inflater.inflate(R.layout.activity_music_info, container, false);
+        TextView a = view.findViewById(R.id.name_music_list);
+        a.setText("Bài hát yêu thích");
+        rv = view.findViewById(R.id.music_list);
+        String userId = SignIn.id_user;
+        getPlaylistList(userId);
         return view;
     }
 
 
+    private void getPlaylistList(String id) {
+        Log.i("run playlist user", "run function");
 
+        DataService networkService = APIService.getService();
+        Call<ResponseModel> getPlaylistList = networkService.getplaylist_user(id);
+
+        getPlaylistList.enqueue(new Callback<ResponseModel>() {
+            @Override
+            public void onResponse(@NonNull Call<ResponseModel> call, @NonNull Response<ResponseModel> response) {
+                ResponseModel responseBody = response.body();
+
+                if (responseBody != null) {
+                    Log.i("has result", "has result");
+                    // ko xoa doan nay, code get data
+                    Gson gson = new Gson();
+
+                    String jsonResult = gson.toJson(response.body().getContent());
+
+                    dataSource = new ArrayList<ModelBaiHat>();
+
+                    JSONArray listPL;
+
+                    JSONObject resultGetData = null;
+
+                    try {
+
+                        resultGetData = new JSONObject(jsonResult);
+
+                        JSONObject datas = resultGetData.getJSONObject("datas");
+
+                        listPL = datas.getJSONArray("playlistOfUser");
+
+                        for (int i=0;i<listPL.length();i++){
+
+                            String musicId = listPL.getJSONObject(i).optString("musicId");
+                            String musicName = listPL.getJSONObject(i).optString("musicName");
+                            String urlImg = listPL.getJSONObject(i).optString("imgUrl");
+                            String linkUrl = listPL.getJSONObject(i).optString("linkUrl");
+                            String playlistId = listPL.getJSONObject(i).optString("playlistId");
+                            String categoryId = listPL.getJSONObject(i).optString("categoryId");
+                            String artistId = listPL.getJSONObject(i).optString("artistId");
+                            String duration = listPL.getJSONObject(i).optString("duration");
+
+                            ModelBaiHat music = new ModelBaiHat(musicId,musicName,urlImg,linkUrl,playlistId,categoryId,artistId,duration);
+                            dataSource.add(music);
+
+                        }
+
+                        linearLayoutManager = new LinearLayoutManager(getContext());
+                        myRvAdapter = new MyRvAdapter(dataSource);
+                        rv.setLayoutManager(linearLayoutManager);
+                        rv.setAdapter(myRvAdapter);
+
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<ResponseModel> call, @NonNull Throwable t) {
+                Log.i(t.getMessage(),"error server");
+            }
+        });
+    }
     class MyRvAdapter extends RecyclerView.Adapter<Fragment_div_likedsong.MyRvAdapter.MyHolder> {
-        ArrayList<String> data;
+        ArrayList<ModelBaiHat> data;
 
-        public MyRvAdapter(ArrayList<String> data) {
+        public MyRvAdapter(ArrayList<ModelBaiHat> data) {
             this.data = data;
         }
 
         @NonNull
         @Override
         public Fragment_div_likedsong.MyRvAdapter.MyHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            View view = LayoutInflater.from(getContext()).inflate(R.layout.liked_list_item, parent, false);
-            return new MyHolder(view);
+            View view = LayoutInflater.from(getContext()).inflate(R.layout.music_list_item, parent, false);
+            return new Fragment_div_likedsong.MyRvAdapter.MyHolder(view);
         }
 
         @Override
-        public void onBindViewHolder(@NonNull Fragment_div_likedsong.MyRvAdapter.MyHolder holder, int position) {
-            holder.liked_song_name.setText(data.get(position));
-            holder.imgLikedList.setImageDrawable(getResources().getDrawable(R.drawable.album4));
-
-//            Picasso.with(getContext()).load(data.get(position)).into(holder.imgView);
+        public void onBindViewHolder(@NonNull Fragment_div_likedsong.MyRvAdapter.MyHolder holder, @SuppressLint("RecyclerView") int position) {
+            ModelBaiHat baihat = data.get(position);
+            holder.nameSong.setText(baihat.getMusicName());
+            String name = baihat.getImgUrl();
+            int resID  =getContext().getResources().getIdentifier(name, "drawable", getContext().getPackageName());
+            holder.song_img.setImageResource(resID);
+            holder.divMusicList.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent i = new Intent(getContext(), PlayMusic.class);
+                    ArrayList<ModelBaiHat> songList = new ArrayList<ModelBaiHat>();
+                    songList.add(data.get(position));
+                    i.putExtra("musicListPlay",songList);
+                    getContext().startActivity(i);
+                }
+            });
         }
 
         @Override
@@ -78,12 +163,16 @@ public class Fragment_div_likedsong extends Fragment {
         }
 
         class MyHolder extends RecyclerView.ViewHolder {
-            TextView liked_song_name;
-            ImageView imgLikedList;
-            public MyHolder(@NonNull View itemView) {
-                super(itemView);
-                liked_song_name = itemView.findViewById(R.id.liked_song_name);
-                imgLikedList = itemView.findViewById(R.id.imgLikedList);
+            TextView nameSong;
+            ImageView song_img,icLove;
+            LinearLayout divMusicList;
+            public MyHolder(@NonNull View view) {
+                super(view);
+                nameSong = view.findViewById(R.id.musicTitle);
+                song_img = view.findViewById(R.id.imgMusicList);
+                divMusicList = view.findViewById(R.id.divMusicList);
+                icLove = view.findViewById(R.id.ic_love);
+                icLove.setVisibility(View.INVISIBLE);
             }
         }
 

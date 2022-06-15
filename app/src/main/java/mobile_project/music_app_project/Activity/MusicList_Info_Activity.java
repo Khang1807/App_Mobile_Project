@@ -137,8 +137,9 @@ public class MusicList_Info_Activity extends AppCompatActivity {
                                 String categoryId = artistInfo.getJSONObject(i).optString("categoryId");
                                 String artistId = artistInfo.getJSONObject(i).optString("artistId");
                                 String duration = artistInfo.getJSONObject(i).optString("duration");
+                                String artistName = artistInfo.getJSONObject(i).optString("artistName");
 
-                                ModelBaiHat music = new ModelBaiHat(musicId,musicName,urlImg,linkUrl,playlistId,categoryId,artistId,duration);
+                                ModelBaiHat music = new ModelBaiHat(musicId,musicName,urlImg,linkUrl,playlistId,categoryId,artistId,duration,artistName);
                                 dataSource.add(music);
                             }
 
@@ -199,13 +200,13 @@ public class MusicList_Info_Activity extends AppCompatActivity {
                                 String musicId = artistInfo.getJSONObject(i).optString("musicId");
                                 String musicName = artistInfo.getJSONObject(i).optString("musicName");
                                 String urlImg = artistInfo.getJSONObject(i).optString("imgUrl");
-                                String linkUrl = artistInfo.getJSONObject(i).optString("imgUrl");
-                                String playlistId = artistInfo.getJSONObject(i).optString("imgUrl");
-                                String categoryId = artistInfo.getJSONObject(i).optString("imgUrl");
-                                String artistId = artistInfo.getJSONObject(i).optString("imgUrl");
-                                String duration = artistInfo.getJSONObject(i).optString("imgUrl");
-
-                                ModelBaiHat music = new ModelBaiHat(musicId,musicName,urlImg,linkUrl,playlistId,categoryId,artistId,duration);
+                                String linkUrl = artistInfo.getJSONObject(i).optString("linkUrl");
+                                String playlistId = artistInfo.getJSONObject(i).optString("playlistId");
+                                String categoryId = artistInfo.getJSONObject(i).optString("categoryId");
+                                String artistId = artistInfo.getJSONObject(i).optString("artistId");
+                                String duration = artistInfo.getJSONObject(i).optString("duration");
+                                String artistName = artistInfo.getJSONObject(i).optString("artistName");
+                                ModelBaiHat music = new ModelBaiHat(musicId,musicName,urlImg,linkUrl,playlistId,categoryId,artistId,duration,artistName);
                                 dataSource.add(music);
                             }
 
@@ -267,13 +268,14 @@ public class MusicList_Info_Activity extends AppCompatActivity {
                                 String musicId = artistInfo.getJSONObject(i).optString("musicId");
                                 String musicName = artistInfo.getJSONObject(i).optString("musicName");
                                 String urlImg = artistInfo.getJSONObject(i).optString("imgUrl");
-                                String linkUrl = artistInfo.getJSONObject(i).optString("imgUrl");
-                                String playlistId = artistInfo.getJSONObject(i).optString("imgUrl");
-                                String categoryId = artistInfo.getJSONObject(i).optString("imgUrl");
-                                String artistId = artistInfo.getJSONObject(i).optString("imgUrl");
-                                String duration = artistInfo.getJSONObject(i).optString("imgUrl");
+                                String linkUrl = artistInfo.getJSONObject(i).optString("linkUrl");
+                                String playlistId = artistInfo.getJSONObject(i).optString("playlistId");
+                                String categoryId = artistInfo.getJSONObject(i).optString("categoryId");
+                                String artistId = artistInfo.getJSONObject(i).optString("artistId");
+                                String duration = artistInfo.getJSONObject(i).optString("duration");
+                                String artistName = artistInfo.getJSONObject(i).optString("artistName");
 
-                                ModelBaiHat music = new ModelBaiHat(musicId,musicName,urlImg,linkUrl,playlistId,categoryId,artistId,duration);
+                                ModelBaiHat music = new ModelBaiHat(musicId,musicName,urlImg,linkUrl,playlistId,categoryId,artistId,duration,artistName);
                                 dataSource.add(music);
                             }
 

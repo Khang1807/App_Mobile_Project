@@ -27,6 +27,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 import mobile_project.music_app_project.Activity.MusicList_Info_Activity;
+import mobile_project.music_app_project.Activity.SignIn;
 import mobile_project.music_app_project.Model.ModelNgheSi;
 import mobile_project.music_app_project.Model.ResponseModel;
 import mobile_project.music_app_project.R;
@@ -117,29 +118,6 @@ public class Fragment_div_artist extends Fragment {
     }
 
 
-//    private void getInfoArtist(String id){
-//        DataService networkService = APIService.getService();
-//        Call<ResponseModel> getArtistList = networkService.getArtistList();
-//
-//        getArtistList.enqueue(new Callback<ResponseModel>() {
-//            @Override
-//            public void onResponse(@NonNull Call<ResponseModel> call, @NonNull Response<ResponseModel> response) {
-//
-////                Intent intent_signin =new Intent(getActivity(), Fragment_UserPlayer.class);
-////                startActivity(intent_signin );
-//                MainActivity.viewPager.setCurrentItem(3);
-//
-//            }
-//
-//            @Override
-//            public void onFailure(@NonNull Call<ResponseModel> call, @NonNull Throwable t) {
-//                Log.i(t.getMessage(),"error server");
-//            }
-//        });
-//
-//    }
-
-
 
     class MyRvAdapter extends RecyclerView.Adapter<Fragment_div_artist.MyRvAdapter.MyHolder> {
         ArrayList<ModelNgheSi> data;
@@ -173,7 +151,9 @@ public class Fragment_div_artist extends Fragment {
                 public void onClick(View view) {
                     Intent i = new Intent(getContext(), MusicList_Info_Activity.class);
                     i.putExtra("Artist",data.get(position));
+
                     getContext().startActivity(i);
+
                 }
             });
 

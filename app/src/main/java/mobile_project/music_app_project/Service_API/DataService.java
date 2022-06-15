@@ -51,4 +51,12 @@ public interface DataService {
     @FormUrlEncoded
     @POST("music/find-music")
     Call<ResponseModel> findMusic(@Field("keyword") String keyword);
+
+    @FormUrlEncoded
+    @POST("playlistofuser/add-playlist-of-user")
+    Call<ResponseModel> addplaylist_user(@Field("userId") String userId,@Field("musicId") String musicId);
+
+    @FormUrlEncoded
+    @POST("playlistofuser/get-playlist-user")
+    Call<ResponseModel> getplaylist_user(@Field("userId") String userId);
 }
