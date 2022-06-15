@@ -45,7 +45,19 @@ public class ModelBaiHat implements Serializable {
     @Expose
     private String duration;
 
-    public ModelBaiHat(String musicId, String musicName, String imgUrl, String linkUrl, String playlistId, String categoryId, String artistId, String duration) {
+    public String getArtistName() {
+        return artistName;
+    }
+
+    public void setArtistName(String artistName) {
+        this.artistName = artistName;
+    }
+
+    @SerializedName("artistName")
+    @Expose
+    private String artistName;
+
+    public ModelBaiHat(String musicId, String musicName, String imgUrl, String linkUrl, String playlistId, String categoryId, String artistId, String duration, String artistName) {
         this.musicId = musicId;
         this.musicName = musicName;
         this.imgUrl = imgUrl;
@@ -54,16 +66,14 @@ public class ModelBaiHat implements Serializable {
         this.categoryId = categoryId;
         this.artistId = artistId;
         this.duration = duration;
+        this.artistName = artistName;
     }
+
     public ModelBaiHat(String musicId, String musicName, String imgUrl) {
         this.musicId = musicId;
         this.musicName = musicName;
         this.imgUrl = imgUrl;
 
-    }
-    public String getNghesi(){
-        ModelNgheSi ngheSi = new ModelNgheSi();
-        return ngheSi.getArtistName();
     }
 
 

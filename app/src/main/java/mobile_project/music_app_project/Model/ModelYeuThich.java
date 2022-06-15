@@ -6,8 +6,9 @@ import android.os.Parcelable;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class ModelYeuThich implements Parcelable {
+import java.io.Serializable;
 
+public class ModelYeuThich implements Serializable {
     @SerializedName("IdYeuThich")
     @Expose
     private int idYeuThich;
@@ -100,30 +101,5 @@ public class ModelYeuThich implements Parcelable {
         tenNgheSi = in.readString();
     }
 
-    public static final Creator<ModelYeuThich> CREATOR = new Creator<ModelYeuThich>() {
-        @Override
-        public ModelYeuThich createFromParcel(Parcel in) {
-            return new ModelYeuThich(in);
-        }
 
-        @Override
-        public ModelYeuThich[] newArray(int size) {
-            return new ModelYeuThich[size];
-        }
-    };
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(idYeuThich);
-        dest.writeString(username);
-        dest.writeInt(idBaiHat);
-        dest.writeString(tenBaiHat);
-        dest.writeString(hinhBaiHat);
-        dest.writeString(tenNgheSi);
-    }
 }

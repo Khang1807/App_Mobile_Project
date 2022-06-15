@@ -92,6 +92,7 @@
         <entry key="..\:/Users/trong/Desktop/App Mobile Full/App_Mobile_Project/App_Mobile_Project/app/src/main/res/layout/fragment_div_artist.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/trong/Desktop/App Mobile Full/App_Mobile_Project/App_Mobile_Project/app/src/main/res/layout/fragment_div_category.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/trong/Desktop/App Mobile Full/App_Mobile_Project/App_Mobile_Project/app/src/main/res/layout/fragment_div_likedsong.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/trong/Desktop/App Mobile Full/App_Mobile_Project/App_Mobile_Project/app/src/main/res/layout/fragment_div_playlist.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/trong/Desktop/App Mobile Full/App_Mobile_Project/App_Mobile_Project/app/src/main/res/layout/fragment_div_rating.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/trong/Desktop/App Mobile Full/App_Mobile_Project/App_Mobile_Project/app/src/main/res/layout/fragment_lib_playlist.xml" value="0.10104166666666667" />
         <entry key="..\:/Users/trong/Desktop/App Mobile Full/App_Mobile_Project/App_Mobile_Project/app/src/main/res/layout/fragment_lib_yeuthich.xml" value="0.20416666666666666" />
@@ -100,7 +101,10 @@
         <entry key="..\:/Users/trong/Desktop/App Mobile Full/App_Mobile_Project/App_Mobile_Project/app/src/main/res/layout/fragment_trangchu.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/trong/Desktop/App Mobile Full/App_Mobile_Project/App_Mobile_Project/app/src/main/res/layout/fragment_trendy.xml" value="0.1" />
         <entry key="..\:/Users/trong/Desktop/App Mobile Full/App_Mobile_Project/App_Mobile_Project/app/src/main/res/layout/fragment_user_player.xml" value="0.10104166666666667" />
+        <entry key="..\:/Users/trong/Desktop/App Mobile Full/App_Mobile_Project/App_Mobile_Project/app/src/main/res/layout/hist_list_item.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/trong/Desktop/App Mobile Full/App_Mobile_Project/App_Mobile_Project/app/src/main/res/layout/layout.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/trong/Desktop/App Mobile Full/App_Mobile_Project/App_Mobile_Project/app/src/main/res/layout/liked_list_item.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/trong/Desktop/App Mobile Full/App_Mobile_Project/App_Mobile_Project/app/src/main/res/layout/music_list_item.xml" value="0.2" />
         <entry key="..\:/Users/trong/Desktop/App Mobile Full/App_Mobile_Project/App_Mobile_Project/app/src/main/res/layout/playlist_item.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/trong/Desktop/App Mobile Full/App_Mobile_Project/App_Mobile_Project/app/src/main/res/layout/playlist_music_item.xml" value="0.1" />
         <entry key="..\:/Users/trong/Desktop/App Mobile Full/App_Mobile_Project/App_Mobile_Project/app/src/main/res/layout/rating_item.xml" value="0.20416666666666666" />

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.viewpager2.widget.ViewPager2;
 
 import android.app.ActivityOptions;
 import android.app.Dialog;
@@ -48,12 +49,12 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class SignIn extends AppCompatActivity {
-
+    public static String id_user;
     Button signin_button;
     ImageView image;
     TextView logoText, logoText2,click_signup;
     TextInputLayout email, password;
-    private String name_user,password_user,email_user,imgurl,id_user;
+    private String name_user,password_user,email_user,imgurl;
     ArrayList<ModelUser> dataSource;
     SharedPreferences sharedPreferences;
     @Override
