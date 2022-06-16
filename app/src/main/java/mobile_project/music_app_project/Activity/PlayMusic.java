@@ -111,9 +111,9 @@ public class PlayMusic extends AppCompatActivity {
 
                 refreshFlag=!refreshFlag?true:false;
                 if(refreshFlag){
-                    refresh_music.setImageResource(R.drawable.iconpause);
+                    refresh_music.setImageResource(R.drawable.ic_replay_1);
                 }else{
-                    refresh_music.setImageResource(R.drawable.iconplay);
+                    refresh_music.setImageResource(R.drawable.ic_replay_2);
                 }
             }
         });
