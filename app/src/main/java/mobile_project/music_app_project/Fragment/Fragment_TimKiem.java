@@ -116,7 +116,7 @@ public class Fragment_TimKiem extends Fragment {
 
                             String musicId = resultFind.getJSONObject(i).optString("musicId");
                             String musicName = resultFind.getJSONObject(i).optString("musicName");
-                            String urlImg = resultFind.getJSONObject(i).optString("imgUrl");
+                            String urlImg = resultFind.getJSONObject(i).optString("musicImg");
                             ModelBaiHat music = new ModelBaiHat(musicId,musicName,urlImg);
                             dataSource.add(music);
                         }

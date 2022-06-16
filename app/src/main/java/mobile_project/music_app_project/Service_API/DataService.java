@@ -10,6 +10,8 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 public interface DataService {
     @FormUrlEncoded
@@ -59,4 +61,12 @@ public interface DataService {
     @FormUrlEncoded
     @POST("playlistofuser/get-playlist-user")
     Call<ResponseModel> getplaylist_user(@Field("userId") String userId);
+
+
+    @FormUrlEncoded
+    @POST("history/add-history-of-user")
+    Call<ResponseModel> addHistoryUser(@Field("userId") String userId,@Field("musicId") String musicId, @Field("time") String time);
+
+    @GET("history/get-history-of-user")
+    Call<ResponseModel> getHistoryUser(@Query("userId") String userId);
 }

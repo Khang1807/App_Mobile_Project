@@ -14,12 +14,12 @@ public class ModelTheLoai implements Serializable{
     private String categoryName;
     @SerializedName("HinhTheLoai")
     @Expose
-    private String imgUrl;
+    private String categoryImg;
 
     public ModelTheLoai(String categoryId, String categoryName, String imgUrl) {
         this.categoryId = categoryId;
         this.categoryName = categoryName;
-        this.imgUrl = imgUrl;
+        this.categoryImg = imgUrl;
     }
 
 
@@ -42,11 +42,11 @@ public class ModelTheLoai implements Serializable{
     }
 
     public String getImgUrl() {
-        return imgUrl;
+        return categoryImg;
     }
 
     public void setImgUrl(String imgUrl) {
-        this.imgUrl = imgUrl;
+        this.categoryImg = imgUrl;
     }
 
 

@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         MainViewPagerAdapter mainViewPagerAdapter = new MainViewPagerAdapter(fm,getLifecycle());
         mainViewPagerAdapter.addFragment(new Fragment_TrangChu(),"Trang chu");
         mainViewPagerAdapter.addFragment(new Fragment_TimKiem(),"Tim kiem");
-        mainViewPagerAdapter.addFragment(new Fragment_Libraries(),"Thu vien");
+//        mainViewPagerAdapter.addFragment(new Fragment_Libraries(),"Thu vien");
         mainViewPagerAdapter.addFragment(new Fragment_UserPlayer(),"Ca nhan");
         viewPager.setAdapter(mainViewPagerAdapter);
         viewPager.setUserInputEnabled(false);
@@ -51,9 +51,9 @@ public class MainActivity extends AppCompatActivity {
                     tab.setIcon(R.drawable.home);
                 if(position==1)
                     tab.setIcon(R.drawable.icontimkiem);
+//                if(position==2)
+//                    tab.setIcon(R.drawable.playlist);
                 if(position==2)
-                    tab.setIcon(R.drawable.playlist);
-                if(position==3)
                     tab.setIcon(R.drawable.music_headphones);
             }
         });

@@ -39,6 +39,7 @@ public class MusicList_Info_Activity extends AppCompatActivity {
     ModelNgheSi artist;
     ModelTheLoai category;
     ModelPlayList playList;
+    String history;
     ArrayList<ModelBaiHat> dataSource;
     LinearLayoutManager linearLayoutManager;
     RecyclerView rv ;
@@ -56,6 +57,7 @@ public class MusicList_Info_Activity extends AppCompatActivity {
                 Intent i = new Intent(MusicList_Info_Activity.this, PlayMusic.class);
 //                    Log.i(data.get(position).get)
                 i.putExtra("musicListPlay",dataSource);
+
                 startActivity(i);
             }
         });
@@ -67,6 +69,8 @@ public class MusicList_Info_Activity extends AppCompatActivity {
             GetData(artist.getArtistId());}
         else if(category!=null && !category.getCategoryId().equals("")){
             GetData(category.getCategoryId());}
+        else if(history!=null && history.equals("history")){
+            GetData(SignIn.id_user);}
         else{
             GetData(playList.getIdPlaylist());
         }
@@ -86,6 +90,11 @@ public class MusicList_Info_Activity extends AppCompatActivity {
             else if(i.hasExtra("Category")){
                 category = (ModelTheLoai) i.getSerializableExtra("Category");
                 artist_name.setText(category.getCategoryName());
+//                Toast.makeText(this,category.getCategoryName(),Toast.LENGTH_SHORT).show();
+            }
+            else if(i.hasExtra("history")){
+                history = i.getStringExtra("history");
+                artist_name.setText("History Of User");
 //                Toast.makeText(this,category.getCategoryName(),Toast.LENGTH_SHORT).show();
             }
             else{
@@ -131,7 +140,7 @@ public class MusicList_Info_Activity extends AppCompatActivity {
 
                                 String musicId = artistInfo.getJSONObject(i).optString("musicId");
                                 String musicName = artistInfo.getJSONObject(i).optString("musicName");
-                                String urlImg = artistInfo.getJSONObject(i).optString("imgUrl");
+                                String urlImg = artistInfo.getJSONObject(i).optString("musicImg");
                                 String linkUrl = artistInfo.getJSONObject(i).optString("linkUrl");
                                 String playlistId = artistInfo.getJSONObject(i).optString("playlistId");
                                 String categoryId = artistInfo.getJSONObject(i).optString("categoryId");
@@ -199,13 +208,82 @@ public class MusicList_Info_Activity extends AppCompatActivity {
                             for (int i=0;i<artistInfo.length();i++){
                                 String musicId = artistInfo.getJSONObject(i).optString("musicId");
                                 String musicName = artistInfo.getJSONObject(i).optString("musicName");
-                                String urlImg = artistInfo.getJSONObject(i).optString("imgUrl");
+                                String urlImg = artistInfo.getJSONObject(i).optString("musicImg");
                                 String linkUrl = artistInfo.getJSONObject(i).optString("linkUrl");
                                 String playlistId = artistInfo.getJSONObject(i).optString("playlistId");
                                 String categoryId = artistInfo.getJSONObject(i).optString("categoryId");
                                 String artistId = artistInfo.getJSONObject(i).optString("artistId");
                                 String duration = artistInfo.getJSONObject(i).optString("duration");
                                 String artistName = artistInfo.getJSONObject(i).optString("artistName");
+                                ModelBaiHat music = new ModelBaiHat(musicId,musicName,urlImg,linkUrl,playlistId,categoryId,artistId,duration,artistName);
+                                dataSource.add(music);
+                            }
+
+                            for(int i = 0; i<dataSource.size();i++){
+                                Log.i(dataSource.get(i).getImgUrl(),"songname");
+                            }
+                            linearLayoutManager = new LinearLayoutManager(MusicList_Info_Activity.this);
+                            myrv = new MusicInfo_Adapter(MusicList_Info_Activity.this,dataSource);
+                            if(MusicList_Info_Activity.this==null){
+                                Log.i("yes","NULL");
+                            }
+                            else{
+                                rv.setLayoutManager(linearLayoutManager);
+                                rv.setAdapter(myrv);}
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+
+                @Override
+                public void onFailure(@NonNull Call<ResponseModel> call, @NonNull Throwable t) {
+                    Log.i(t.getMessage(),"error server");
+                }
+            });
+        }
+        else if(i.hasExtra("history")){
+
+            DataService dataservice = APIService.getService();
+            Call<ResponseModel> getInfo = dataservice.getHistoryUser(id);
+            getInfo.enqueue(new Callback<ResponseModel>() {
+                @Override
+                public void onResponse(@NonNull Call<ResponseModel> call, @NonNull Response<ResponseModel> response) {
+                    ResponseModel responseBody = response.body();
+
+                    if (responseBody != null) {
+                        Log.i("has result", "has result");
+                        // ko xoa doan nay, code get data
+                        Gson gson = new Gson();
+
+                        assert response.body() != null;
+                        String jsonResult = gson.toJson(response.body().getContent());
+
+                        dataSource = new ArrayList<ModelBaiHat>();
+
+                        JSONArray historyUserList;
+
+                        JSONObject resultGetData = null;
+
+                        try {
+                            resultGetData = new JSONObject(jsonResult);
+
+                            JSONObject datas = resultGetData.getJSONObject("datas");
+
+                            historyUserList = datas.getJSONArray("historyUserList");
+                            Log.i(String.valueOf(historyUserList.length()),"length of user list h istory");
+                            for (int i=0;i<historyUserList.length();i++){
+                                String musicId = historyUserList.getJSONObject(i).optString("musicId");
+
+                                String musicName = historyUserList.getJSONObject(i).optString("musicName");
+                                String urlImg = historyUserList.getJSONObject(i).optString("musicImg");
+                                String linkUrl = historyUserList.getJSONObject(i).optString("linkUrl");
+                                String playlistId = historyUserList.getJSONObject(i).optString("playlistId");
+                                String categoryId = historyUserList.getJSONObject(i).optString("categoryId");
+                                String artistId = historyUserList.getJSONObject(i).optString("artistId");
+                                String duration = historyUserList.getJSONObject(i).optString("duration");
+                                String artistName = historyUserList.getJSONObject(i).optString("artistName");
                                 ModelBaiHat music = new ModelBaiHat(musicId,musicName,urlImg,linkUrl,playlistId,categoryId,artistId,duration,artistName);
                                 dataSource.add(music);
                             }
@@ -267,7 +345,7 @@ public class MusicList_Info_Activity extends AppCompatActivity {
 
                                 String musicId = artistInfo.getJSONObject(i).optString("musicId");
                                 String musicName = artistInfo.getJSONObject(i).optString("musicName");
-                                String urlImg = artistInfo.getJSONObject(i).optString("imgUrl");
+                                String urlImg = artistInfo.getJSONObject(i).optString("musicImg");
                                 String linkUrl = artistInfo.getJSONObject(i).optString("linkUrl");
                                 String playlistId = artistInfo.getJSONObject(i).optString("playlistId");
                                 String categoryId = artistInfo.getJSONObject(i).optString("categoryId");

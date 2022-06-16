@@ -12,9 +12,9 @@ public class ModelBaiHat implements Serializable {
     @SerializedName("musicName")
     @Expose
     private String musicName;
-    @SerializedName("imgUrl")
+    @SerializedName("musicImg")
     @Expose
-    private String imgUrl;
+    private String musicImg;
 
     @SerializedName("linkUrl")
     @Expose
@@ -60,7 +60,7 @@ public class ModelBaiHat implements Serializable {
     public ModelBaiHat(String musicId, String musicName, String imgUrl, String linkUrl, String playlistId, String categoryId, String artistId, String duration, String artistName) {
         this.musicId = musicId;
         this.musicName = musicName;
-        this.imgUrl = imgUrl;
+        this.musicImg = imgUrl;
         this.linkUrl = linkUrl;
         this.playlistId = playlistId;
         this.categoryId = categoryId;
@@ -72,7 +72,7 @@ public class ModelBaiHat implements Serializable {
     public ModelBaiHat(String musicId, String musicName, String imgUrl) {
         this.musicId = musicId;
         this.musicName = musicName;
-        this.imgUrl = imgUrl;
+        this.musicImg = imgUrl;
 
     }
 
@@ -94,11 +94,11 @@ public class ModelBaiHat implements Serializable {
     }
 
     public String getImgUrl() {
-        return imgUrl;
+        return musicImg;
     }
 
     public void setImgUrl(String imgUrl) {
-        this.imgUrl = imgUrl;
+        this.musicImg = imgUrl;
     }
 
     public String getLinkUrl() {
