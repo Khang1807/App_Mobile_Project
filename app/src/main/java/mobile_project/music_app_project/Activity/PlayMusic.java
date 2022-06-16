@@ -1,17 +1,23 @@
 package mobile_project.music_app_project.Activity;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
 import android.content.Intent;
 import android.location.Location;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.animation.LinearInterpolator;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -28,6 +34,7 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import mobile_project.music_app_project.Model.ModelBaiHat;
 import mobile_project.music_app_project.Model.ModelNgheSi;
 import mobile_project.music_app_project.Model.ModelPlayList;
@@ -47,6 +54,9 @@ public class PlayMusic extends AppCompatActivity {
     SeekBar seekBar;
     ImageView pausePlay,nextBtn,previousBtn,musicIcon,refresh_music;
     ArrayList<ModelBaiHat> songsList;
+    View view;
+    CircleImageView circleImageView;
+    ObjectAnimator objectAnimator;
 
     ModelBaiHat currentSong;
     MediaPlayer mediaPlayer = MyMediaPlayer.getInstance();
@@ -67,6 +77,7 @@ public class PlayMusic extends AppCompatActivity {
         previousBtn = findViewById(R.id.previous);
         refresh_music = findViewById(R.id.refresh_music);
         musicIcon = findViewById(R.id.music_icon_big);
+
 
         titleTv.setSelected(true);
 
@@ -146,6 +157,18 @@ public class PlayMusic extends AppCompatActivity {
 
 
     }
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
+        view = inflater.inflate(R.layout.activity_play_music,container, false);
+        circleImageView = view.findViewById(R.id.music_icon_big);
+        objectAnimator = ObjectAnimator.ofFloat(circleImageView, "rotation", 0f, 360f);
+        objectAnimator.setDuration(20000);
+        objectAnimator.setRepeatCount(ValueAnimator.INFINITE);
+        objectAnimator.setRepeatMode(ValueAnimator.RESTART);
+        objectAnimator.setInterpolator(new LinearInterpolator());
+        objectAnimator.start();
+        return view;
+    }
     @Override
     protected void onPause() {
         super.onPause();
@@ -194,6 +217,8 @@ public class PlayMusic extends AppCompatActivity {
 
         mediaPlayer.reset();
         String name = currentSong.getLinkUrl();
+        int imgID  = getResources().getIdentifier(currentSong.getImgUrl(),"drawable", getApplicationContext().getPackageName());
+        musicIcon.setImageResource(imgID);
         int resID  = getResources().getIdentifier(name, "raw", getApplicationContext().getPackageName());
         Log.i(String.valueOf(resID),"resId");
         mediaPlayer = MediaPlayer.create(getApplicationContext(), resID);
