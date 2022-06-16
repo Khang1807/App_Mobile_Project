@@ -95,7 +95,7 @@ public class Fragment_div_likedsong extends Fragment {
 
                             String musicId = listPL.getJSONObject(i).optString("musicId");
                             String musicName = listPL.getJSONObject(i).optString("musicName");
-                            String urlImg = listPL.getJSONObject(i).optString("imgUrl");
+                            String urlImg = listPL.getJSONObject(i).optString("musicImg");
                             String linkUrl = listPL.getJSONObject(i).optString("linkUrl");
                             String playlistId = listPL.getJSONObject(i).optString("playlistId");
                             String categoryId = listPL.getJSONObject(i).optString("categoryId");

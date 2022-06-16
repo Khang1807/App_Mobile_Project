@@ -92,7 +92,7 @@ public class Fragment_div_playlist extends Fragment {
 
                             String id = listPlaylist.getJSONObject(i).optString("playlistId");
                             String nameOfPlaylist = listPlaylist.getJSONObject(i).optString("nameOfPlaylist");
-                            String urlImg = listPlaylist.getJSONObject(i).optString("imgUrl");
+                            String urlImg = listPlaylist.getJSONObject(i).optString("playlistImg");
                             String score = listPlaylist.getJSONObject(i).optString("score");
 
                             ModelPlayList playlist = new ModelPlayList(id,nameOfPlaylist,urlImg,score);

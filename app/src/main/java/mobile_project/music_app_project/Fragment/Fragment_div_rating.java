@@ -86,7 +86,7 @@ public class Fragment_div_rating extends Fragment {
 
                             String playlistId = listPlaylistTop.getJSONObject(i).optString("playlistId");
                             String playlistName = listPlaylistTop.getJSONObject(i).optString("playlistName");
-                            String urlImg = listPlaylistTop.getJSONObject(i).optString("imgUrl");
+                            String urlImg = listPlaylistTop.getJSONObject(i).optString("playlistImg");
                             String score = listPlaylistTop.getJSONObject(i).optString("score");
 
 

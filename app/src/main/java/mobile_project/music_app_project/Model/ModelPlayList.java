@@ -14,9 +14,9 @@ public class ModelPlayList implements Serializable {
     @SerializedName("nameOfPlaylist")
     @Expose
     private String nameOfPlaylist;
-    @SerializedName("imgUrl")
+    @SerializedName("playlistImg")
     @Expose
-    private String imgUrl;
+    private String playlistImg;
     @SerializedName("score")
     @Expose
     private String score;
@@ -25,7 +25,7 @@ public class ModelPlayList implements Serializable {
     public ModelPlayList(String playlistId, String nameOfPlaylist, String urlImg, String score) {
         this.playlistId = playlistId;
         this.nameOfPlaylist = nameOfPlaylist;
-        this.imgUrl = urlImg;
+        this.playlistImg = urlImg;
         this.score = score;
     }
 
@@ -48,11 +48,11 @@ public class ModelPlayList implements Serializable {
     }
 
     public String getImgUrl() {
-        return imgUrl;
+        return playlistImg;
     }
 
     public void setImgUrl(String hinhNen) {
-        this.imgUrl = hinhNen;
+        this.playlistImg = hinhNen;
     }
 
 

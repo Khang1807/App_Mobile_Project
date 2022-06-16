@@ -1,3 +1,4 @@
+
 package mobile_project.music_app_project.Fragment;
 
 
@@ -49,7 +50,8 @@ public class Fragment_div_suggestions extends Fragment {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                intent=new Intent(getActivity(), Suggest_Hist_Activity.class);
+                intent=new Intent(getActivity(), MusicList_Info_Activity.class);
+                intent.putExtra("history","history");
                 startActivity(intent);
             }
         });
@@ -66,3 +68,4 @@ public class Fragment_div_suggestions extends Fragment {
     }
 
 }
+

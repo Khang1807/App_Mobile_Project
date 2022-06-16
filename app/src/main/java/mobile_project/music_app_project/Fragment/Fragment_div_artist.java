@@ -90,7 +90,7 @@ public class Fragment_div_artist extends Fragment {
 
                             String artistId = listArtist.getJSONObject(i).optString("artistId");
                             String artistName = listArtist.getJSONObject(i).optString("artistName");
-                            String urlImg = listArtist.getJSONObject(i).optString("imgUrl");
+                            String urlImg = listArtist.getJSONObject(i).optString("artistImg");
 
 
                             ModelNgheSi artist = new ModelNgheSi(artistId,artistName,urlImg);

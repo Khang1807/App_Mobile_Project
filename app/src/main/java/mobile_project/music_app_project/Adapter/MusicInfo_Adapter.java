@@ -61,9 +61,11 @@ public class MusicInfo_Adapter extends RecyclerView.Adapter<MusicInfo_Adapter.Vi
                 @Override
                 public void onClick(View view) {
                     Intent i = new Intent(getContext(), PlayMusic.class);
+
                     ArrayList<ModelBaiHat> songList = new ArrayList<ModelBaiHat>();
                     songList.add(data.get(position));
                     i.putExtra("musicListPlay",songList);
+
                     getContext().startActivity(i);
                 }
             });
