@@ -26,9 +26,18 @@ class PlaylistUserService
 	public function doAddPlaylistUser(Request $request)
 	{
 
-		DB::beginTransaction();
-
+		
+		$conditions = array(
+			['musicId', '=', $request->input('musicId')],
+			['userId','=',$request->input('userId')]
+		);
+		$existsmusic = DB::table('playlist_of_user')
+					->where($conditions)
+					->first();
+		
 		$newPlaylistUser = new PlaylistOfUser;
+		if($existsmusic==null){
+			DB::beginTransaction();		
 		try {
 			$newPlaylistUser->userId = $request->input('userId');
             $newPlaylistUser->musicId = $request->input('musicId');
@@ -37,16 +46,23 @@ class PlaylistUserService
 			DB::rollback();
 			return responseUtil::respondedError("common.error-messages.common-server-error");
 		}
-
+	
 		DB::commit();
-
-		return responseUtil::respondedSuccess("pages.add.category.success", $newPlaylistUser);
+		}
+		else{return responseUtil::respondedBadRequest("Already liked");}
+		return responseUtil::respondedSuccess("pages.add.playlistofuser.success", $newPlaylistUser);
+		
+		
+		
+		
 	}
+	
 
 	public function getPlaylistOfUser(Request $request){
         $accountId = $request->input('userId');
         $playlistOfUser = DB::table('playlist_of_user')
 						->join('music','playlist_of_user.musicId','=','music.musicId')
+						->leftjoin('artist','music.artistId','=','artist.artistId')
 						->where('userId','=',$accountId)
 						->get();
         $respondedResult = [
