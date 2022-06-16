@@ -32,6 +32,9 @@
         <entry key="..\:/Project_Learning/Android/App_Mobile_Project/app/src/main/res/layout/music_list_item.xml" value="0.1897644927536232" />
         <entry key="..\:/Project_Learning/Android/App_Mobile_Project/app/src/main/res/layout/music_recycle_item.xml" value="0.19635416666666666" />
         <entry key="..\:/Users/ADMIN/Desktop/App_Mobile_Project/app/src/main/res/layout/activity_play_music.xml" value="0.3037037037037037" />
+        <entry key="..\:/Users/ADMIN/Desktop/App_Mobile_Project/app/src/main/res/layout/activity_signup.xml" value="0.3515625" />
+        <entry key="..\:/Users/ADMIN/Desktop/App_Mobile_Project/app/src/main/res/layout/fragment__avatar.xml" value="0.3515625" />
+        <entry key="..\:/Users/ADMIN/Desktop/App_Mobile_Project/app/src/main/res/layout/fragment_user_player.xml" value="0.3515625" />
         <entry key="..\:/Users/ADMIN/Desktop/App_Mobile_Project/app/src/main/res/layout/hist_list_item.xml" value="0.2390625" />
         <entry key="..\:/Users/ADMIN/Desktop/App_Mobile_Project/app/src/main/res/layout/liked_list_item.xml" value="0.2390625" />
         <entry key="..\:/Users/ADMIN/Desktop/App_Mobile_Project/app/src/main/res/layout/music_list_item.xml" value="0.2390625" />
@@ -166,7 +169,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_16" project-jdk-name="11" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

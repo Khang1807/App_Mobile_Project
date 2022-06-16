@@ -45,6 +45,9 @@ public class ModelBaiHat implements Serializable {
     @Expose
     private String duration;
 
+    public ModelBaiHat(String musicId, String musicName, String urlImg, String linkUrl, String playlistId, String categoryId, String artistId, String duration) {
+    }
+
     public String getArtistName() {
         return artistName;
     }
