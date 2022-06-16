@@ -63,6 +63,12 @@ public interface DataService {
     Call<ResponseModel> getplaylist_user(@Field("userId") String userId);
 
 
-    @DELETE("playlistofuser/delete-playlist-of-user")
+    @DELETE("playlist/delete-playlist-of-user")
     Call<ResponseModel> deletePlaylist_User(@Query("userId") String userId,@Query("musicId")String musicId);
+    @FormUrlEncoded
+    @POST("history/add-history-of-user")
+    Call<ResponseModel> addHistoryUser(@Field("userId") String userId,@Field("musicId") String musicId, @Field("time") String time);
+
+    @GET("history/get-history-of-user")
+    Call<ResponseModel> getHistoryUser(@Query("userId") String userId);
 }
