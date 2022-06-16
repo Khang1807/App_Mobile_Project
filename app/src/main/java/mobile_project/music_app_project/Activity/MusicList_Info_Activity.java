@@ -22,11 +22,13 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+import mobile_project.music_app_project.Adapter.LikedSongAdapter;
 import mobile_project.music_app_project.Adapter.MusicInfo_Adapter;
 import mobile_project.music_app_project.Model.ModelBaiHat;
 import mobile_project.music_app_project.Model.ModelNgheSi;
 import mobile_project.music_app_project.Model.ModelPlayList;
 import mobile_project.music_app_project.Model.ModelTheLoai;
+import mobile_project.music_app_project.Model.ModelUser;
 import mobile_project.music_app_project.Model.ResponseModel;
 import mobile_project.music_app_project.R;
 import mobile_project.music_app_project.Service_API.APIService;
@@ -39,10 +41,12 @@ public class MusicList_Info_Activity extends AppCompatActivity {
     ModelNgheSi artist;
     ModelTheLoai category;
     ModelPlayList playList;
+    ModelUser user;
     ArrayList<ModelBaiHat> dataSource;
     LinearLayoutManager linearLayoutManager;
     RecyclerView rv ;
     MusicInfo_Adapter myrv;
+    LikedSongAdapter likedSongAdapter;
     ImageView playAllMusic;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -67,8 +71,12 @@ public class MusicList_Info_Activity extends AppCompatActivity {
             GetData(artist.getArtistId());}
         else if(category!=null && !category.getCategoryId().equals("")){
             GetData(category.getCategoryId());}
-        else{
+        else if(playList!=null && !playList.getIdPlaylist().equals("")){
             GetData(playList.getIdPlaylist());
+        }
+        else{
+            String id = SignIn.id_user;
+            GetData(id);
         }
     }
 
@@ -88,10 +96,15 @@ public class MusicList_Info_Activity extends AppCompatActivity {
                 artist_name.setText(category.getCategoryName());
 //                Toast.makeText(this,category.getCategoryName(),Toast.LENGTH_SHORT).show();
             }
-            else{
+
+            else if(i.hasExtra("Playlist")){
                 playList = (ModelPlayList) i.getSerializableExtra("Playlist");
                 artist_name.setText(playList.getTenPlayList());
 //                Toast.makeText(this,playList.getTenPlayList(),Toast.LENGTH_SHORT).show();
+            }
+            else{
+                //user = (ModelUser) i.getSerializableExtra("PlaylistUser");
+                artist_name.setText("Bài hát yêu thích");
             }
         }
     }
@@ -143,9 +156,7 @@ public class MusicList_Info_Activity extends AppCompatActivity {
                                 dataSource.add(music);
                             }
 
-                            for(int i = 0; i<dataSource.size();i++){
-                                Log.i(dataSource.get(i).getImgUrl(),"songname");
-                            }
+
                             linearLayoutManager = new LinearLayoutManager(MusicList_Info_Activity.this);
                             myrv = new MusicInfo_Adapter(MusicList_Info_Activity.this,dataSource);
                             if(MusicList_Info_Activity.this==null){
@@ -210,9 +221,7 @@ public class MusicList_Info_Activity extends AppCompatActivity {
                                 dataSource.add(music);
                             }
 
-                            for(int i = 0; i<dataSource.size();i++){
-                                Log.i(dataSource.get(i).getImgUrl(),"songname");
-                            }
+
                             linearLayoutManager = new LinearLayoutManager(MusicList_Info_Activity.this);
                             myrv = new MusicInfo_Adapter(MusicList_Info_Activity.this,dataSource);
                             if(MusicList_Info_Activity.this==null){
@@ -234,7 +243,8 @@ public class MusicList_Info_Activity extends AppCompatActivity {
                 }
             });
         }
-        else{
+
+        else if(i.hasExtra("Playlist")){
             DataService dataservice = APIService.getService();
             Call<ResponseModel> getInfo = dataservice.getPlaylistInfo(id);
             getInfo.enqueue(new Callback<ResponseModel>() {
@@ -279,9 +289,7 @@ public class MusicList_Info_Activity extends AppCompatActivity {
                                 dataSource.add(music);
                             }
 
-                            for(int i = 0; i<dataSource.size();i++){
-                                Log.i(dataSource.get(i).getImgUrl(),"songname");
-                            }
+
                             linearLayoutManager = new LinearLayoutManager(MusicList_Info_Activity.this);
                             myrv = new MusicInfo_Adapter(MusicList_Info_Activity.this,dataSource);
                             if(MusicList_Info_Activity.this==null){
@@ -302,6 +310,74 @@ public class MusicList_Info_Activity extends AppCompatActivity {
                     Log.i(t.getMessage(),"error server");
                 }
             });
+
+        }
+        else {
+            DataService networkService = APIService.getService();
+            Call<ResponseModel> getPlaylistList = networkService.getplaylist_user(id);
+
+            getPlaylistList.enqueue(new Callback<ResponseModel>() {
+                @Override
+                public void onResponse(@NonNull Call<ResponseModel> call, @NonNull Response<ResponseModel> response) {
+                    ResponseModel responseBody = response.body();
+
+                    if (responseBody != null) {
+                        Log.i("has result", "has result");
+                        // ko xoa doan nay, code get data
+                        Gson gson = new Gson();
+
+                        String jsonResult = gson.toJson(response.body().getContent());
+
+                        dataSource = new ArrayList<ModelBaiHat>();
+
+                        JSONArray listPL;
+
+                        JSONObject resultGetData = null;
+
+                        try {
+
+                            resultGetData = new JSONObject(jsonResult);
+
+                            JSONObject datas = resultGetData.getJSONObject("datas");
+
+                            listPL = datas.getJSONArray("playlistOfUser");
+
+                            for (int i=0;i<listPL.length();i++){
+
+                                String musicId = listPL.getJSONObject(i).optString("musicId");
+                                String musicName = listPL.getJSONObject(i).optString("musicName");
+                                String urlImg = listPL.getJSONObject(i).optString("imgUrl");
+                                String linkUrl = listPL.getJSONObject(i).optString("linkUrl");
+                                String playlistId = listPL.getJSONObject(i).optString("playlistId");
+                                String categoryId = listPL.getJSONObject(i).optString("categoryId");
+                                String artistId = listPL.getJSONObject(i).optString("artistId");
+                                String duration = listPL.getJSONObject(i).optString("duration");
+                                String artistName = listPL.getJSONObject(i).optString("artistName");
+
+                                ModelBaiHat music = new ModelBaiHat(musicId,musicName,urlImg,linkUrl,playlistId,categoryId,artistId,duration,artistName);
+                                dataSource.add(music);
+
+                            }
+
+
+                            linearLayoutManager = new LinearLayoutManager(MusicList_Info_Activity.this);
+                            likedSongAdapter = new LikedSongAdapter(MusicList_Info_Activity.this,dataSource);
+
+                            rv.setLayoutManager(linearLayoutManager);
+                            rv.setAdapter(likedSongAdapter);
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+
+                @Override
+                public void onFailure(@NonNull Call<ResponseModel> call, @NonNull Throwable t) {
+                    Log.i(t.getMessage(),"error server");
+                }
+            });
+
         }
 
 

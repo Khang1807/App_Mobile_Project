@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -100,8 +101,9 @@ public class Fragment_div_likedsong extends Fragment {
                             String categoryId = listPL.getJSONObject(i).optString("categoryId");
                             String artistId = listPL.getJSONObject(i).optString("artistId");
                             String duration = listPL.getJSONObject(i).optString("duration");
+                            String artistName = listPL.getJSONObject(i).optString("artistName");
 
-                            ModelBaiHat music = new ModelBaiHat(musicId,musicName,urlImg,linkUrl,playlistId,categoryId,artistId,duration);
+                            ModelBaiHat music = new ModelBaiHat(musicId,musicName,urlImg,linkUrl,playlistId,categoryId,artistId,duration,artistName);
                             dataSource.add(music);
 
                         }
@@ -172,7 +174,37 @@ public class Fragment_div_likedsong extends Fragment {
                 song_img = view.findViewById(R.id.imgMusicList);
                 divMusicList = view.findViewById(R.id.divMusicList);
                 icLove = view.findViewById(R.id.ic_love);
-                icLove.setVisibility(View.INVISIBLE);
+                icLove.setImageResource(R.drawable.ic_loved);
+                icLove.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        String id =SignIn.id_user;
+
+                        icLove.setImageResource(R.drawable.ic_love);
+                        DataService dataService = APIService.getService();
+                        Call<ResponseModel> deleteLikedSong = dataService.deletePlaylist_User(id,data.get(getPosition()).getMusicId());
+                        deleteLikedSong.enqueue(new Callback<ResponseModel>() {
+                            @Override
+                            public void onResponse(Call<ResponseModel> call, Response<ResponseModel> response) {
+                                ResponseModel result = response.body();
+                                if(result!=null){
+                                    Log.i("Result","Success");
+                                    Toast.makeText(getContext(), "Delete", Toast.LENGTH_SHORT).show();
+                                    //divMusicList.setVisibility(View.GONE);
+                                }
+                                else{
+                                    Toast.makeText(getContext(), "Error", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+
+                            @Override
+                            public void onFailure(Call<ResponseModel> call, Throwable t) {
+                                Log.i(t.getMessage(),"error server");
+                            }
+                        });
+                        icLove.setEnabled(false);
+                    }
+                });
             }
         }
 
