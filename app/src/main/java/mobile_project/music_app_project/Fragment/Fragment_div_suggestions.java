@@ -13,6 +13,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import mobile_project.music_app_project.Activity.Liked_Song_Activity;
+import mobile_project.music_app_project.Activity.MusicList_Info_Activity;
 import mobile_project.music_app_project.Activity.Suggest_Hist_Activity;
 import mobile_project.music_app_project.R;
 
@@ -28,7 +29,8 @@ public class Fragment_div_suggestions extends Fragment {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                intent=new Intent(getActivity(), Suggest_Hist_Activity.class);
+                intent=new Intent(getActivity(), MusicList_Info_Activity.class);
+                intent.putExtra("history","history");
                 startActivity(intent);
             }
         });

@@ -91,7 +91,7 @@ public class Fragment_div_category extends Fragment {
 
                             String categoryId = listCategory.getJSONObject(i).optString("categoryId");
                             String categoryName = listCategory.getJSONObject(i).optString("categoryName");
-                            String urlImg = listCategory.getJSONObject(i).optString("imgUrl");
+                            String urlImg = listCategory.getJSONObject(i).optString("categoryImg");
 
 
                             ModelTheLoai category = new ModelTheLoai(categoryId,categoryName,urlImg);

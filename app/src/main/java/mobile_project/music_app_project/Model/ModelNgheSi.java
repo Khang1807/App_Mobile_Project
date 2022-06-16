@@ -17,7 +17,7 @@ public class ModelNgheSi implements Serializable {
 
     @SerializedName("HinhNgheSi")
     @Expose
-    private String imgUrl;
+    private String artistImg;
 
     public ModelNgheSi(String artistId) {
         this.artistId = artistId;
@@ -26,7 +26,7 @@ public class ModelNgheSi implements Serializable {
     public ModelNgheSi(String artistId, String artistname, String imgUrl) {
         this.artistId = artistId;
         this.artistName = artistname;
-        this.imgUrl = imgUrl;
+        this.artistImg = imgUrl;
     }
 
     public ModelNgheSi() {
@@ -34,11 +34,11 @@ public class ModelNgheSi implements Serializable {
     }
 
     public String getImgUrl() {
-        return imgUrl;
+        return artistImg;
     }
 
     public void setImgUrl(String imgUrl) {
-        this.imgUrl = imgUrl;
+        this.artistImg = imgUrl;
     }
     public String getArtistId() {
         return artistId;

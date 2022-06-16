@@ -94,14 +94,15 @@ public class Fragment_div_likedsong extends Fragment {
 
                             String musicId = listPL.getJSONObject(i).optString("musicId");
                             String musicName = listPL.getJSONObject(i).optString("musicName");
-                            String urlImg = listPL.getJSONObject(i).optString("imgUrl");
+                            String urlImg = listPL.getJSONObject(i).optString("musicImg");
                             String linkUrl = listPL.getJSONObject(i).optString("linkUrl");
                             String playlistId = listPL.getJSONObject(i).optString("playlistId");
                             String categoryId = listPL.getJSONObject(i).optString("categoryId");
                             String artistId = listPL.getJSONObject(i).optString("artistId");
                             String duration = listPL.getJSONObject(i).optString("duration");
+                            String artistName = listPL.getJSONObject(i).optString("artistName");
 
-                            ModelBaiHat music = new ModelBaiHat(musicId,musicName,urlImg,linkUrl,playlistId,categoryId,artistId,duration);
+                            ModelBaiHat music = new ModelBaiHat(musicId,musicName,urlImg,linkUrl,playlistId,categoryId,artistId,duration,artistName);
                             dataSource.add(music);
 
                         }
