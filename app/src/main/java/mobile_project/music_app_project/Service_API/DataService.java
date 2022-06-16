@@ -6,10 +6,12 @@ import java.util.List;
 import mobile_project.music_app_project.Model.ModelUser;
 import mobile_project.music_app_project.Model.ResponseModel;
 import retrofit2.Call;
+import retrofit2.http.DELETE;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Query;
 
 public interface DataService {
     @FormUrlEncoded
@@ -59,4 +61,8 @@ public interface DataService {
     @FormUrlEncoded
     @POST("playlistofuser/get-playlist-user")
     Call<ResponseModel> getplaylist_user(@Field("userId") String userId);
+
+
+    @DELETE("playlistofuser/delete-playlist-of-user")
+    Call<ResponseModel> deletePlaylist_User(@Query("userId") String userId,@Query("musicId")String musicId);
 }
