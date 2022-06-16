@@ -34,7 +34,7 @@ class Playlist extends Model
 	protected $fillable = [
 		'score',
 		'nameOfPlaylist',
-		'imgUrl',
+		'playlistImg',
 	];
 
 	

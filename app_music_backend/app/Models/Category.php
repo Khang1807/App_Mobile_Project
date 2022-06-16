@@ -33,7 +33,7 @@ class Category extends Model
 
 	protected $fillable = [
 		'categoryname',
-		'imgUrl',
+		'categoryImg',
 	];
 
 	

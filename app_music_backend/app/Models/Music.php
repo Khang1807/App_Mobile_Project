@@ -38,8 +38,9 @@ class Music extends Model
         'playlistId',
         'categoryId',
 		'artistId',
-		'imgUrl',
+		'musicImg',
         'linkUrl',
+		'duration',
 		'liked'
 	];
 
