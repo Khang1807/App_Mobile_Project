@@ -44,8 +44,11 @@ class PlaylistUserService
 	}
 
 	public function getPlaylistOfUser(Request $request){
-        
-        $playlistOfUser = DB::table('playlist_of_user')->get();
+        $accountId = $request->input('userId');
+        $playlistOfUser = DB::table('playlist_of_user')
+						->join('music','playlist_of_user.musicId','=','music.musicId')
+						->where('userId','=',$accountId)
+						->get();
         $respondedResult = [
 			"playlistOfUser" => $playlistOfUser
 		];

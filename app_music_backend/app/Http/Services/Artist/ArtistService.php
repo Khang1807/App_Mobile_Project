@@ -121,7 +121,7 @@ class ArtistService
 	public function getArtistInfo(Request $request){
 		$artistId = $request->input('artistId');		
         $artistInfo = DB::table('music')
-						->select('music.*')
+						->join('artist','music.artistId','=','artist.artistId')
 						->where('music.artistId','=',$artistId)						
 						->get();
         $respondedResult = [

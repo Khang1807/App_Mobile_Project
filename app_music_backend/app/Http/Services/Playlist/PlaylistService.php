@@ -123,7 +123,7 @@ class PlaylistService
 	public function getPlaylistInfo(Request $request){
 		$playlistId = $request->input('playlistId');		
         $playlistInfo = DB::table('music')
-						->select('music.*')
+						->join('artist','music.artistId','=','artist.artistId')
 						->where('music.playlistId','=',$playlistId)						
 						->get();
         $respondedResult = [

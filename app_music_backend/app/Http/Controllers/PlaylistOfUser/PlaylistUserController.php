@@ -14,7 +14,7 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use App\Http\Utilities\ValidationUtil as validationUtil;
 
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-use App\Http\Services\Playlist\PlaylistUserService as PlaylistUserService;
+use App\Http\Services\PlaylistOfUser\PlaylistUserService as PlaylistUserService;
 
 class PlaylistUserController extends BaseController
 {
@@ -33,5 +33,8 @@ class PlaylistUserController extends BaseController
 	}
     protected function getPlaylistOfUser(){
         return $this->playlistUserService->getPlaylistOfUser();
+	}
+	protected function getPlaylistUser(Request $request){
+        return $this->playlistUserService->getPlaylistOfUser($request);
 	}
 }

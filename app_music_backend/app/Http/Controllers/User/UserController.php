@@ -41,7 +41,6 @@ class UserController extends BaseController
 	}
 
 	protected function doRegister(Request $request){
-		console.log("abcs");
 		$rules = [
 			'email' => 'required|email|between:3,150',
 			'password' => 'required|between:3,100'

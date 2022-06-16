@@ -122,7 +122,7 @@ class CategoryService
 	public function getCategoryInfo(Request $request){
 		$categoryId = $request->input('categoryId');		
         $categoryInfo = DB::table('music')
-						->select('music.*')
+						->join('artist','music.artistId','=','artist.artistId')
 						->where('music.categoryId','=',$categoryId)						
 						->get();
         $respondedResult = [

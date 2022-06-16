@@ -34,6 +34,7 @@ class MusicService
             $newMusic->rating = $request->input('rating');
 			$newMusic->playlistId = $request->input('playlistId');
 			$newMusic->categoryId = $request->input('categoryId');
+			$newMusic->artistId = $request->input('artistId');
 			$newMusic->save();
 		} catch (Exception $e) {
 			DB::rollback();
@@ -148,6 +149,10 @@ class MusicService
 
 			return responseUtil::respondedError(Lang::get('messages.common_error_exception'), $e);
 		}
+	}
+
+	public function UpdateLikedSong(Request $request){
+
 	}
 
 
