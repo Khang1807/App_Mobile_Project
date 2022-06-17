@@ -149,7 +149,6 @@ public class SignIn extends AppCompatActivity {
 
                             for(int i = 0; i < info_user.length(); i++) {
                                 JSONObject info = info_user.getJSONObject(i);
-
                                 name_user = info.getString("userName");
                                 id_user = info.getString("userId");
                             }
