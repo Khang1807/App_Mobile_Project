@@ -80,7 +80,7 @@ public class Fragment_div_category extends Fragment {
                     JSONObject resultGetData = null;
 
                     try {
-                        Log.i(getResources().getDrawable(R.drawable.album7).toString(),"url img");
+                        Log.i(getResources().getDrawable(R.drawable.album_us).toString(),"url img");
                         resultGetData = new JSONObject(jsonResult);
 
                         JSONObject datas = resultGetData.getJSONObject("datas");
