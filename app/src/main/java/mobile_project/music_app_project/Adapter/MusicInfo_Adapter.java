@@ -110,13 +110,14 @@ public class MusicInfo_Adapter extends RecyclerView.Adapter<MusicInfo_Adapter.Vi
                         @Override
                         public void onResponse(Call<ResponseModel> call, Response<ResponseModel> response) {
                             ResponseModel result = response.body();
-                            if(result.getContent().equals("Null")){
-                                icLove.setImageResource(R.drawable.ic_love);
-                                Toast.makeText(context, "Already Liked", Toast.LENGTH_SHORT).show();
-                            }
-                            else if(result!=null) {
+                            if(result!=null){
                                 Log.i("Result", "Success");
-                                Toast.makeText(context, "Liked", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(context, "Đã thích bạn hát", Toast.LENGTH_SHORT).show();
+
+                            }
+                            else if(result==null) {
+                                icLove.setImageResource(R.drawable.ic_love);
+                                Toast.makeText(context, "Bạn đã thích bài hát này", Toast.LENGTH_SHORT).show();
                             }
                         }
 

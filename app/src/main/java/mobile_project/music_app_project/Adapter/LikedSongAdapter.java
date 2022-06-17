@@ -105,7 +105,7 @@ public class LikedSongAdapter extends RecyclerView.Adapter<LikedSongAdapter.View
                             ResponseModel result = response.body();
                             if(result!=null){
                                 Log.i("Result","Success");
-                                Toast.makeText(getContext(), "Delete", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getContext(), "Bạn đã bỏ yêu thích", Toast.LENGTH_SHORT).show();
                                 //divMusicList.setVisibility(View.GONE);
                             }
                             else{

@@ -84,7 +84,7 @@ public class SignUp extends AppCompatActivity {
                         startActivity(intent_signup);
                     } else {
                         Log.i("error","error");
-                        Toast.makeText(SignUp.this, "Bạn hãy nhập đầy đủ thông tin!", Toast.LENGTH_LONG).show();
+                        Toast.makeText(SignUp.this, "Email đã tồn tại!", Toast.LENGTH_LONG).show();
                     }
                 }
             }
