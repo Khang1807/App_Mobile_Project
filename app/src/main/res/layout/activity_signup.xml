@@ -136,7 +136,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_marginTop="20dp"
-            android:paddingLeft="56dp"
+            android:paddingLeft="30dp"
             android:transitionName="signin_signup_trans">
             <TextView
                 android:id="@+id/txt_dont_account"
