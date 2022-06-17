@@ -40,7 +40,7 @@ Route::group([
     Route::get('playlist/get-playlist-of-user', [App\Http\Controllers\PlaylistOfUser\PlaylistUserController::class, 'getPlaylistOfUser']);
     Route::get('category/get-category', [App\Http\Controllers\Category\CategoryController::class, 'getCategoryList']);
     
-    Route::get('history/get-history-of-user', [App\Http\Controllers\HistoryOfUser\HistoryUserController::class, 'getHistoryUserList']);
+    Route::get('history/get-history-of-user', [App\Http\Controllers\HistoryOfUser\HistoryOfUserController::class, 'getHistoryUserList']);
     Route::get('artist/get-artist', [App\Http\Controllers\Artist\ArtistController::class, 'getArtistList']);
 
 
@@ -49,12 +49,13 @@ Route::group([
     Route::post('user/add-avatar', [App\Http\Controllers\User\UserController::class, 'doAddAvatar']);
     Route::post('music/add-music', [App\Http\Controllers\Music\MusicController::class, 'doAddMusic']);
     Route::post('playlist/add-playlist', [App\Http\Controllers\Playlist\PlaylistController::class, 'doAddPlaylist']);
-    Route::post('playlist/add-playlist-of-user', [App\Http\Controllers\PlaylistOfUser\PlaylistUserController::class, 'doAddPlaylistUser']);
+    Route::post('playlistofuser/get-playlist-user', [App\Http\Controllers\PlaylistOfUser\PlaylistUserController::class, 'getPlaylistUser']);
+    Route::post('playlistofuser/add-playlist-of-user', [App\Http\Controllers\PlaylistOfUser\PlaylistUserController::class, 'doAddPlaylistUser']);
     Route::post('category/add-category', [App\Http\Controllers\Category\CategoryController::class, 'doAddCategory']);
     Route::post('category/get-category-info', [App\Http\Controllers\Category\CategoryController::class, 'getCategoryInfo']);
     Route::post('artist/get-artist-info', [App\Http\Controllers\Artist\ArtistController::class, 'getArtistInfo']);
     Route::post('playlist/get-playlist-info', [App\Http\Controllers\Playlist\PlaylistController::class, 'getPlaylistInfo']);
-    Route::post('history/add-history-of-user', [App\Http\Controllers\HistoryOfUser\HistoryUserController::class, 'doAddHistory']);
+    Route::post('history/add-history-of-user', [App\Http\Controllers\HistoryOfUser\HistoryOfUserController::class, 'doAddHistory']);
     
     Route::post('category/update-category', [App\Http\Controllers\Category\CategoryController::class, 'doUpdateCategory']);
     Route::post('playlist/update-playlist', [App\Http\Controllers\Playlist\PlaylistController::class, 'doUpdatePlaylist']);
@@ -65,6 +66,6 @@ Route::group([
     Route::delete('playlist/delete-playlist', [App\Http\Controllers\Playlist\PlaylistController::class, 'doDeletePlaylist']);
     Route::delete('music/delete-music', [App\Http\Controllers\Music\MusicController::class, 'doDeleteMusic']);
     Route::delete('playlist/delete-playlist-of-user', [App\Http\Controllers\PlaylistOfUser\PlaylistUserController::class, 'doDeletePlaylistUser']);
-    Route::delete('history/delete-history-user', [App\Http\Controllers\HistoryOfUser\HistoryUserController::class, 'doDeleteHistoryUser']);
+    Route::delete('history/delete-history-user', [App\Http\Controllers\HistoryOfUser\HistoryOfUserController::class, 'doDeleteHistoryUser']);
     
 });

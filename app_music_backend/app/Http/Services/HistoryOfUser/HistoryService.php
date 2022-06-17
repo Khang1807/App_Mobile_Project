@@ -11,7 +11,9 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use DateTime;
 
+use Carbon\Carbon;
 
 use App\Http\Utilities\ResponseUtil as responseUtil;
 
@@ -22,25 +24,86 @@ use App\Models\HistoryOfUser;
 
 class HistoryService 
 {
-
     public function doAddHistory(Request $request)
 	{
 
-		DB::beginTransaction();
+		$conditions1 = array(
+			['userId', '=', $request->input('userId')],
+		);
+		$conditions2 = array(
+			['musicId', '=', $request->input('musicId')]
+		);
+		
+		$itemDelete = HistoryOfUser::where($conditions1)->where($conditions2)->first();
+		
 
-		$newHistory = new HistoryOfUser;
-		try {
-			$newHistory->userId = $request->input('userId');
-            $newHistory->musicId = $request->input('musicId');
-			$newHistory->save();
-		} catch (Exception $e) {
-			DB::rollback();
-			return responseUtil::respondedError("common.error-messages.common-server-error");
+		if ($itemDelete == null) {
+			
+			DB::beginTransaction();
+			
+
+			$newHistory = new HistoryOfUser;
+			try {
+				$newHistory->userId = $request->input('userId');
+				$newHistory->musicId = $request->input('musicId');
+				$date = $request->input('time');
+				$newHistory->time=DateTime::createFromFormat('Y-m-d H:i:s', $date)->format('Y-m-d H:i:s'); 
+
+				$newHistory->save();
+			} catch (Exception $e) {
+				DB::rollback();
+				return responseUtil::respondedError("common.error-messages.common-server-error");
+			}
+
+			DB::commit();
+			return responseUtil::respondedSuccess("pages.add.category.success", $newHistory);
+		}else{
+			DB::beginTransaction();
+
+			try {
+	
+				$deletedRows = HistoryOfUser::where($conditions1)->where($conditions2)->delete();
+	
+				if ($deletedRows > 0) {
+					DB::commit();
+					
+					$newHistory = new HistoryOfUser;
+					try {
+						$newHistory->userId = $request->input('userId');
+						$newHistory->musicId = $request->input('musicId');
+						$date = $request->input('time');
+						$newHistory->time=DateTime::createFromFormat('Y-m-d H:i:s', $date)->format('Y-m-d H:i:s'); 
+		
+						$newHistory->save();
+					} catch (Exception $e) {
+						DB::rollback();
+						return responseUtil::respondedError("common.error-messages.common-server-error");
+					}
+				} else {
+					DB::rollback();
+					return responseUtil::respondedBadRequest("cannot.delete");
+				}
+
+				
+			} catch (Exception $e) {
+				DB::rollback();
+	
+				$currentDate = date('Y/m/d H:i:s');
+				Log::error(env("APP_NAME") . " | " . $currentDate . " - Error: " . $e);
+	
+				return responseUtil::respondedError(Lang::get('messages.common_error_exception'), $e);
+			}
+	
 		}
+		
 
-		DB::commit();
 
-		return responseUtil::respondedSuccess("pages.add.category.success", $newHistory);
+
+
+
+
+
+		
 	}
 
 	public function doDeleteHistoryUser(Request $request){
@@ -77,9 +140,21 @@ class HistoryService
 	}
 
 
+
 	public function getHistoryUserList(Request $request){
-        
-        $historyUserList = DB::table('history_of_user')->get();
+
+		$userId = $request->input('userId');		
+        $historyUserList = DB::table('history_of_user')
+						->join('music','history_of_user.musicId','=','music.musicId')
+						// ->join('artist','music.artistId','=','artist.artistId')
+						->where('history_of_user.userId','=',$userId)	
+						->orderBy('history_of_user.time', 'DESC')					
+						->get();
+     
+		if (count($historyUserList) <= 0) {
+			return responseUtil::respondedBadRequest("history of user does not have");
+		}
+		
         $respondedResult = [
 			"historyUserList" => $historyUserList
 		];

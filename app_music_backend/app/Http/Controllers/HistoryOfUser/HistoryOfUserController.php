@@ -14,24 +14,24 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use App\Http\Utilities\ValidationUtil as validationUtil;
 
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-use App\Http\Services\HistoryOfUser\HistoryUserService as HistoryUserService;
+use App\Http\Services\HistoryOfUser\HistoryService as HistoryService;
 
-class HistoryUserController extends BaseController
+class HistoryOfUserController extends BaseController
 {
-    private $historyUserService;
+    private $HistoryService;
 
 	public function __construct(
-		HistoryUserService $historyUserService
+		HistoryService $HistoryService
 	) {
-		$this->historyUserService = $historyUserService;
+		$this->HistoryService = $HistoryService;
 	}
 	protected function doAddHistory(Request $request){
-        return $this->historyUserService->doAddHistory($request);
+        return $this->HistoryService->doAddHistory($request);
 	}
 	protected function doDeleteHistoryUser(Request $request){
-        return $this->historyUserService->doDeleteHistoryUser($request);
+        return $this->HistoryService->doDeleteHistoryUser($request);
 	}
-    protected function getHistoryUserList(){
-        return $this->historyUserService->getHistoryUserList();
+    protected function getHistoryUserList(Request $request){
+        return $this->HistoryService->getHistoryUserList($request);
 	}
 }

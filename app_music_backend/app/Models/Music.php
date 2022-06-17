@@ -37,8 +37,11 @@ class Music extends Model
 		'rating',
         'playlistId',
         'categoryId',
-		'imgUrl',
-        'linkUrl'
+		'artistId',
+		'musicImg',
+        'linkUrl',
+		'duration',
+		'liked'
 	];
 
 	
