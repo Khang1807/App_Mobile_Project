@@ -43,7 +43,8 @@ class UserController extends BaseController
 	protected function doRegister(Request $request){
 		$rules = [
 			'email' => 'required|email|between:3,150',
-			'password' => 'required|between:3,100'
+			'password' => 'required|between:3,100',
+			'userName' => 'required|between:3,100'
 		];
 		return $this->userService->doRegister($request);
 	}
