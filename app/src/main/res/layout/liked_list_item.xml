@@ -29,13 +29,17 @@
 
         <TextView
             android:id="@+id/liked_song_name"
-            android:layout_width="match_parent"
+            android:layout_width="220dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
+            android:maxLength="18"
+            android:maxLines="1"
+            android:ellipsize="end"
             android:fontFamily="@font/gothammedium1"
             android:text="Tên bài hát"
             android:textColor="@color/white"
-            android:textSize="20dp" />
+            android:textSize="20dp"
+            android:lineSpacingExtra="5dp"/>
 
         <TextView
             android:id="@+id/liked_artist_name"

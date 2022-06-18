@@ -99,6 +99,11 @@ public class PlayMusic extends AppCompatActivity {
 
                     }
                 });
+                if(mediaPlayer.isPlaying())
+                    pausePlay.setOnClickListener(v-> pausePlay());
+                else{
+                    pausePlay.setOnClickListener(v-> Play());
+                }
                 if(mediaPlayer!=null){
                     seekBar.setProgress(mediaPlayer.getCurrentPosition());
                     currentTimeTv.setText(convertToMMSS(mediaPlayer.getCurrentPosition()+""));
@@ -170,9 +175,8 @@ public class PlayMusic extends AppCompatActivity {
         return view;
     }
     @Override
-    protected void onPause() {
+    protected void onPause(){
         super.onPause();
-
         pausePlay();
     }
     void getMusicFromServer(){
@@ -196,7 +200,6 @@ public class PlayMusic extends AppCompatActivity {
 
         totalTimeTv.setText(currentSong.getDuration());
 
-        pausePlay.setOnClickListener(v-> pausePlay());
         nextBtn.setOnClickListener(v-> playNextSong());
         previousBtn.setOnClickListener(v-> playPreviousSong());
 
@@ -250,8 +253,10 @@ public class PlayMusic extends AppCompatActivity {
     private void pausePlay(){
         if(mediaPlayer.isPlaying())
             mediaPlayer.pause();
-        else
-            mediaPlayer.start();
+    }
+    private void Play(){
+        if(!mediaPlayer.isPlaying())
+        mediaPlayer.start();
     }
 
 

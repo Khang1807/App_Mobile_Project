@@ -79,7 +79,8 @@ public class MusicList_Info_Activity extends AppCompatActivity {
 
         else if(history!=null && history.equals("history")){
             GetData(SignIn.id_user);}
-        else if(playList!=null && playList.getIdPlaylist().equals("")){
+        else if(playList!=null && !playList.getIdPlaylist().equals("")){
+            Log.i(playList.getIdPlaylist(),"Pl");
             GetData(playList.getIdPlaylist());
         }
         else{
@@ -109,9 +110,7 @@ public class MusicList_Info_Activity extends AppCompatActivity {
             else if(i.hasExtra("Playlist")){
                 playList = (ModelPlayList) i.getSerializableExtra("Playlist");
                 artist_name.setText(playList.getTenPlayList());
-//                //Log.i(playList.getIdPlaylist(),"ID of playlist");
-//                //
-//                Toast.makeText(this,playList.getTenPlayList(),Toast.LENGTH_SHORT).show();
+                Log.i(playList.getIdPlaylist(),"Playlist ID");
             }
             else if(i.hasExtra("history")){
                     history = i.getStringExtra("history");
@@ -126,7 +125,7 @@ public class MusicList_Info_Activity extends AppCompatActivity {
     }
     private void GetData(String id){
         Intent i = getIntent();
-
+        Log.i(id,"ID Get Data");
         if(i.hasExtra("Artist")){
             DataService dataservice = APIService.getService();
             Call<ResponseModel> getInfo = dataservice.getArtistInfo(id);
@@ -294,9 +293,11 @@ public class MusicList_Info_Activity extends AppCompatActivity {
 
                                 String musicId = artistInfo.getJSONObject(i).optString("musicId");
                                 String musicName = artistInfo.getJSONObject(i).optString("musicName");
+
                                 String urlImg = artistInfo.getJSONObject(i).optString("musicImg");
                                 String linkUrl = artistInfo.getJSONObject(i).optString("linkUrl");
                                 String playlistId = artistInfo.getJSONObject(i).optString("playlistId");
+
                                 String categoryId = artistInfo.getJSONObject(i).optString("categoryId");
                                 String artistId = artistInfo.getJSONObject(i).optString("artistId");
                                 String duration = artistInfo.getJSONObject(i).optString("duration");
