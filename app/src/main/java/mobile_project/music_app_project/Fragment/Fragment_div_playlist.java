@@ -152,6 +152,7 @@ public class Fragment_div_playlist extends Fragment {
                 public void onClick(View view) {
                     Intent i = new Intent(getContext(), MusicList_Info_Activity.class);
                     i.putExtra("Playlist",data.get(position));
+                    //Log.i(data.get(position).getIdPlaylist(),"Position Playlist");
                     getContext().startActivity(i);
                 }
             });

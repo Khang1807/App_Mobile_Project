@@ -31,40 +31,6 @@
             android:textColor="#ffffff"
             android:textSize="27sp"
             app:layout_constraintStart_toEndOf="@+id/imageviewuserprofile"/>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center"
-                android:layout_marginTop="10dp">
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@color/black"
-                    android:src="@drawable/ic_camera"/>
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/load_avt"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Tải ảnh đại diện"
-                    app:backgroundTint="@color/black"
-                    android:fontFamily="@font/gothammedium1"
-                    android:textSize="15sp"/>
-            </LinearLayout>
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/save_avt"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Lưu"
-                android:gravity="center"
-                app:backgroundTint="@color/black"
-                android:fontFamily="@font/gothammedium1"
-                android:textSize="15sp"/>
-        </LinearLayout>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"

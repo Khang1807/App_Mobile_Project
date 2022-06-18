@@ -5,16 +5,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:background="@color/black">
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/back_user_player"
-        app:iconSize="40dp"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        app:icon="@drawable/iconback"
-        app:backgroundTint="@color/black"
-        android:layout_marginTop="10dp"
-
-    />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -28,17 +18,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="15dp"
             android:fontFamily="@font/gothammedium1"
-            android:text="Màu giao diện"
+            android:text="Light Mode"
             android:textColor="@color/white"
             android:textSize="30dp"></TextView>
         <ToggleButton
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
     </LinearLayout>

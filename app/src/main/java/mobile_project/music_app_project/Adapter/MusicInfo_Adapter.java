@@ -1,9 +1,11 @@
 package mobile_project.music_app_project.Adapter;
 
 import android.annotation.SuppressLint;
+import android.app.DownloadManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -35,7 +37,6 @@ import retrofit2.Response;
 public class MusicInfo_Adapter extends RecyclerView.Adapter<MusicInfo_Adapter.ViewHolder>{
     Context context;
     ArrayList<ModelBaiHat> data;
-
 
     public MusicInfo_Adapter(Context context, ArrayList<ModelBaiHat> data) {
         this.context = context;
@@ -86,7 +87,7 @@ public class MusicInfo_Adapter extends RecyclerView.Adapter<MusicInfo_Adapter.Vi
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView nameSong,artistTitle;
-        ImageView song_img,icLove;
+        ImageView song_img,icLove,icdowload;
         LinearLayout divMusicList;
         public ViewHolder(@NonNull View view) {
             super(view);
@@ -112,7 +113,7 @@ public class MusicInfo_Adapter extends RecyclerView.Adapter<MusicInfo_Adapter.Vi
                             ResponseModel result = response.body();
                             if(result!=null){
                                 Log.i("Result", "Success");
-                                Toast.makeText(context, "Đã thích bạn hát", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(context, "Đã thích bài hát", Toast.LENGTH_SHORT).show();
 
                             }
                             else if(result==null) {

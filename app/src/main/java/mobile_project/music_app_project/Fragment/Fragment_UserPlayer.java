@@ -77,7 +77,7 @@ public class Fragment_UserPlayer extends Fragment {
     }
     private void anhxa(){
         btn_dangxuat = view.findViewById(R.id.btn_dangxuat);
-        btn_setting_user = view.findViewById(R.id.next_setting);
+        btn_setting_user = view.findViewById(R.id.btn_setting);
         img_avatar = view.findViewById(R.id.img_user_profile);
         txt_name = view.findViewById(R.id.tennguoidung);
         btn_dieukhoan = view.findViewById(R.id.btn_term);

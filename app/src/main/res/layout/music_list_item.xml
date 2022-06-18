@@ -30,13 +30,14 @@
 
         <TextView
             android:id="@+id/musicTitle"
-            android:layout_width="match_parent"
+            android:layout_width="220dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:fontFamily="@font/gothammedium1"
             android:text="Tên bài hát"
             android:textColor="@color/white"
-            android:textSize="20dp" />
+            android:textSize="20dp"
+            android:lineSpacingExtra="5dp"/>
 
         <TextView
             android:id="@+id/artistTitle"
@@ -48,15 +49,13 @@
             android:textColor="@color/white" />
 
     </LinearLayout>
-
-
     <ImageView
         android:id="@+id/ic_love"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_weight="1"
         android:scaleType="fitEnd"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="10dp"
         android:src="@drawable/ic_love"
         android:backgroundTint="@color/white"
         android:clickable="true" />

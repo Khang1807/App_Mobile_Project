@@ -79,7 +79,7 @@ public class MusicList_Info_Activity extends AppCompatActivity {
 
         else if(history!=null && history.equals("history")){
             GetData(SignIn.id_user);}
-        else if(playList!=null && playList.equals("history")){
+        else if(playList!=null && playList.getIdPlaylist().equals("")){
             GetData(playList.getIdPlaylist());
         }
         else{
@@ -109,6 +109,8 @@ public class MusicList_Info_Activity extends AppCompatActivity {
             else if(i.hasExtra("Playlist")){
                 playList = (ModelPlayList) i.getSerializableExtra("Playlist");
                 artist_name.setText(playList.getTenPlayList());
+//                //Log.i(playList.getIdPlaylist(),"ID of playlist");
+//                //
 //                Toast.makeText(this,playList.getTenPlayList(),Toast.LENGTH_SHORT).show();
             }
             else if(i.hasExtra("history")){
@@ -260,8 +262,6 @@ public class MusicList_Info_Activity extends AppCompatActivity {
 
 
         else if(i.hasExtra("Playlist")){
-
-
             DataService dataservice = APIService.getService();
             Call<ResponseModel> getInfo = dataservice.getPlaylistInfo(id);
             getInfo.enqueue(new Callback<ResponseModel>() {
@@ -374,9 +374,9 @@ public class MusicList_Info_Activity extends AppCompatActivity {
                                 dataSource.add(music);
                             }
 
-                            for(int i = 0; i<dataSource.size();i++){
-                                Log.i(dataSource.get(i).getImgUrl(),"songname");
-                            }
+//                            for(int i = 0; i<dataSource.size();i++){
+//                                Log.i(dataSource.get(i).getImgUrl(),"songname");
+//                            }
                             linearLayoutManager = new LinearLayoutManager(MusicList_Info_Activity.this);
                             myrv = new MusicInfo_Adapter(MusicList_Info_Activity.this,dataSource);
                             if(MusicList_Info_Activity.this==null){
@@ -430,10 +430,10 @@ public class MusicList_Info_Activity extends AppCompatActivity {
                             listPL = datas.getJSONArray("playlistOfUser");
 
                             for (int i=0;i<listPL.length();i++){
-
+                                    // Đã thích bạn hát ????????
                                 String musicId = listPL.getJSONObject(i).optString("musicId");
                                 String musicName = listPL.getJSONObject(i).optString("musicName");
-                                String urlImg = listPL.getJSONObject(i).optString("imgUrl");
+                                String urlImg = listPL.getJSONObject(i).optString("musicImg");
                                 String linkUrl = listPL.getJSONObject(i).optString("linkUrl");
                                 String playlistId = listPL.getJSONObject(i).optString("playlistId");
                                 String categoryId = listPL.getJSONObject(i).optString("categoryId");
