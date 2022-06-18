@@ -19,6 +19,10 @@ public interface DataService {
     Call<ResponseModel> login(@Field("email") String email, @Field("password") String password);
 
     @FormUrlEncoded
+    @POST("auth/register")
+    Call<ResponseModel> register(@Field("email") String email, @Field("password") String password, @Field("userName") String userName);
+
+    @FormUrlEncoded
     @POST("user/get-user")
     Call<ResponseModel> getUserInfo(@Field("email") String email);
 

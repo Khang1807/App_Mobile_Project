@@ -86,6 +86,8 @@
 <!--             </intent-filter>-->
         </activity>
         <activity android:name=".Activity.MusicList_Info_Activity" />
+        <activity android:name=".Activity.DieuKhoan" />
+        <activity android:name=".Activity.ChinhSach" />
 
         <meta-data
             android:name="preloaded_fonts"

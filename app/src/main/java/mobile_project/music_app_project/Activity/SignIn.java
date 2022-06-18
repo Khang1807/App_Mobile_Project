@@ -17,6 +17,7 @@ import android.os.Bundle;
 
 import android.util.Log;
 import android.util.Pair;
+import android.util.Patterns;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -49,14 +50,15 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class SignIn extends AppCompatActivity {
-    public static String id_user;
+    public static String id_user,name_user;
     Button signin_button;
     ImageView image;
     TextView logoText, logoText2,click_signup;
     TextInputLayout email, password;
-    private String name_user,password_user,email_user,imgurl;
+    private String password_user,email_user,imgurl;
     ArrayList<ModelUser> dataSource;
     SharedPreferences sharedPreferences;
+    boolean email_check = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -94,8 +96,11 @@ public class SignIn extends AppCompatActivity {
         signin_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                login();
-                get_info_user(email_user);
+                checkEmail(email);
+                if(email_check == true){
+                    login();
+                    get_info_user(email_user);
+                }
             }
         });
     }
@@ -149,7 +154,6 @@ public class SignIn extends AppCompatActivity {
 
                             for(int i = 0; i < info_user.length(); i++) {
                                 JSONObject info = info_user.getJSONObject(i);
-
                                 name_user = info.getString("userName");
                                 id_user = info.getString("userId");
                             }
@@ -171,6 +175,15 @@ public class SignIn extends AppCompatActivity {
                 Log.i(t.getMessage(),"error server");
             }
         });
+    }
+    private void checkEmail(TextInputLayout email){
+        email_user = email.getEditText().getText().toString().trim();
+
+        if(!email_user.isEmpty() && Patterns.EMAIL_ADDRESS.matcher(email_user).matches()){
+            email_check = true;
+        }else{
+            Toast.makeText(SignIn.this, "Email không đúng định dạng!", Toast.LENGTH_LONG).show();
+        }
     }
 }
 

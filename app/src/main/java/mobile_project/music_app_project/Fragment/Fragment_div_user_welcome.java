@@ -12,6 +12,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
+import mobile_project.music_app_project.Activity.SignIn;
 import mobile_project.music_app_project.R;
 
 public class Fragment_div_user_welcome extends Fragment {
@@ -22,8 +24,10 @@ public class Fragment_div_user_welcome extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,@Nullable  Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_div_user_welcome,container,false);
         txt_name = view.findViewById(R.id.user_name_welcom);
-        SharedPreferences sharedPreferences = this.getActivity().getSharedPreferences("dangnhap", Context.MODE_PRIVATE);
-        txt_name.setText(sharedPreferences.getString("name_user",""));
+        String name = SignIn.name_user;
+        txt_name.setText(name);
+//        SharedPreferences sharedPreferences = this.getActivity().getSharedPreferences("dangnhap", Context.MODE_PRIVATE);
+//        txt_name.setText(sharedPreferences.getString("name_user",""));
         return view;
     }
 }

@@ -20,7 +20,6 @@ public class MainViewPagerAdapter extends FragmentStateAdapter {
     public void addFragment(Fragment fragment, String title){
         arrayFragment.add(fragment);
         arrayTitle.add(title);
-
     }
 
 

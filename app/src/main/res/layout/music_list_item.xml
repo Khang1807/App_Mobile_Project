@@ -49,6 +49,7 @@
 
     </LinearLayout>
 
+
     <ImageView
         android:id="@+id/ic_love"
         android:layout_width="30dp"

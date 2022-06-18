@@ -67,7 +67,7 @@ public class Fragment_Suggestions_Hist extends Fragment {
         @Override
         public void onBindViewHolder(@NonNull Fragment_Suggestions_Hist.MyRvAdapter.MyHolder holder, int position) {
             holder.hist_song.setText(data.get(position));
-            holder.imgHistList.setImageDrawable(getResources().getDrawable(R.drawable.album6));
+            holder.imgHistList.setImageDrawable(getResources().getDrawable(R.drawable.album_kpop));
 
 //            Picasso.with(getContext()).load(data.get(position)).into(holder.imgView);
         }
