@@ -81,7 +81,7 @@ public class Fragment_div_playlist extends Fragment {
                     JSONObject resultGetData = null;
 
                     try {
-                        Log.i(getResources().getDrawable(R.drawable.album_us).toString(),"url img");
+
                         resultGetData = new JSONObject(jsonResult);
 
                         JSONObject datas = resultGetData.getJSONObject("datas");
@@ -91,6 +91,7 @@ public class Fragment_div_playlist extends Fragment {
                         for (int i=0;i<listPlaylist.length();i++){
 
                             String id = listPlaylist.getJSONObject(i).optString("playlistId");
+
                             String nameOfPlaylist = listPlaylist.getJSONObject(i).optString("nameOfPlaylist");
                             String urlImg = listPlaylist.getJSONObject(i).optString("playlistImg");
                             String score = listPlaylist.getJSONObject(i).optString("score");
@@ -152,6 +153,7 @@ public class Fragment_div_playlist extends Fragment {
                 public void onClick(View view) {
                     Intent i = new Intent(getContext(), MusicList_Info_Activity.class);
                     i.putExtra("Playlist",data.get(position));
+
                     getContext().startActivity(i);
                 }
             });

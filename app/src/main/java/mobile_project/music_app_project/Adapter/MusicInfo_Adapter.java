@@ -112,10 +112,10 @@ public class MusicInfo_Adapter extends RecyclerView.Adapter<MusicInfo_Adapter.Vi
                             ResponseModel result = response.body();
                             if(result!=null){
                                 Log.i("Result", "Success");
-                                Toast.makeText(context, "Đã thích bạn hát", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(context, "Đã thích bài hát", Toast.LENGTH_SHORT).show();
 
                             }
-                            else if(result==null) {
+                            else  {
                                 icLove.setImageResource(R.drawable.ic_love);
                                 Toast.makeText(context, "Bạn đã thích bài hát này", Toast.LENGTH_SHORT).show();
                             }
