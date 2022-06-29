@@ -46,13 +46,17 @@ class UserService
 
 		$newUser = new User;
 		try {
+			if(!$request -> hasFile('imgUser')){
+				return responseUtil::respondedError("common.error-messages.common-server-error1");
+			};
+			$newUser->imgUser = cloudinary()->upload($request->file('imgUser')->getRealPath())->getSecurePath();
 			$newUser->email = $request->input('email');
 			$newUser->password = Hash::make($request->input('password'));
 			$newUser->userName = $request->input('userName');
 			$newUser->save();
 		} catch (Exception $e) {
 			DB::rollback();
-			return responseUtil::respondedError("common.error-messages.common-server-error");
+			return responseUtil::respondedError("common.error-messages.common-server-error2");
 		}
 
 		DB::commit();
@@ -102,7 +106,15 @@ class UserService
 		// else{
 		// 	echo "Failed";	
 		// }
-		
+		try {
+			if(!$request -> hasFile('file')){
+				return responseUtil::respondedError("common.error-messages.common-server-error");
+			}
+			$respondedResult = cloudinary()->upload($request->file('file')->getRealPath())->getSecurePath();
+			return responseUtil::respondedSuccess("common.success-message.get-data-success", $respondedResult);
+		} catch (Exception $e) {
+			return responseUtil::respondedError("common.error-messages.common-server-error");
+		}
 	}
 
 	// //click forgot password and will send mail with token to reset password

@@ -66,8 +66,8 @@ class UserController extends BaseController
 			return $this->userService->getUserInfo($request);
 	}
 
-	protected function uploadImage(Request $request){
-		return $this->userService->uploadImage($request);
+	protected function doAddImg(Request $request){
+		return $this->userService->doAddImg($request);
 	}
 	// protected function doForgotPassword(Request $request){
 	// 	$rules = [
