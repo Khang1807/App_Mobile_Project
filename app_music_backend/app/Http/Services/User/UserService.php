@@ -34,11 +34,10 @@ class UserService
 
 	public function doRegister(Request $request)
 	{
-
 		$conditions = array(
 			['email', '=', $request->input('email')]
 		);
-		$existsUser = DB::table('Users')->where($conditions)->first();
+		$existsUser = DB::table('users')->where($conditions)->first();
 		if ($existsUser) {
 			return responseUtil::respondedBadRequest("pages.register.warning-messages.email-exist");
 		}
@@ -49,7 +48,7 @@ class UserService
 		try {
 			$newUser->email = $request->input('email');
 			$newUser->password = Hash::make($request->input('password'));
-			$newUser->name = $request->input('name');
+			$newUser->userName = $request->input('userName');
 			$newUser->save();
 		} catch (Exception $e) {
 			DB::rollback();
@@ -91,6 +90,18 @@ class UserService
 		];
      
 		return responseUtil::respondedSuccess("common.success-message.get-data-success", $respondedResult);
+	}
+
+	public function doAddImg(Request $request){
+        $email = $request->input('email');
+		$file_path = "C:/xampp/htdocs/img";
+        $file_path = $file_path.basename($_FILES['upload_file']['name']);
+		if(move_uploaded_file($_FILES['upload_file']['tmp_name'],$file_path)){
+			echo $_FILES['upload_file']['name'];
+		}
+		else{
+			echo "Failed";
+		}
 	}
 	
 	// //click forgot password and will send mail with token to reset password
@@ -195,3 +206,4 @@ class UserService
 
 
 }
+

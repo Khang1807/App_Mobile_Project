@@ -146,7 +146,7 @@ class HistoryService
 		$userId = $request->input('userId');		
         $historyUserList = DB::table('history_of_user')
 						->join('music','history_of_user.musicId','=','music.musicId')
-						// ->join('artist','music.artistId','=','artist.artistId')
+						->leftjoin('artist','music.artistId','=','artist.artistId')
 						->where('history_of_user.userId','=',$userId)	
 						->orderBy('history_of_user.time', 'DESC')					
 						->get();

@@ -43,13 +43,9 @@ class UserController extends BaseController
 	protected function doRegister(Request $request){
 		$rules = [
 			'email' => 'required|email|between:3,150',
-			'password' => 'required|between:3,100'
+			'password' => 'required|between:3,100',
+			'userName' => 'required|between:3,100'
 		];
-		$inValidRequestData = validationUtil::checkValidRequest($request, $rules, $this->rulesMess);
-		if ($inValidRequestData->fails()) {
-			return responseUtil::respondedBadRequest($inValidRequestData->errors()->first(), $inValidRequestData->errors());
-		}
-
 		return $this->userService->doRegister($request);
 	}
 
@@ -68,6 +64,18 @@ class UserController extends BaseController
 	
 	protected function getUserInfo(Request $request){
 			return $this->userService->getUserInfo($request);
+	}
+
+	protected function doAddImg(Request $request){
+		$rules = [
+			'email' => 'required'
+		];
+		$inValidRequestData = validationUtil::checkValidRequest($request, $rules, $this->rulesMess);
+		if ($inValidRequestData->fails()) {
+			return responseUtil::respondedBadRequest($inValidRequestData->errors()->first(), $inValidRequestData->errors());
+		}
+		return $this->userService->doAddImg($request);
+		
 	}
 	// protected function doForgotPassword(Request $request){
 	// 	$rules = [
