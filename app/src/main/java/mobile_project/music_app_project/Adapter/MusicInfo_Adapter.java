@@ -17,6 +17,12 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.gson.Gson;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 
 import mobile_project.music_app_project.Activity.MusicList_Info_Activity;
@@ -24,6 +30,7 @@ import mobile_project.music_app_project.Activity.PlayMusic;
 import mobile_project.music_app_project.Activity.SignIn;
 import mobile_project.music_app_project.Model.ModelBaiHat;
 import mobile_project.music_app_project.Model.ModelNgheSi;
+import mobile_project.music_app_project.Model.ModelPlayList;
 import mobile_project.music_app_project.Model.ResponseModel;
 import mobile_project.music_app_project.R;
 import mobile_project.music_app_project.Service_API.APIService;
@@ -106,19 +113,40 @@ public class MusicInfo_Adapter extends RecyclerView.Adapter<MusicInfo_Adapter.Vi
                     DataService dataService = APIService.getService();
                     Call<ResponseModel> addPlaylist = dataService.addplaylist_user(id,data.get(getPosition()).getMusicId());
 
-                    addPlaylist.enqueue(new Callback<ResponseModel>() {
+                    addPlaylist.enqueue(new Callback<ResponseModel>(){
                         @Override
                         public void onResponse(Call<ResponseModel> call, Response<ResponseModel> response) {
                             ResponseModel result = response.body();
                             if(result!=null){
-                                Log.i("Result", "Success");
-                                Toast.makeText(context, "Đã thích bài hát", Toast.LENGTH_SHORT).show();
+
+                                Gson gson = new Gson();
+                                String jsonResult = gson.toJson(response.body().getContent());
+
+                                JSONArray listPlaylist;
+                                JSONObject resultGetData = null;
+                                try {
+                                    resultGetData = new JSONObject(jsonResult);
+                                    String message = resultGetData.getString("message");
+
+                                    if(message.equals("Already liked")){
+                                        Log.e(message,"Message");
+                                        icLove.setImageResource(R.drawable.ic_love);
+                                        Toast.makeText(context, "Bạn đã thích bài hát này", Toast.LENGTH_SHORT).show();
+                                    }
+                                    else{
+                                        Log.i("Result", "Success");
+                                        Toast.makeText(context, "Đã thích bài hát", Toast.LENGTH_SHORT).show();
+                                    }
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+
 
                             }
-                            else  {
-                                icLove.setImageResource(R.drawable.ic_love);
-                                Toast.makeText(context, "Bạn đã thích bài hát này", Toast.LENGTH_SHORT).show();
-                            }
+//                            else{
+//                                icLove.setImageResource(R.drawable.ic_love);
+//                                Toast.makeText(context, "Bạn đã thích bài hát này", Toast.LENGTH_SHORT).show();
+//                            }
                         }
 
                         @Override
