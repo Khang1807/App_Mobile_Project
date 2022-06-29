@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/near_black"
@@ -22,27 +23,44 @@
             android:layout_height="?attr/actionBarSize"
             android:gravity="center_horizontal"
             app:titleTextColor="#FFF"
-            app:title="Tên bài hát.."
+            app:title="Tên bài hát..."
             android:minHeight="?attr/actionBarSize"
             android:theme="?attr/actionBarTheme"
             app:collapseIcon="?attr/actionModeCloseDrawable" />
     </com.google.android.material.appbar.AppBarLayout>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerviewtimkiem"
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/appbarlayouttimkiem"
-        android:layout_marginTop="20dp" />
+        android:layout_height="wrap_content">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerviewtimkiem"
+            android:background="@color/near_black"
+            android:layout_width="match_parent"
+            android:layout_height="590dp"
+            android:layout_below="@+id/appbarlayouttimkiem"
+            android:layout_marginTop="20dp">
+        </androidx.recyclerview.widget.RecyclerView>
+
+    </LinearLayout>
+
 
     <TextView
         android:visibility="gone"
         android:textColor="#FFF"
         android:gravity="center"
-        android:text="Khônng tìm thấy bài hát này :("
+        android:text="Khônng tìm thấy bài hát này"
         android:textSize="27sp"
         android:id="@+id/textviewtimkiemnull"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
+    <ImageView
+        android:id="@+id/playAllMusic"
 
-</RelativeLayout>
+        android:layout_width="90dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="150dp"
+        android:rotationX="0"
+        app:srcCompat="@drawable/iconplaybanner" />
+
+</LinearLayout>

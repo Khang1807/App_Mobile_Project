@@ -115,7 +115,7 @@ public class MusicList_Info_Activity extends AppCompatActivity {
             }
             else if(i.hasExtra("history")){
                     history = i.getStringExtra("history");
-                    artist_name.setText("History Of User");
+                    artist_name.setText("Lịch sử bài hát");
 //                Toast.makeText(this,category.getCategoryName(),Toast.LENGTH_SHORT).show();
                 }
             else{
