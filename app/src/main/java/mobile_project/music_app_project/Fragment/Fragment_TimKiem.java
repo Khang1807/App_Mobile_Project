@@ -1,4 +1,5 @@
 package mobile_project.music_app_project.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -7,7 +8,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -28,8 +29,8 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 import mobile_project.music_app_project.Activity.MusicList_Info_Activity;
+import mobile_project.music_app_project.Activity.PlayMusic;
 import mobile_project.music_app_project.Adapter.MusicInfo_Adapter;
-import mobile_project.music_app_project.Adapter.TimKiemAdapter;
 import mobile_project.music_app_project.Model.ModelBaiHat;
 import mobile_project.music_app_project.Model.ResponseModel;
 import mobile_project.music_app_project.R;
@@ -47,7 +48,7 @@ public class Fragment_TimKiem extends Fragment {
     TextView textViewnull;
     ArrayList<ModelBaiHat> dataSource;
     LinearLayoutManager linearLayoutManager;
-    TimKiemAdapter myrv;
+    MusicInfo_Adapter myrv;
 //
 
     @Nullable
@@ -59,6 +60,18 @@ public class Fragment_TimKiem extends Fragment {
         textViewnull = view.findViewById(R.id.textviewtimkiemnull);
         ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
         setHasOptionsMenu(true);
+        ImageView playAllMusic;
+        playAllMusic=view.findViewById(R.id.playAllMusic);
+        playAllMusic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getContext(), PlayMusic.class);
+//                    Log.i(data.get(position).get)
+                i.putExtra("musicListPlay",dataSource);
+
+                startActivity(i);
+            }
+        });
         return view;
     }
 
@@ -117,7 +130,14 @@ public class Fragment_TimKiem extends Fragment {
                             String musicId = resultFind.getJSONObject(i).optString("musicId");
                             String musicName = resultFind.getJSONObject(i).optString("musicName");
                             String urlImg = resultFind.getJSONObject(i).optString("musicImg");
-                            ModelBaiHat music = new ModelBaiHat(musicId,musicName,urlImg);
+                            String linkUrl = resultFind.getJSONObject(i).optString("linkUrl");
+                            String playlistId = resultFind.getJSONObject(i).optString("playlistId");
+                            String categoryId = resultFind.getJSONObject(i).optString("categoryId");
+                            String artistId = resultFind.getJSONObject(i).optString("artistId");
+                            String duration = resultFind.getJSONObject(i).optString("duration");
+                            String artistName = resultFind.getJSONObject(i).optString("artistName");
+
+                            ModelBaiHat music = new ModelBaiHat(musicId,musicName,urlImg,linkUrl,playlistId,categoryId,artistId,duration,artistName);
                             dataSource.add(music);
                         }
 
@@ -125,7 +145,7 @@ public class Fragment_TimKiem extends Fragment {
                             Log.i(dataSource.get(i).getImgUrl(),"songname");
                         }
                         linearLayoutManager = new LinearLayoutManager(getContext());
-                        myrv = new TimKiemAdapter(getContext(), dataSource);
+                        myrv = new MusicInfo_Adapter(getContext(), dataSource);
                         if(getContext()==null){
                             Log.i("yes","NULL");
                         }

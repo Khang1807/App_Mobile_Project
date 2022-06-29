@@ -111,12 +111,13 @@ public class MusicList_Info_Activity extends AppCompatActivity {
                 playList = (ModelPlayList) i.getSerializableExtra("Playlist");
                 artist_name.setText(playList.getTenPlayList());
                 Log.i(playList.getIdPlaylist(),"Playlist ID");
+
             }
             else if(i.hasExtra("history")){
-                    history = i.getStringExtra("history");
-                    artist_name.setText("Lịch sử nghe nhạc");
+                history = i.getStringExtra("history");
+                artist_name.setText("Lịch sử bài hát");
 //                Toast.makeText(this,category.getCategoryName(),Toast.LENGTH_SHORT).show();
-                }
+            }
             else{
                 //user = (ModelUser) i.getSerializableExtra("PlaylistUser");
                 artist_name.setText("Bài hát yêu thích");
@@ -375,9 +376,9 @@ public class MusicList_Info_Activity extends AppCompatActivity {
                                 dataSource.add(music);
                             }
 
-//                            for(int i = 0; i<dataSource.size();i++){
-//                                Log.i(dataSource.get(i).getImgUrl(),"songname");
-//                            }
+                            for(int i = 0; i<dataSource.size();i++){
+                                Log.i(dataSource.get(i).getImgUrl(),"songname");
+                            }
                             linearLayoutManager = new LinearLayoutManager(MusicList_Info_Activity.this);
                             myrv = new MusicInfo_Adapter(MusicList_Info_Activity.this,dataSource);
                             if(MusicList_Info_Activity.this==null){
@@ -431,7 +432,7 @@ public class MusicList_Info_Activity extends AppCompatActivity {
                             listPL = datas.getJSONArray("playlistOfUser");
 
                             for (int i=0;i<listPL.length();i++){
-                                    // Đã thích bạn hát ????????
+
                                 String musicId = listPL.getJSONObject(i).optString("musicId");
                                 String musicName = listPL.getJSONObject(i).optString("musicName");
                                 String urlImg = listPL.getJSONObject(i).optString("musicImg");

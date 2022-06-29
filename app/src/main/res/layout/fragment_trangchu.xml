@@ -43,11 +43,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-        <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/fragmentContainerView6"
-            android:name="mobile_project.music_app_project.Fragment.Fragment_div_rating"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+<!--        <androidx.fragment.app.FragmentContainerView-->
+<!--            android:id="@+id/fragmentContainerView6"-->
+<!--            android:name="mobile_project.music_app_project.Fragment.Fragment_div_rating"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content" />-->
 
     </LinearLayout>
 
