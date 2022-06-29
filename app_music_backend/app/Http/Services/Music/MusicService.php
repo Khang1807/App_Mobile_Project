@@ -68,7 +68,8 @@ class MusicService
 
 	public function findMusic(Request $request){
 		// $request->input($name);
-		$result = DB::table('music')->where('musicName','LIKE','%'.$request->input('keyword').'%')->get();
+		$result = DB::table('music')->join('artist','music.artistId','=','artist.artistId')
+					->where('musicName','LIKE','%'.$request->input('keyword').'%')->get();
 		$respondedResult = ["resultFind"=>$result];
         if(count($result)){
          return responseUtil::respondedSuccess("pages.get.getAllAccount-success", $respondedResult);
