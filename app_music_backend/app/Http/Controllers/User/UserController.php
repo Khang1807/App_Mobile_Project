@@ -66,16 +66,8 @@ class UserController extends BaseController
 			return $this->userService->getUserInfo($request);
 	}
 
-	protected function doAddImg(Request $request){
-		$rules = [
-			'email' => 'required'
-		];
-		$inValidRequestData = validationUtil::checkValidRequest($request, $rules, $this->rulesMess);
-		if ($inValidRequestData->fails()) {
-			return responseUtil::respondedBadRequest($inValidRequestData->errors()->first(), $inValidRequestData->errors());
-		}
-		return $this->userService->doAddImg($request);
-		
+	protected function uploadImage(Request $request){
+		return $this->userService->uploadImage($request);
 	}
 	// protected function doForgotPassword(Request $request){
 	// 	$rules = [

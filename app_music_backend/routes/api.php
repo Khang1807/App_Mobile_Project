@@ -46,7 +46,7 @@ Route::group([
 
     Route::post('music/find-music', [App\Http\Controllers\Music\MusicController::class, 'findMusic']);
     Route::post('user/get-user', [App\Http\Controllers\User\UserController::class, 'getUserInfo']);
-    Route::post('user/add-avatar', [App\Http\Controllers\User\UserController::class, 'doAddAvatar']);
+    Route::post('user/add-img', [App\Http\Controllers\User\UserController::class, 'doAddImg']);
     Route::post('music/add-music', [App\Http\Controllers\Music\MusicController::class, 'doAddMusic']);
     Route::post('playlist/add-playlist', [App\Http\Controllers\Playlist\PlaylistController::class, 'doAddPlaylist']);
     Route::post('playlistofuser/get-playlist-user', [App\Http\Controllers\PlaylistOfUser\PlaylistUserController::class, 'getPlaylistUser']);

@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
-
+use Image;
 // use App\Http\Services\Common\AppCommonService;
 
 // use App\Http\Utilities\CarbonDateTimeUtil as dateTimeUtil;
@@ -93,17 +93,18 @@ class UserService
 	}
 
 	public function doAddImg(Request $request){
-        $email = $request->input('email');
-		$file_path = "C:/xampp/htdocs/img";
-        $file_path = $file_path.basename($_FILES['upload_file']['name']);
-		if(move_uploaded_file($_FILES['upload_file']['tmp_name'],$file_path)){
-			echo $_FILES['upload_file']['name'];
-		}
-		else{
-			echo "Failed";
-		}
-	}
+		// $file_path = '/public/images/';
 	
+        // $file_path = $file_path.basename($_FILES['uploaded_file']['name']);
+		// if(move_uploaded_file($_FILES['uploaded_file']['tmp_name'],$file_path)){
+		// 	echo $_FILES['uploaded_file']['name'];
+		// } 
+		// else{
+		// 	echo "Failed";	
+		// }
+		
+	}
+
 	// //click forgot password and will send mail with token to reset password
 	// public function doForgotPassword(Request $request)
 	// {
