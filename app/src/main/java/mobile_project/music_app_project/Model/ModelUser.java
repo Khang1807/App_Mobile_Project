@@ -22,9 +22,9 @@ public class ModelUser implements Serializable {
     @Expose
     private String email;
 
-    @SerializedName("HinhDaiDien")
+    @SerializedName("ImgUser")
     @Expose
-    private String hinhDaiDien;
+    private String imgUser;
 
     @SerializedName("idBaiHat")
     @Expose
@@ -62,11 +62,11 @@ public class ModelUser implements Serializable {
         this.email = email;
     }
 
-    public String getHinhDaiDien() {
-        return hinhDaiDien;
+    public String getImgUser() {
+        return imgUser;
     }
 
-    public void setHinhDaiDien(String hinhDaiDien) { this.hinhDaiDien = hinhDaiDien;
+    public void setImgUser(String imgUser) { this.imgUser = imgUser;
     }
     public String getIdBaiHat() {
         return idBaiHat;

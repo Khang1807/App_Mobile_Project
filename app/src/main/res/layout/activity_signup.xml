@@ -8,36 +8,43 @@
     android:orientation="vertical"
     android:background="@color/near_black"
     android:padding="20dp">
-
     <ImageView
         android:id="@+id/img_logo_only_signup"
         android:layout_width="match_parent"
-        android:layout_height="136dp"
+        android:layout_height="90dp"
         android:layout_marginTop="10dp"
         android:src="@drawable/logo_only_2"
         android:transitionName="logo_image"/>
-
     <TextView
         android:id="@+id/txt_welcom_signup"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:fontFamily="sans-serif-medium"
         android:text="HÃY BẮT ĐẦU NÀO!"
         android:textColor="@color/white"
-        android:textSize="37sp"
+        android:textSize="30sp"
         android:textStyle="bold"
         android:transitionName="logo_text"/>
-
     <TextView
         android:id="@+id/txt_signuptocontinue"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/gothambold"
-        android:text="Đăng ký để bắt đầu cuộc hành trình mới"
+        android:text="ĐĂNG KÝ ĐỂ BẮT ĐẦU HÀNH TRÌNH MỚI"
         android:textColor="@color/white"
-        android:textSize="18sp"
+        android:textSize="15sp"
+        android:gravity="center"
         android:layout_marginTop="5dp"
         android:transitionName="logo_text_2"/>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/img_load_avatar"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:src="@mipmap/ic_launcher"
+        android:layout_marginTop="20dp"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -123,13 +130,23 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_loadimg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/white"
+            android:text="Chọn ảnh đại diện"
+            android:textColor="@color/black"
+            app:cornerRadius="25dp"
+            android:layout_marginTop="20dp"/>
+
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_signup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/green_hex"
             android:text="ĐĂNG KÝ"
             app:cornerRadius="25dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:transitionName="button_signin_trans"/>
         <LinearLayout
             android:layout_width="match_parent"

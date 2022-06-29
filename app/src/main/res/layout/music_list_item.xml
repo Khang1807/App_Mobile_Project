@@ -30,11 +30,11 @@
 
         <TextView
             android:id="@+id/musicTitle"
-            android:layout_width="wrap_content"
+            android:layout_width="230dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:maxLength="18"
             android:ellipsize="end"
+            android:singleLine="true"
             android:fontFamily="@font/gothammedium1"
             android:text="Tên bài hát"
             android:textColor="@color/white"
@@ -53,11 +53,11 @@
     </LinearLayout>
     <ImageView
         android:id="@+id/ic_love"
-        android:layout_width="30dp"
+        android:layout_width="wrap_content"
         android:layout_height="30dp"
         android:layout_weight="1"
         android:scaleType="fitEnd"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:src="@drawable/ic_love"
         android:backgroundTint="@color/white"
         android:clickable="true" />

@@ -7,8 +7,11 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,6 +27,8 @@ import com.squareup.picasso.Picasso;
 
 import org.w3c.dom.Text;
 
+import java.io.InputStream;
+
 import mobile_project.music_app_project.Activity.ChinhSach;
 import mobile_project.music_app_project.Activity.DieuKhoan;
 import mobile_project.music_app_project.Activity.MainActivity;
@@ -36,6 +41,8 @@ public class Fragment_UserPlayer extends Fragment {
     TextView txt_name;
     Button btn_dangxuat,btn_setting_user,btn_dieukhoan,btn_chinhsach;
     ImageView img_avatar;
+    String img_url = SignIn.img_user;
+    String MY_URL_STRING = img_url;
     @Nullable
 
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -43,6 +50,8 @@ public class Fragment_UserPlayer extends Fragment {
         anhxa();
         SharedPreferences sharedPreferences = this.getActivity().getSharedPreferences("dangnhap", Context.MODE_PRIVATE);
         txt_name.setText(sharedPreferences.getString("name_user",""));
+        new DownloadImageTask((ImageView) view.findViewById(R.id.img_user_profile))
+                .execute(MY_URL_STRING);
         btn_dangxuat.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), SignIn.class);
@@ -82,5 +91,28 @@ public class Fragment_UserPlayer extends Fragment {
         txt_name = view.findViewById(R.id.tennguoidung);
         btn_dieukhoan = view.findViewById(R.id.btn_term);
         btn_chinhsach = view.findViewById(R.id.btn_policy);
+    }
+    private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
+        ImageView bmImage;
+
+        public DownloadImageTask(ImageView bmImage) {
+            this.bmImage = bmImage;
+        }
+
+        protected Bitmap doInBackground(String... urls) {
+            String urldisplay = urls[0];
+            Bitmap mIcon11 = null;
+            try {
+                InputStream in = new java.net.URL(urldisplay).openStream();
+                mIcon11 = BitmapFactory.decodeStream(in);
+            } catch (Exception e) {
+                Log.e("Error", e.getMessage());
+                e.printStackTrace();
+            }
+            return mIcon11;
+        }
+        protected void onPostExecute(Bitmap result) {
+            bmImage.setImageBitmap(result);
+        }
     }
 }

@@ -37,4 +37,6 @@ EKIV AB
 Sweden
 SE556703748501
     </string>
+    <string name="channel_name">Audio Player</string>
+    <string name="channel_description"></string>
 </resources>

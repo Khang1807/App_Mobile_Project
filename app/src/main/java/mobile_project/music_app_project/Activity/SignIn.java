@@ -50,12 +50,12 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class SignIn extends AppCompatActivity {
-    public static String id_user,name_user;
+    public static String id_user,name_user,img_user;
     Button signin_button;
     ImageView image;
     TextView logoText, logoText2,click_signup;
     TextInputLayout email, password;
-    private String password_user,email_user,imgurl;
+    private String password_user,email_user;
     ArrayList<ModelUser> dataSource;
     SharedPreferences sharedPreferences;
     boolean email_check = false;
@@ -78,19 +78,20 @@ public class SignIn extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent_signin1 = new Intent(SignIn.this, SignUp.class);
 
-                Pair[] pairs = new Pair[7];
-                pairs[0] = new Pair<View,String>(image, "logo_image");
-                pairs[1] = new Pair<View,String>(logoText, "logo_text");
-                pairs[2] = new Pair<View,String>(logoText2, "logo_text_2");
-                pairs[3] = new Pair<View,String>(email, "email_trans");
-                pairs[4] = new Pair<View,String>(password, "password_trans");
-                pairs[5] = new Pair<View,String>(signin_button, "button_signin_trans");
-                pairs[6] = new Pair<View,String>(click_signup, "signin_signup_trans");
-
-                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
-                    ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(SignIn.this,pairs);
-                    startActivity(intent_signin1 ,options.toBundle());
-                }
+//                Pair[] pairs = new Pair[7];
+//                pairs[0] = new Pair<View,String>(image, "logo_image");
+//                pairs[1] = new Pair<View,String>(logoText, "logo_text");
+//                pairs[2] = new Pair<View,String>(logoText2, "logo_text_2");
+//                pairs[3] = new Pair<View,String>(email, "email_trans");
+//                pairs[4] = new Pair<View,String>(password, "password_trans");
+//                pairs[5] = new Pair<View,String>(signin_button, "button_signin_trans");
+//                pairs[6] = new Pair<View,String>(click_signup, "signin_signup_trans");
+//
+//                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+//                    ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(SignIn.this,pairs);
+//                    startActivity(intent_signin1 ,options.toBundle());
+//                }
+                startActivity(intent_signin1);
             }
         });
         signin_button.setOnClickListener(new View.OnClickListener() {
@@ -156,11 +157,13 @@ public class SignIn extends AppCompatActivity {
                                 JSONObject info = info_user.getJSONObject(i);
                                 name_user = info.getString("userName");
                                 id_user = info.getString("userId");
+                                img_user = info.getString("imgUser");
                             }
                             SharedPreferences cached_login = getSharedPreferences("dangnhap",Context.MODE_PRIVATE);
                             SharedPreferences.Editor editor = cached_login.edit();
                             editor.putString("name_user",name_user);
                             editor.putString("id_user",id_user);
+                            editor.putString("img_user",img_user);
                             editor.commit();
                         } catch (JSONException e) {
                             e.printStackTrace();
