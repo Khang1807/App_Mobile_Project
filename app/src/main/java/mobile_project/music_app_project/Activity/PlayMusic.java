@@ -44,7 +44,7 @@ import retrofit2.Response;
 
 public class PlayMusic extends AppCompatActivity {
 
-    TextView titleTv, currentTimeTv, totalTimeTv;
+    TextView titleTv, currentTimeTv, totalTimeTv,artistName;
     SeekBar seekBar;
     ImageView pausePlay, nextBtn, previousBtn, musicIcon, refresh_music;
     ArrayList<ModelBaiHat> songsList;
@@ -63,7 +63,7 @@ public class PlayMusic extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play_music);
-
+        artistName = findViewById(R.id.artist_title);
         titleTv = findViewById(R.id.song_title);
         currentTimeTv = findViewById(R.id.current_time);
         totalTimeTv = findViewById(R.id.total_time);
@@ -123,9 +123,9 @@ public class PlayMusic extends AppCompatActivity {
 
                 refreshFlag = !refreshFlag ? true : false;
                 if (refreshFlag) {
-                    refresh_music.setImageResource(R.drawable.ic_replay_1);
-                } else {
                     refresh_music.setImageResource(R.drawable.ic_replay_2);
+                } else {
+                    refresh_music.setImageResource(R.drawable.ic_replay_1);
                 }
             }
         });
@@ -194,6 +194,7 @@ public class PlayMusic extends AppCompatActivity {
         Log.i(currentSong.getLinkUrl(), "currentSongName");
         Log.i(currentSong.getImgUrl(), "currentSongName123");
         titleTv.setText(currentSong.getMusicName());
+        artistName.setText(currentSong.getArtistName());
         totalTimeTv.setText(currentSong.getDuration());
         nextBtn.setOnClickListener(v -> playNextSong());
         previousBtn.setOnClickListener(v -> playPreviousSong());

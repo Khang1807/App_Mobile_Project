@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
@@ -53,6 +54,7 @@ public class SignUp extends AppCompatActivity {
     ImageView img_load_avatar;
     private static final int MY_REQUEST_CODE = 10;
     private Uri mUri;
+    private ProgressDialog mProgressDialog;
 
     private ActivityResultLauncher<Intent> mActivityResultLauncher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
@@ -82,6 +84,11 @@ public class SignUp extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_signup);
         anhxa();
+
+        //Dialog
+
+        mProgressDialog = new ProgressDialog(this);
+        mProgressDialog.setMessage("Vui lòng đợi ...");
 
         // Qua trang dang nhap
         click_signin.setOnClickListener(new View.OnClickListener() {
@@ -156,6 +163,8 @@ public class SignUp extends AppCompatActivity {
     }
 
     private void register(){
+        mProgressDialog.show();
+
         name_user = userName.getEditText().getText().toString().trim();
         email_user = email.getEditText().getText().toString().trim();
         password_user = password.getEditText().getText().toString().trim();

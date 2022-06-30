@@ -6,23 +6,39 @@
     android:layout_height="match_parent"
     android:background="@color/near_black"
     tools:context=".Activity.PlayMusic">
-
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
     <TextView
         android:id="@+id/song_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
-        android:gravity="center"
         android:ellipsize="marquee"
-        android:padding="20dp"
+        android:gravity="center"
         android:singleLine="true"
         android:text="Title of the song"
         android:textColor="@color/white"
         android:textSize="20dp" />
 
+    <TextView
+        android:id="@+id/artist_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="10dp"
+        android:ellipsize="marquee"
+        android:gravity="center"
+        android:singleLine="true"
+        android:text="Title of artist"
+        android:textColor="@color/teal_200"
+        android:textSize="20dp" />
+
+</LinearLayout>
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/music_icon_big"
         android:layout_width="240dp"
